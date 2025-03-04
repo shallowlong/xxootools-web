@@ -1,0 +1,22 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 简洁渐变背景 -->
+  <circle cx="60" cy="60" r="60" fill="url(#gradientBg)" />
+  
+  <!-- 简化环形科技线条 - 只保留一个 -->
+  <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+  
+  <!-- 简化的X标志 -->
+  <path d="M40 40L60 60L40 80" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80 40L60 60L80 80" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- 简洁工具元素 - 只保留一条线 -->
+  <path d="M48 84L72 84" stroke="white" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- 渐变定义 -->
+  <defs>
+    <linearGradient id="gradientBg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3730A3" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+</svg> 

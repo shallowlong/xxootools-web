@@ -1,34 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import RootLayout from './components/layout/RootLayout'
+import { lazy, Suspense } from 'react'
+
+// 懒加载工具页面
+const Home = lazy(() => import('./pages/Home'))
+const TextConverter = lazy(() => import('./pages/tools/TextConverter'))
+const TextDiff = lazy(() => import('./pages/tools/TextDiff'))
+const ImageCompress = lazy(() => import('./pages/tools/ImageCompress'))
+const ImageConverter = lazy(() => import('./pages/tools/ImageConverter'))
+const VideoCompress = lazy(() => import('./pages/tools/VideoCompress'))
+const AudioConverter = lazy(() => import('./pages/tools/AudioConverter'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={
+          <Suspense fallback={<div>加载中...</div>}>
+            <Home />
+          </Suspense>
+        } />
+        <Route path="tools">
+          <Route path="text-converter" element={
+            <Suspense fallback={<div>加载中...</div>}>
+              <TextConverter />
+            </Suspense>
+          } />
+          <Route path="text-diff" element={
+            <Suspense fallback={<div>加载中...</div>}>
+              <TextDiff />
+            </Suspense>
+          } />
+          <Route path="image-compress" element={
+            <Suspense fallback={<div>加载中...</div>}>
+              <ImageCompress />
+            </Suspense>
+          } />
+          <Route path="image-converter" element={
+            <Suspense fallback={<div>加载中...</div>}>
+              <ImageConverter />
+            </Suspense>
+          } />
+          <Route path="video-compress" element={
+            <Suspense fallback={<div>加载中...</div>}>
+              <VideoCompress />
+            </Suspense>
+          } />
+          <Route path="audio-converter" element={
+            <Suspense fallback={<div>加载中...</div>}>
+              <AudioConverter />
+            </Suspense>
+          } />
+        </Route>
+        <Route path="*" element={
+          <Suspense fallback={<div>加载中...</div>}>
+            <NotFound />
+          </Suspense>
+        } />
+      </Route>
+    </Routes>
   )
 }
 
