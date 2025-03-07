@@ -1,0 +1,197 @@
+{
+  "welcome": "XToolsにようこそ, シンプルで強力で安全なツールボックス",
+  "categories": {
+    "image": {
+      "name": "画像ツール",
+      "tools": {
+        "image-compress": {
+          "name": "画像圧縮",
+          "description": "画像ファイルサイズを圧縮"
+        },
+        "image-converter": {
+          "name": "画像フォーマット変換",
+          "description": "画像フォーマットを変換"
+        }
+      }
+    },
+    "video": {
+      "name": "動画ツール",
+      "tools": {
+        "video-compress": {
+          "name": "動画圧縮",
+          "description": "動画ファイルサイズを圧縮"
+        }
+      }
+    },
+    "audio": {
+      "name": "音声ツール",
+      "tools": {
+        "audio-converter": {
+          "name": "音声変換",
+          "description": "音声フォーマットを変換"
+        }
+      }
+    },
+    "text": {
+      "name": "テキストツール",
+      "tools": {
+        "text-converter": {
+          "name": "テキスト変換",
+          "description": "大文字小文字変換、簡体字/繁体字変換など"
+        },
+        "text-diff": {
+          "name": "テキスト比較",
+          "description": "二つのテキストの違いを比較"
+        }
+      }
+    },
+    "writer": {
+      "name": "執筆ツール",
+      "tools": {
+        "word-count": {
+          "name": "ワードカウント",
+          "description": "テキストの単語数をカウント",
+          "title": "ワードカウント",
+          "fullDescription": "テキストの単語数、文字数、段落数、行数をカウント",
+          "placeholder": "カウントするテキストを入力または貼り付け...",
+          "showDebug": "デバッグ表示",
+          "hideDebug": "デバッグ非表示",
+          "languageSelect": "言語選択",
+          "languages": {
+            "general": "一般（英語など）",
+            "chinese": "中国語",
+            "japanese": "日本語",
+            "korean": "韓国語"
+          },
+          "stats": {
+            "words": "単語数",
+            "characters": "文字数",
+            "noSpaces": "空白なし",
+            "paragraphs": "段落数",
+            "lines": "行数"
+          },
+          "debug": {
+            "originalLength": "元のテキスト長",
+            "safeLength": "安全処理後の長さ",
+            "firstChars": "最初の20文字",
+            "lastChars": "最後の20文字",
+            "oldTokens": "改善前のトークン化結果",
+            "newTokens": "改善後のトークン化結果",
+            "tokenArray": "トークン配列"
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "notFound": "ページが見つかりません",
+    "backToHome": "ホームに戻る",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "upload": "アップロード",
+    "download": "ダウンロード",
+    "language": "言語",
+    "search": "ツールを検索"
+  },
+  "videoCompress": {
+    "title": "動画圧縮",
+    "description": "動画ファイルサイズを圧縮し、さまざまなフォーマットとカスタム圧縮オプションをサポート",
+    "dropToUpload": "動画をドロップしてアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして動画をアップロード",
+    "supportedFormats": "<span>複数</span>の動画をサポート、形式には MP4、WebM、MOV、AVI が含まれます",
+    "processingVideo": "動画を処理中、お待ちください...",
+    "compressionOptions": "圧縮オプション",
+    "outputFormat": "出力形式",
+    "selectOutputFormat": "出力形式を選択",
+    "useOriginalFormat": "アップロード時に元の動画形式を使用",
+    "compressionQuality": "圧縮品質",
+    "selectCompressionQuality": "圧縮品質を選択",
+    "highQuality": "高品質 (大きなファイル)",
+    "mediumQuality": "中品質",
+    "lowQuality": "低品質 (小さなファイル)",
+    "compressionRate": "圧縮率：{{rate}}%",
+    "compressionRateNote": "注：圧縮率が高いほど、ファイルは小さくなりますが、画質は低下します",
+    "compressionHistory": "圧縮履歴 ({{count}})",
+    "downloadAll": "すべてをZIPでダウンロード",
+    "video": "動画",
+    "fileInfo": "ファイル情報",
+    "compressionInfo": "圧縮情報",
+    "actions": "アクション",
+    "format": "形式",
+    "duration": "長さ",
+    "quality": "品質",
+    "highQualityShort": "高",
+    "mediumQualityShort": "中",
+    "lowQualityShort": "低",
+    "compressing": "圧縮中...",
+    "originalVideo": "元のサイズ: {{size}}",
+    "compressedVideo": "圧縮後: {{size}}",
+    "compressionFailed": "圧縮失敗",
+    "unknown": "不明",
+    "recommended": "推奨"
+  },
+  "footer": {
+    "allRightsReserved": "無断複写·転載を禁じます。",
+    "privacy": "プライバシーポリシー",
+    "contact": "お問い合わせ"
+  },
+  "textDiff": {
+    "title": "テキスト比較",
+    "description": "2つのテキストの違いを比較します",
+    "firstTextPlaceholder": "最初のテキストを入力してください...",
+    "secondTextPlaceholder": "2番目のテキストを入力してください...",
+    "compareButton": "比較"
+  },
+  "audioConverter": {
+    "dropzone": {
+      "title": "クリックまたはドラッグして音声ファイルをアップロード",
+      "description": "{{highlight:複数の}}オーディオファイルを選択できます。対応フォーマット：{{supportedFormats}}"
+    },
+    "options": {
+      "title": "変換オプション",
+      "outputFormat": "出力フォーマット",
+      "selectFormat": "出力フォーマットを選択",
+      "quality": "音質",
+      "selectQuality": "音質を選択",
+      "sampleRate": "サンプルレート",
+      "selectSampleRate": "サンプルレートを選択",
+      "bitRate": "ビットレート",
+      "selectBitRate": "ビットレートを選択",
+      "compressionRatio": "圧縮率"
+    },
+    "formats": {
+      "mp3": "MP3（おすすめ）",
+      "wav": "WAV",
+      "ogg": "OGG",
+      "aac": "AAC",
+      "m4a": "M4A",
+      "flac": "FLAC"
+    },
+    "quality": {
+      "high": "高音質",
+      "medium": "中音質",
+      "low": "低音質"
+    },
+    "results": {
+      "title": "変換履歴",
+      "originalFormat": "元のフォーマット",
+      "fileSize": "サイズ",
+      "duration": "長さ",
+      "uploadTime": "アップロード時間",
+      "converting": "変換中",
+      "targetFormat": "変換先フォーマット",
+      "convertedSize": "変換後のサイズ",
+      "compressionRatio": "圧縮率"
+    },
+    "actions": {
+      "download": "ダウンロード",
+      "downloadAll": "すべてをZIPでダウンロード"
+    }
+  }
+} 

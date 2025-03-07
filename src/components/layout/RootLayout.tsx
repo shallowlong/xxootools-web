@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 import { ModeToggle } from '@/components/ui/mode-toggle';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const RootLayout: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Header */}
@@ -14,7 +17,7 @@ const RootLayout: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center group">
               <div className="relative w-10 h-10 mr-3 overflow-hidden rounded-full shadow-sm transition-transform group-hover:scale-105">
-                <img src="/xtools-logo.svg" alt="XTools Logo" className="w-full h-full object-cover" />
+                <img src="/xtools-logo.svg" alt={t('common.logoAlt')} className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300 group-hover:from-blue-700 group-hover:to-cyan-600">XTools</span>
@@ -22,8 +25,8 @@ const RootLayout: React.FC = () => {
             </Link>
           </div>
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <ModeToggle />
-            <Button variant="outline">English</Button>
           </div>
         </div>
       </header>
@@ -31,8 +34,8 @@ const RootLayout: React.FC = () => {
       {/* Main Content */}
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <div className="flex-1 flex flex-col overflow-hidden">
-          <main className="flex-1 overflow-auto">
+        <div className="flex-1 flex flex-col overflow-auto">
+          <main className="flex-1">
             <div className="p-6">
               <Outlet />
             </div>

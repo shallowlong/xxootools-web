@@ -1,0 +1,285 @@
+{
+  "welcome": "欢迎使用 <span>XTools</span>，一个<b>简洁</b>，<b>强大</b>，<b>安全</b>的工具箱",
+  "categories": {
+    "image": {
+      "name": "图片工具",
+      "tools": {
+        "image-compress": {
+          "name": "图片压缩",
+          "description": "压缩图片文件大小"
+        },
+        "image-converter": {
+          "name": "图片格式转换",
+          "description": "转换图片格式"
+        }
+      }
+    },
+    "video": {
+      "name": "视频工具",
+      "tools": {
+        "video-compress": {
+          "name": "视频压缩",
+          "description": "压缩视频文件大小"
+        }
+      }
+    },
+    "audio": {
+      "name": "音频工具",
+      "tools": {
+        "audio-converter": {
+          "name": "音频转换",
+          "description": "转换音频格式"
+        }
+      }
+    },
+    "text": {
+      "name": "文本工具",
+      "tools": {
+        "text-converter": {
+          "name": "文本转换",
+          "description": "大小写转换、简繁转换等"
+        },
+        "text-diff": {
+          "name": "文本对比",
+          "description": "对比两段文本的差异"
+        }
+      }
+    },
+    "writer": {
+      "name": "写作工具",
+      "tools": {
+        "word-count": {
+          "name": "字数统计",
+          "description": "统计文本字数",
+          "title": "字数统计",
+          "fullDescription": "统计文本的字数、行数、段落数",
+          "placeholder": "请输入或粘贴要统计的文本...",
+          "showDebug": "显示调试",
+          "hideDebug": "隐藏调试",
+          "languageSelect": "选择语言",
+          "languages": {
+            "general": "通用（英文等）",
+            "chinese": "中文",
+            "japanese": "日文",
+            "korean": "韩文"
+          },
+          "stats": {
+            "words": "词数",
+            "characters": "字符数",
+            "noSpaces": "不含空格",
+            "paragraphs": "段落数",
+            "lines": "行数"
+          },
+          "debug": {
+            "originalLength": "原始文本长度",
+            "safeLength": "安全处理后长度",
+            "firstChars": "文本前20个字符",
+            "lastChars": "文本后20个字符",
+            "oldTokens": "改进前分词结果",
+            "newTokens": "改进后分词结果",
+            "tokenArray": "分词结果数组"
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "notFound": "页面不存在",
+    "backToHome": "返回首页",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "upload": "上传",
+    "download": "下载",
+    "language": "语言",
+    "search": "搜索工具",
+    "recommended": "推荐",
+    "experimental": "实验性",
+    "logoAlt": "工具箱图标",
+    "brandName": "工具箱",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "toggleToDark": "切换到暗色模式",
+    "toggleToLight": "切换到亮色模式"
+  },
+  "imageCompress": {
+    "title": "图片压缩",
+    "description": "压缩图片文件大小，支持多种格式和自定义压缩选项",
+    "dropToUpload": "释放鼠标上传图片",
+    "clickOrDragToUpload": "点击或拖拽上传图片",
+    "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
+    "compressionOptions": "压缩选项",
+    "outputFormat": "输出格式",
+    "selectOutputFormat": "选择输出格式",
+    "useOriginalFormat": "上传时使用原图格式",
+    "quality": "质量",
+    "compressionHistory": "压缩记录",
+    "downloadAll": "打包下载全部",
+    "image": "图片",
+    "fileInfo": "文件信息",
+    "compressionInfo": "压缩信息",
+    "actions": "操作",
+    "preview": "预览",
+    "format": "格式",
+    "compressing": "压缩中",
+    "original": "原图",
+    "compressed": "压缩后",
+    "compressionFailed": "压缩失败",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 上下文不可用",
+      "avifNotSupported": "AVIF格式不受支持",
+      "compressionError": "压缩过程中出错",
+      "createZipError": "创建zip文件出错",
+      "downloadFailed": "下载失败，请重试或单独下载图片"
+    }
+  },
+  "imageConverter": {
+    "title": "图片格式转换",
+    "description": "将图片转换为不同的格式，支持WebP、PNG、JPG和GIF",
+    "dropToUpload": "释放鼠标上传图片",
+    "clickOrDragToUpload": "点击或拖拽上传图片",
+    "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
+    "dragMessage": "松开鼠标开始转换",
+    "convertSettings": "转换设置",
+    "targetFormat": "目标格式",
+    "selectFormat": "选择格式",
+    "conversionResults": "转换结果",
+    "downloadAll": "打包下载全部",
+    "originalFormat": "原格式",
+    "convertingTo": "转换为",
+    "conversionStatus": {
+      "success": "转换成功",
+      "failed": "转换失败",
+      "converting": "转换中"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 上下文不可用",
+      "conversionError": "转换过程中出错",
+      "createZipError": "创建ZIP文件失败"
+    }
+  },
+  "videoCompress": {
+    "title": "视频压缩",
+    "description": "压缩视频文件大小，支持多种格式和自定义压缩选项",
+    "dropToUpload": "释放鼠标上传视频",
+    "clickOrDragToUpload": "点击或拖拽上传视频",
+    "supportedFormats": "支持选择<span>多个</span>视频，格式包括 MP4, WebM, MOV, AVI",
+    "processingVideo": "正在处理视频，请等待...",
+    "compressionOptions": "压缩选项",
+    "outputFormat": "输出格式",
+    "selectOutputFormat": "选择输出格式",
+    "useOriginalFormat": "上传时使用原视频格式",
+    "compressionQuality": "压缩质量",
+    "selectCompressionQuality": "选择压缩质量",
+    "highQuality": "高质量 (较大文件)",
+    "mediumQuality": "中等质量",
+    "lowQuality": "低质量 (较小文件)",
+    "compressionRate": "压缩率: {{rate}}%",
+    "compressionRateNote": "注：压缩率越高，文件越小，但画质会下降",
+    "compressionHistory": "压缩记录 ({{count}})",
+    "downloadAll": "打包下载全部",
+    "video": "视频",
+    "fileInfo": "文件信息",
+    "compressionInfo": "压缩信息",
+    "actions": "操作",
+    "format": "格式",
+    "duration": "时长",
+    "quality": "质量",
+    "highQualityShort": "高",
+    "mediumQualityShort": "中",
+    "lowQualityShort": "低",
+    "compressing": "压缩中...",
+    "originalVideo": "原视频: {{size}}",
+    "compressedVideo": "压缩后: {{size}}",
+    "compressionFailed": "压缩失败",
+    "unknown": "未知",
+    "recommended": "推荐"
+  },
+  "footer": {
+    "allRightsReserved": "保留所有权利.",
+    "privacy": "隐私政策",
+    "contact": "联系我们"
+  },
+  "textConverter": {
+    "title": "文本转换",
+    "description": "转换文本的大小写、简繁体等",
+    "placeholder": "请输入要转换的文本...",
+    "toUpperCase": "转大写",
+    "toLowerCase": "转小写",
+    "toTraditional": "简体转繁体",
+    "toSimplified": "繁体转简体"
+  },
+  "textDiff": {
+    "title": "文本对比",
+    "description": "对比两段文本的差异",
+    "firstTextPlaceholder": "请输入第一段文本...",
+    "secondTextPlaceholder": "请输入第二段文本...",
+    "compareButton": "比较差异"
+  },
+  "audioConverter": {
+    "dropzone": {
+      "title": "点击或拖拽上传音频文件",
+      "description": "支持选择<span>多个</span>音频，格式包括 {{supportedFormats}}"
+    },
+    "options": {
+      "title": "转换选项",
+      "outputFormat": "输出格式",
+      "selectFormat": "选择输出格式",
+      "quality": "音频质量",
+      "selectQuality": "选择音频质量",
+      "sampleRate": "采样率",
+      "selectSampleRate": "选择采样率",
+      "bitRate": "比特率",
+      "selectBitRate": "选择比特率",
+      "compressionRatio": "压缩率"
+    },
+    "formats": {
+      "mp3": "MP3 (推荐)",
+      "wav": "WAV",
+      "ogg": "OGG",
+      "aac": "AAC",
+      "m4a": "M4A",
+      "flac": "FLAC"
+    },
+    "quality": {
+      "high": "高质量",
+      "medium": "中等质量",
+      "low": "低质量"
+    },
+    "results": {
+      "title": "转换记录",
+      "originalFormat": "原格式",
+      "fileSize": "大小",
+      "duration": "时长",
+      "uploadTime": "上传时间",
+      "converting": "转换中",
+      "targetFormat": "目标格式",
+      "convertedSize": "转换后大小",
+      "compressionRatio": "压缩比"
+    },
+    "actions": {
+      "download": "下载",
+      "downloadAll": "打包下载全部"
+    }
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "introduction": "介绍",
+    "introText": "欢迎使用XTools。我们非常重视您的隐私和数据安全。本隐私政策旨在告知您我们如何处理您使用我们服务时的数据。",
+    "dataPolicy": "数据处理政策",
+    "noStorage": "我们不会存储您上传或处理的任何文件数据。所有文件处理都在您的浏览器本地进行，数据不会传输到我们的服务器。",
+    "localProcessing": "我们的工具设计为完全在客户端运行，这意味着您的文件内容不会离开您的设备。这确保了您的数据安全和隐私。",
+    "analytics": "使用分析",
+    "analyticsText": "我们可能会收集匿名使用数据，如页面访问和功能使用统计，以帮助我们改进我们的服务。这些数据不包含任何个人身份信息或文件内容。",
+    "cookies": "Cookie使用",
+    "cookiesText": "我们可能使用基本的cookie来记住您的语言偏好和主题设置。这些cookie不用于追踪或广告目的。",
+    "contact": "联系我们",
+    "contactText": "如果您对我们的隐私政策有任何疑问或顾虑，请通过我们的网站联系我们。",
+    "lastUpdated": "最后更新"
+  }
+} 

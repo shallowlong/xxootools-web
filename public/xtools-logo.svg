@@ -2,15 +2,8 @@
   <!-- 简洁渐变背景 -->
   <circle cx="60" cy="60" r="60" fill="url(#gradientBg)" />
   
-  <!-- 简化环形科技线条 - 只保留一个 -->
-  <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
-  
-  <!-- 简化的X标志 -->
-  <path d="M40 40L60 60L40 80" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M80 40L60 60L80 80" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- 简洁工具元素 - 只保留一条线 -->
-  <path d="M48 84L72 84" stroke="white" stroke-width="3" stroke-linecap="round" />
+  <!-- 极简的X标志 -->
+  <path d="M40 40L80 80M80 40L40 80" stroke="white" stroke-width="5" stroke-linecap="round" />
   
   <!-- 渐变定义 -->
   <defs>

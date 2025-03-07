@@ -3,25 +3,35 @@ import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Input } from '@/components/ui/input';
-import { Search, ChevronRight, ChevronDown, FileText, Image, FileVideo, FileAudio } from 'lucide-react';
-import { toolCategories } from '@/data/tool';
+import { Search, ChevronRight, ChevronDown, Image, FileVideo, FileAudio, FileType, FileCode, Hash, Database, Gauge, FolderKanban, Pencil } from 'lucide-react';
+import { TOOL_CATEGORY } from '@/constants/category';
+import { useTranslation } from 'react-i18next';
 
-// 图标映射
-const iconMap = {
-  FileText: FileText,
-  Image: Image,
-  FileVideo: FileVideo,
-  FileAudio: FileAudio
+// 分类图标和颜色映射
+const categoryIconMap: Record<string, { icon: React.ElementType, color: string }> = {
+  text: { icon: FileCode, color: '#3B82F6' },    // 蓝色
+  image: { icon: Image, color: '#10B981' },     // 绿色
+  video: { icon: FileVideo, color: '#F59E0B' },  // 琥珀色
+  audio: { icon: FileAudio, color: '#8B5CF6' },  // 紫色
+  file: { icon: FileType, color: '#EC4899' },    // 粉色
+  dev: { icon: Hash, color: '#EF4444' },         // 红色
+  data: { icon: Database, color: '#6366F1' },    // 靛蓝色
+  util: { icon: Gauge, color: '#0EA5E9' },        // 天蓝色
+  writer: { icon: Pencil, color: '#0EA5E9' }        // 天蓝色
 };
 
+// 默认图标和颜色
+const defaultCategoryIcon = { icon: FolderKanban, color: '#6B7280' }; // 灰色
+
 const Sidebar = () => {
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [expandedCategories, setExpandedCategories] = useState<{[key: string]: boolean}>({});
 
   // 初始化时设置所有分类默认展开
   React.useEffect(() => {
     const initialExpanded: {[key: string]: boolean} = {};
-    toolCategories.forEach(category => {
+    TOOL_CATEGORY.forEach(category => {
       initialExpanded[category.id] = true;
     });
     setExpandedCategories(initialExpanded);
@@ -34,26 +44,22 @@ const Sidebar = () => {
     }));
   };
 
-  const filteredCategories = toolCategories.map(category => ({
+  const filteredCategories = TOOL_CATEGORY.map(category => ({
     ...category,
     tools: category.tools.filter(tool => 
-      tool.name.toLowerCase().includes(search.toLowerCase()) ||
-      tool.description.toLowerCase().includes(search.toLowerCase())
+      t(`categories.${category.id}.tools.${tool.id}.name`).toLowerCase().includes(search.toLowerCase()) ||
+      t(`categories.${category.id}.tools.${tool.id}.description`).toLowerCase().includes(search.toLowerCase())
     )
   })).filter(category => category.tools.length > 0);
 
-  const getIcon = (iconName: string) => {
-    return iconMap[iconName as keyof typeof iconMap] || FileText;
-  };
-
   return (
-    <div className="w-64 border-r h-screen flex flex-col">
+    <div className="w-60 border-r h-screen flex flex-col">
       {/* Search */}
-      <div className="p-4 border-b shrink-0">
+      <div className="p-4 border-b shrink-0" style={{ borderColor: '#e4e4e75c' }}>
         <div className="relative">
           <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="搜索工具..."
+            placeholder={`${t('common.search')}...`}
             className="pl-8"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -64,25 +70,30 @@ const Sidebar = () => {
       {/* Navigation */}
       <ScrollArea className="flex-1">
         <div className="p-4">
-          {filteredCategories.map((category) => (
-            <div key={category.id} className="mb-4">
-              <div 
-                className="flex items-center justify-between cursor-pointer py-2"
-                onClick={() => toggleCategory(category.id)}
-              >
-                <h2 className="text-sm font-semibold">{category.name}</h2>
-                {expandedCategories[category.id] ? (
-                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                ) : (
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                )}
-              </div>
-              
-              {expandedCategories[category.id] && (
-                <div className="ml-2 space-y-1 border-l pl-2">
-                  {category.tools.map((tool) => {
-                    const Icon = getIcon(tool.icon);
-                    return (
+          {filteredCategories.map((category) => {
+            // 获取分类图标和颜色，如果没有设置则使用默认值
+            const { icon: CategoryIcon, color } = categoryIconMap[category.id] || defaultCategoryIcon;
+            
+            return (
+              <div key={category.id} className="mb-4">
+                <div 
+                  className="flex items-center justify-between cursor-pointer py-2 rounded-md hover:bg-secondary/30 px-2"
+                  onClick={() => toggleCategory(category.id)}
+                >
+                  <div className="flex items-center gap-2">
+                    <CategoryIcon className="h-5 w-5" style={{ color }} />
+                    <h2 className="text-sm font-semibold">{t(`categories.${category.id}.name`)}</h2>
+                  </div>
+                  {expandedCategories[category.id] ? (
+                    <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                  ) : (
+                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  )}
+                </div>
+                
+                {expandedCategories[category.id] && (
+                  <div className="ml-2 space-y-1 border-l pl-2" style={{ borderColor: '#e4e4e75c' }}>
+                    {category.tools.map((tool) => (
                       <NavLink
                         key={tool.id}
                         to={tool.path}
@@ -95,15 +106,14 @@ const Sidebar = () => {
                           )
                         }
                       >
-                        <Icon className="h-4 w-4" />
-                        <span>{tool.name}</span>
+                        <span>{t(`categories.${category.id}.tools.${tool.id}.name`)}</span>
                       </NavLink>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          ))}
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </ScrollArea>
     </div>

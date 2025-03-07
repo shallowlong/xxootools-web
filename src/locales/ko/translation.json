@@ -1,0 +1,197 @@
+{
+  "welcome": "XTools에 오신 것을 환영합니다, 간단하고 강력하고 안전한 도구 상자",
+  "categories": {
+    "image": {
+      "name": "이미지 도구",
+      "tools": {
+        "image-compress": {
+          "name": "이미지 압축",
+          "description": "이미지 파일 크기 압축"
+        },
+        "image-converter": {
+          "name": "이미지 형식 변환",
+          "description": "이미지 형식 변환"
+        }
+      }
+    },
+    "video": {
+      "name": "비디오 도구",
+      "tools": {
+        "video-compress": {
+          "name": "비디오 압축",
+          "description": "비디오 파일 크기 압축"
+        }
+      }
+    },
+    "audio": {
+      "name": "오디오 도구",
+      "tools": {
+        "audio-converter": {
+          "name": "오디오 변환",
+          "description": "오디오 형식 변환"
+        }
+      }
+    },
+    "text": {
+      "name": "텍스트 도구",
+      "tools": {
+        "text-converter": {
+          "name": "텍스트 변환",
+          "description": "대소문자 변환, 간체/번체 중국어 변환 등"
+        },
+        "text-diff": {
+          "name": "텍스트 비교",
+          "description": "두 텍스트 간의 차이점 비교"
+        }
+      }
+    },
+    "writer": {
+      "name": "글쓰기 도구",
+      "tools": {
+        "word-count": {
+          "name": "단어 수 세기",
+          "description": "텍스트 단어 수 세기",
+          "title": "단어 수 세기",
+          "fullDescription": "텍스트의 단어, 문자, 단락 및 줄 수 세기",
+          "placeholder": "계산할。텍스트를 입력하거나 붙여넣으세요...",
+          "showDebug": "디버그 표시",
+          "hideDebug": "디버그 숨기기",
+          "languageSelect": "언어 선택",
+          "languages": {
+            "general": "일반(영어 등)",
+            "chinese": "중국어",
+            "japanese": "일본어",
+            "korean": "한국어"
+          },
+          "stats": {
+            "words": "단어",
+            "characters": "문자",
+            "noSpaces": "공백 제외",
+            "paragraphs": "단락",
+            "lines": "줄"
+          },
+          "debug": {
+            "originalLength": "원본 텍스트 길이",
+            "safeLength": "안전 처리 후 길이",
+            "firstChars": "처음 20자",
+            "lastChars": "마지막 20자",
+            "oldTokens": "개선 전 토큰화 결과",
+            "newTokens": "개선 후 토큰화 결과",
+            "tokenArray": "토큰 배열"
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "notFound": "페이지를 찾을 수 없습니다",
+    "backToHome": "홈으로 돌아가기",
+    "loading": "로딩 중...",
+    "error": "오류",
+    "success": "성공",
+    "cancel": "취소",
+    "confirm": "확인",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "upload": "업로드",
+    "download": "다운로드",
+    "language": "언어",
+    "search": "도구 검색"
+  },
+  "videoCompress": {
+    "title": "비디오 압축",
+    "description": "비디오 파일 크기를 압축하고 다양한 형식과 사용자 정의 압축 옵션을 지원합니다",
+    "dropToUpload": "비디오를 놓아서 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 비디오 업로드",
+    "supportedFormats": "<span>여러</span> 비디오 업로드 지원, 지원 형식: MP4, WebM, MOV, AVI",
+    "processingVideo": "비디오 처리 중, 기다려 주세요...",
+    "compressionOptions": "압축 옵션",
+    "outputFormat": "출력 형식",
+    "selectOutputFormat": "출력 형식 선택",
+    "useOriginalFormat": "업로드 시 원본 비디오 형식이 사용됩니다",
+    "compressionQuality": "압축 품질",
+    "selectCompressionQuality": "압축 품질 선택",
+    "highQuality": "고품질 (큰 파일)",
+    "mediumQuality": "중간 품질",
+    "lowQuality": "저품질 (작은 파일)",
+    "compressionRate": "압축률: {{rate}}%",
+    "compressionRateNote": "참고: 압축률이 높을수록 파일은 작아지지만 화질은 저하됩니다",
+    "compressionHistory": "압축 기록 ({{count}})",
+    "downloadAll": "모두 ZIP으로 다운로드",
+    "video": "비디오",
+    "fileInfo": "파일 정보",
+    "compressionInfo": "압축 정보",
+    "actions": "작업",
+    "format": "형식",
+    "duration": "길이",
+    "quality": "품질",
+    "highQualityShort": "높음",
+    "mediumQualityShort": "중간",
+    "lowQualityShort": "낮음",
+    "compressing": "압축 중...",
+    "originalVideo": "원본: {{size}}",
+    "compressedVideo": "압축 후: {{size}}",
+    "compressionFailed": "압축 실패",
+    "unknown": "알 수 없음",
+    "recommended": "권장"
+  },
+  "footer": {
+    "allRightsReserved": "모든 권리 보유.",
+    "privacy": "개인정보 처리방침",
+    "contact": "문의하기"
+  },
+  "textDiff": {
+    "title": "텍스트 비교",
+    "description": "두 텍스트 간의 차이점 비교",
+    "firstTextPlaceholder": "첫 번째 텍스트를 입력하세요...",
+    "secondTextPlaceholder": "두 번째 텍스트를 입력하세요...",
+    "compareButton": "비교하기"
+  },
+  "audioConverter": {
+    "dropzone": {
+      "title": "오디오 파일을 클릭하거나 끌어서 업로드",
+      "description": "{{highlight:여러 개의}} 오디오 파일을 선택할 수 있습니다. 지원 형식: {{supportedFormats}}"
+    },
+    "options": {
+      "title": "변환 옵션",
+      "outputFormat": "출력 형식",
+      "selectFormat": "출력 형식 선택",
+      "quality": "오디오 품질",
+      "selectQuality": "오디오 품질 선택",
+      "sampleRate": "샘플링 레이트",
+      "selectSampleRate": "샘플링 레이트 선택",
+      "bitRate": "비트 레이트",
+      "selectBitRate": "비트 레이트 선택",
+      "compressionRatio": "압축률"
+    },
+    "formats": {
+      "mp3": "MP3 (권장)",
+      "wav": "WAV",
+      "ogg": "OGG",
+      "aac": "AAC",
+      "m4a": "M4A",
+      "flac": "FLAC"
+    },
+    "quality": {
+      "high": "고품질",
+      "medium": "중간 품질",
+      "low": "저품질"
+    },
+    "results": {
+      "title": "변환 기록",
+      "originalFormat": "원본 형식",
+      "fileSize": "크기",
+      "duration": "길이",
+      "uploadTime": "업로드 시간",
+      "converting": "변환 중",
+      "targetFormat": "대상 형식",
+      "convertedSize": "변환된 크기",
+      "compressionRatio": "압축률"
+    },
+    "actions": {
+      "download": "다운로드",
+      "downloadAll": "모두 ZIP으로 다운로드"
+    }
+  }
+} 

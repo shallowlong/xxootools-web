@@ -1,0 +1,285 @@
+{
+  "welcome": "Welcome to <span>XTools</span>, a <b>simple</b>, <b>powerful</b>, and <b>secure</b> tool box",
+  "categories": {
+    "image": {
+      "name": "Image Tools",
+      "tools": {
+        "image-compress": {
+          "name": "Image Compression",
+          "description": "Compress image file size"
+        },
+        "image-converter": {
+          "name": "Image Format Conversion",
+          "description": "Convert image formats"
+        }
+      }
+    },
+    "video": {
+      "name": "Video Tools",
+      "tools": {
+        "video-compress": {
+          "name": "Video Compression",
+          "description": "Compress video file size"
+        }
+      }
+    },
+    "audio": {
+      "name": "Audio Tools",
+      "tools": {
+        "audio-converter": {
+          "name": "Audio Conversion",
+          "description": "Convert audio formats"
+        }
+      }
+    },
+    "text": {
+      "name": "Text Tools",
+      "tools": {
+        "text-converter": {
+          "name": "Text Conversion",
+          "description": "Case conversion, simplified/traditional Chinese conversion, etc."
+        },
+        "text-diff": {
+          "name": "Text Comparison",
+          "description": "Compare differences between two texts"
+        }
+      }
+    },
+    "writer": {
+      "name": "Writing Tools",
+      "tools": {
+        "word-count": {
+          "name": "Word Count",
+          "description": "Count text words",
+          "title": "Word Count",
+          "fullDescription": "Count words, characters, paragraphs, and lines in text",
+          "placeholder": "Enter or paste text to count...",
+          "showDebug": "Show Debug",
+          "hideDebug": "Hide Debug",
+          "languageSelect": "Select Language",
+          "languages": {
+            "general": "General (English etc.)",
+            "chinese": "Chinese",
+            "japanese": "Japanese",
+            "korean": "Korean"
+          },
+          "stats": {
+            "words": "Words",
+            "characters": "Characters",
+            "noSpaces": "No Spaces",
+            "paragraphs": "Paragraphs",
+            "lines": "Lines"
+          },
+          "debug": {
+            "originalLength": "Original Text Length",
+            "safeLength": "Length After Safe Processing",
+            "firstChars": "First 20 Characters",
+            "lastChars": "Last 20 Characters",
+            "oldTokens": "Tokenization Result (Before)",
+            "newTokens": "Tokenization Result (After)",
+            "tokenArray": "Token Array"
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "notFound": "Page not found",
+    "backToHome": "Back to Home",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "upload": "Upload",
+    "download": "Download",
+    "language": "Language",
+    "search": "Search tools",
+    "recommended": "Recommended",
+    "experimental": "Experimental",
+    "logoAlt": "XTools Logo",
+    "brandName": "XTools",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleToDark": "Switch to dark mode",
+    "toggleToLight": "Switch to light mode"
+  },
+  "imageCompress": {
+    "title": "Image Compression",
+    "description": "Compress image file size, supporting various formats and custom compression options",
+    "dropToUpload": "Drop images to upload",
+    "clickOrDragToUpload": "Click or drag images to upload",
+    "supportedFormats": "Support uploading <span>multiple</span> images, formats include {{formats}}",
+    "compressionOptions": "Compression Options",
+    "outputFormat": "Output Format",
+    "selectOutputFormat": "Select output format",
+    "useOriginalFormat": "Original format is used on upload",
+    "quality": "Quality",
+    "compressionHistory": "Compression History",
+    "downloadAll": "Download All as ZIP",
+    "image": "Image",
+    "fileInfo": "File Info",
+    "compressionInfo": "Compression Info",
+    "actions": "Actions",
+    "preview": "Preview",
+    "format": "Format",
+    "compressing": "Compressing",
+    "original": "Original",
+    "compressed": "Compressed",
+    "compressionFailed": "Compression Failed",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas context not available",
+      "avifNotSupported": "AVIF format not supported",
+      "compressionError": "Error during compression",
+      "createZipError": "Error creating ZIP file",
+      "downloadFailed": "Download failed, please try again or download images individually"
+    }
+  },
+  "imageConverter": {
+    "title": "Image Format Converter",
+    "description": "Convert images to different formats, supporting WebP, PNG, JPG, and GIF",
+    "dropToUpload": "Drop images to upload",
+    "clickOrDragToUpload": "Click or drag images to upload",
+    "supportedFormats": "Support uploading <span>multiple</span> images, formats include {{formats}}",
+    "dragMessage": "Release to start conversion",
+    "convertSettings": "Conversion Settings",
+    "targetFormat": "Target Format",
+    "selectFormat": "Select format",
+    "conversionResults": "Conversion Results",
+    "downloadAll": "Download All as ZIP",
+    "originalFormat": "Original format",
+    "convertingTo": "Converting to",
+    "conversionStatus": {
+      "success": "Conversion Successful",
+      "failed": "Conversion Failed",
+      "converting": "Converting"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvas context not available",
+      "conversionError": "Error during conversion",
+      "createZipError": "Error creating ZIP file"
+    }
+  },
+  "videoCompress": {
+    "title": "Video Compression",
+    "description": "Compress video file size, supporting various formats and custom compression options",
+    "dropToUpload": "Drop videos to upload",
+    "clickOrDragToUpload": "Click or drag videos to upload",
+    "supportedFormats": "Support uploading <span>multiple</span> videos, formats include MP4, WebM, MOV, AVI",
+    "processingVideo": "Processing videos, please wait...",
+    "compressionOptions": "Compression Options",
+    "outputFormat": "Output Format",
+    "selectOutputFormat": "Select output format",
+    "useOriginalFormat": "Original format is used on upload",
+    "compressionQuality": "Compression Quality",
+    "selectCompressionQuality": "Select compression quality",
+    "highQuality": "High Quality (larger file)",
+    "mediumQuality": "Medium Quality",
+    "lowQuality": "Low Quality (smaller file)",
+    "compressionRate": "Compression Rate: {{rate}}%",
+    "compressionRateNote": "Note: Higher compression rate means smaller file but lower quality",
+    "compressionHistory": "Compression History ({{count}})",
+    "downloadAll": "Download All as ZIP",
+    "video": "Video",
+    "fileInfo": "File Info",
+    "compressionInfo": "Compression Info",
+    "actions": "Actions",
+    "format": "Format",
+    "duration": "Duration",
+    "quality": "Quality",
+    "highQualityShort": "High",
+    "mediumQualityShort": "Medium",
+    "lowQualityShort": "Low",
+    "compressing": "Compressing...",
+    "originalVideo": "Original: {{size}}",
+    "compressedVideo": "Compressed: {{size}}",
+    "compressionFailed": "Compression Failed",
+    "unknown": "Unknown",
+    "recommended": "Recommended"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us"
+  },
+  "textConverter": {
+    "title": "Text Conversion",
+    "description": "Convert text case, simplified/traditional Chinese, etc.",
+    "placeholder": "Enter the text to convert...",
+    "toUpperCase": "TO UPPERCASE",
+    "toLowerCase": "to lowercase",
+    "toTraditional": "To Traditional Chinese",
+    "toSimplified": "To Simplified Chinese"
+  },
+  "textDiff": {
+    "title": "Text Comparison",
+    "description": "Compare differences between two texts",
+    "firstTextPlaceholder": "Enter the first text...",
+    "secondTextPlaceholder": "Enter the second text...",
+    "compareButton": "Compare Differences"
+  },
+  "audioConverter": {
+    "dropzone": {
+      "title": "Click or Drag to Upload Audio Files",
+      "description": "You can select <span>multiple</span> audio files, supporting formats include {{supportedFormats}}"
+    },
+    "options": {
+      "title": "Conversion Options",
+      "outputFormat": "Output Format",
+      "selectFormat": "Select output format",
+      "quality": "Audio Quality",
+      "selectQuality": "Select audio quality",
+      "sampleRate": "Sample Rate",
+      "selectSampleRate": "Select sample rate",
+      "bitRate": "Bit Rate",
+      "selectBitRate": "Select bit rate",
+      "compressionRatio": "Compression Ratio"
+    },
+    "formats": {
+      "mp3": "MP3 (Recommended)",
+      "wav": "WAV",
+      "ogg": "OGG",
+      "aac": "AAC",
+      "m4a": "M4A",
+      "flac": "FLAC"
+    },
+    "quality": {
+      "high": "High Quality",
+      "medium": "Medium Quality",
+      "low": "Low Quality"
+    },
+    "results": {
+      "title": "Conversion Records",
+      "originalFormat": "Original Format",
+      "fileSize": "Size",
+      "duration": "Duration",
+      "uploadTime": "Upload Time",
+      "converting": "Converting",
+      "targetFormat": "Target Format",
+      "convertedSize": "Converted Size",
+      "compressionRatio": "Compression Ratio"
+    },
+    "actions": {
+      "download": "Download",
+      "downloadAll": "Download All as ZIP"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "introduction": "Introduction",
+    "introText": "Welcome to XTools. We value your privacy and data security. This Privacy Policy is designed to inform you about how we handle your data when you use our services.",
+    "dataPolicy": "Data Processing Policy",
+    "noStorage": "We do not store any file data you upload or process. All file processing is done locally in your browser, and data is not transmitted to our servers.",
+    "localProcessing": "Our tools are designed to run entirely on the client-side, which means your file contents never leave your device. This ensures your data security and privacy.",
+    "analytics": "Usage Analytics",
+    "analyticsText": "We may collect anonymous usage data, such as page visits and feature usage statistics, to help us improve our services. This data does not include any personally identifiable information or file contents.",
+    "cookies": "Cookies Usage",
+    "cookiesText": "We may use basic cookies to remember your language preferences and theme settings. These cookies are not used for tracking or advertising purposes.",
+    "contact": "Contact Us",
+    "contactText": "If you have any questions or concerns about our privacy policy, please contact us through our website.",
+    "lastUpdated": "Last Updated"
+  }
+} 

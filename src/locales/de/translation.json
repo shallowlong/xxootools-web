@@ -1,0 +1,197 @@
+{
+  "welcome": "Willkommen bei XTools, einem einfachen, leistungsstarken und sicheren Tool-Box",
+  "categories": {
+    "image": {
+      "name": "Bild-Tools",
+      "tools": {
+        "image-compress": {
+          "name": "Bildkomprimierung",
+          "description": "Bildgröße komprimieren"
+        },
+        "image-converter": {
+          "name": "Bildformatkonvertierung",
+          "description": "Bildformate konvertieren"
+        }
+      }
+    },
+    "video": {
+      "name": "Video-Tools",
+      "tools": {
+        "video-compress": {
+          "name": "Videokomprimierung",
+          "description": "Videodateigröße komprimieren"
+        }
+      }
+    },
+    "audio": {
+      "name": "Audio-Tools",
+      "tools": {
+        "audio-converter": {
+          "name": "Audiokonvertierung",
+          "description": "Audioformate konvertieren"
+        }
+      }
+    },
+    "text": {
+      "name": "Text-Tools",
+      "tools": {
+        "text-converter": {
+          "name": "Textkonvertierung",
+          "description": "Groß-/Kleinschreibung, vereinfachtes/traditionelles Chinesisch usw."
+        },
+        "text-diff": {
+          "name": "Textvergleich",
+          "description": "Unterschiede zwischen zwei Texten vergleichen"
+        }
+      }
+    },
+    "writer": {
+      "name": "Schreibwerkzeuge",
+      "tools": {
+        "word-count": {
+          "name": "Wortzähler",
+          "description": "Zählt Wörter im Text",
+          "title": "Wortzähler",
+          "fullDescription": "Zählt Wörter, Zeichen, Absätze und Zeilen im Text",
+          "placeholder": "Text zum Zählen eingeben oder einfügen...",
+          "showDebug": "Debug anzeigen",
+          "hideDebug": "Debug ausblenden",
+          "languageSelect": "Sprache auswählen",
+          "languages": {
+            "general": "Allgemein (Englisch usw.)",
+            "chinese": "Chinesisch",
+            "japanese": "Japanisch",
+            "korean": "Koreanisch"
+          },
+          "stats": {
+            "words": "Wörter",
+            "characters": "Zeichen",
+            "noSpaces": "Ohne Leerzeichen",
+            "paragraphs": "Absätze",
+            "lines": "Zeilen"
+          },
+          "debug": {
+            "originalLength": "Originale Textlänge",
+            "safeLength": "Länge nach sicherer Verarbeitung",
+            "firstChars": "Erste 20 Zeichen",
+            "lastChars": "Letzte 20 Zeichen",
+            "oldTokens": "Tokenisierungsergebnis (Vorher)",
+            "newTokens": "Tokenisierungsergebnis (Nachher)",
+            "tokenArray": "Token-Array"
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "notFound": "Seite nicht gefunden",
+    "backToHome": "Zurück zur Startseite",
+    "loading": "Wird geladen...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "upload": "Hochladen",
+    "download": "Herunterladen",
+    "language": "Sprache",
+    "search": "Tools suchen"
+  },
+  "videoCompress": {
+    "title": "Videokomprimierung",
+    "description": "Videodateigröße komprimieren, unterstützt verschiedene Formate und benutzerdefinierte Komprimierungsoptionen",
+    "dropToUpload": "Videos zum Hochladen ablegen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie Videos zum Hochladen",
+    "supportedFormats": "Unterstützt das Hochladen <span>mehrerer</span> Videos, Formate umfassen MP4, WebM, MOV, AVI",
+    "processingVideo": "Videos werden verarbeitet, bitte warten...",
+    "compressionOptions": "Komprimierungsoptionen",
+    "outputFormat": "Ausgabeformat",
+    "selectOutputFormat": "Ausgabeformat auswählen",
+    "useOriginalFormat": "Beim Hochladen wird das ursprüngliche Videoformat verwendet",
+    "compressionQuality": "Komprimierungsqualität",
+    "selectCompressionQuality": "Komprimierungsqualität auswählen",
+    "highQuality": "Hohe Qualität (größere Datei)",
+    "mediumQuality": "Mittlere Qualität",
+    "lowQuality": "Niedrige Qualität (kleinere Datei)",
+    "compressionRate": "Kompressionsrate: {{rate}}%",
+    "compressionRateNote": "Hinweis: Je höher die Kompressionsrate, desto kleiner die Datei, aber die Bildqualität nimmt ab",
+    "compressionHistory": "Komprimierungsverlauf ({{count}})",
+    "downloadAll": "Alle als ZIP herunterladen",
+    "video": "Video",
+    "fileInfo": "Dateiinformationen",
+    "compressionInfo": "Komprimierungsinformationen",
+    "actions": "Aktionen",
+    "format": "Format",
+    "duration": "Dauer",
+    "quality": "Qualität",
+    "highQualityShort": "Hoch",
+    "mediumQualityShort": "Mittel",
+    "lowQualityShort": "Niedrig",
+    "compressing": "Komprimierung...",
+    "originalVideo": "Original: {{size}}",
+    "compressedVideo": "Komprimiert: {{size}}",
+    "compressionFailed": "Komprimierung fehlgeschlagen",
+    "unknown": "Unbekannt",
+    "recommended": "Empfohlen"
+  },
+  "footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "contact": "Kontakt"
+  },
+  "textDiff": {
+    "title": "Textvergleich",
+    "description": "Unterschiede zwischen zwei Texten vergleichen",
+    "firstTextPlaceholder": "Geben Sie den ersten Text ein...",
+    "secondTextPlaceholder": "Geben Sie den zweiten Text ein...",
+    "compareButton": "Vergleichen"
+  },
+  "audioConverter": {
+    "dropzone": {
+      "title": "Klicken oder ziehen Sie Audiodateien zum Hochladen",
+      "description": "Sie können {{highlight:mehrere}} Audiodateien auswählen. Unterstützte Formate: {{supportedFormats}}"
+    },
+    "options": {
+      "title": "Konvertierungsoptionen",
+      "outputFormat": "Ausgabeformat",
+      "selectFormat": "Ausgabeformat wählen",
+      "quality": "Audioqualität",
+      "selectQuality": "Audioqualität wählen",
+      "sampleRate": "Abtastrate",
+      "selectSampleRate": "Abtastrate wählen",
+      "bitRate": "Bitrate",
+      "selectBitRate": "Bitrate wählen",
+      "compressionRatio": "Kompressionsrate"
+    },
+    "formats": {
+      "mp3": "MP3 (Empfohlen)",
+      "wav": "WAV",
+      "ogg": "OGG",
+      "aac": "AAC",
+      "m4a": "M4A",
+      "flac": "FLAC"
+    },
+    "quality": {
+      "high": "Hohe Qualität",
+      "medium": "Mittlere Qualität",
+      "low": "Niedrige Qualität"
+    },
+    "results": {
+      "title": "Konvertierungsprotokolle",
+      "originalFormat": "Originalformat",
+      "fileSize": "Größe",
+      "duration": "Dauer",
+      "uploadTime": "Hochladezeit",
+      "converting": "Konvertierung",
+      "targetFormat": "Zielformat",
+      "convertedSize": "Konvertierte Größe",
+      "compressionRatio": "Kompressionsrate"
+    },
+    "actions": {
+      "download": "Herunterladen",
+      "downloadAll": "Alle als ZIP herunterladen"
+    }
+  }
+} 
