@@ -17,7 +17,7 @@ const RootLayout: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center group">
               <div className="relative w-10 h-10 mr-3 overflow-hidden rounded-full shadow-sm transition-transform group-hover:scale-105">
-                <img src="/xtools-logo.svg" alt={t('common.logoAlt')} className="w-full h-full object-cover" />
+                <img src="/logo.png" alt={t('common.logoAlt')} className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300 group-hover:from-blue-700 group-hover:to-cyan-600">XTools</span>
