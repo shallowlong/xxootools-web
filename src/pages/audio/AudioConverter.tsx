@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useCallback } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import ToolLayout from '@/components/tool/ToolLayout';

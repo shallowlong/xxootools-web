@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { TOOL_CATEGORY } from '@/constants/category';
 import * as LucideIcons from 'lucide-react';

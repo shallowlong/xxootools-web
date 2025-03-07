@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import ToolLayout from '@/components/tool/ToolLayout';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -79,7 +79,7 @@ const WordCount = () => {
       paragraphs,
       lines,
     };
-  }, [text, language, showDebug]);
+  }, [text, language, showDebug, t]);
 
   return (
     <ToolLayout 

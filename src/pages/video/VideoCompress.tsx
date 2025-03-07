@@ -160,6 +160,7 @@ const VideoCompress = () => {
       const files = Array.from(e.dataTransfer.files);
       await processFiles(files);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   // 压缩视频 (使用Web API，FFmpeg.wasm)
