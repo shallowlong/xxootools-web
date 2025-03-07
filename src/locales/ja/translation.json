@@ -149,6 +149,8 @@
     "compareButton": "比較"
   },
   "audioConverter": {
+    "title": "音声変換",
+    "description": "音声ファイルの形式を変換し、サンプルレート、ビットレート、音質を調整します",
     "dropzone": {
       "title": "クリックまたはドラッグして音声ファイルをアップロード",
       "description": "{{highlight:複数の}}オーディオファイルを選択できます。対応フォーマット：{{supportedFormats}}"

@@ -1,5 +1,5 @@
 {
-  "welcome": "欢迎使用 <span>XTools</span>，一个<b>简洁</b>，<b>强大</b>，<b>安全</b>的工具箱",
+  "welcome": "欢迎使用 <span>XTools</span>，一个<b>简洁</b>、<b>强大</b>、<b>安全</b>的工具箱",
   "categories": {
     "image": {
       "name": "图片工具",
@@ -222,6 +222,8 @@
     "compareButton": "比较差异"
   },
   "audioConverter": {
+    "title": "音频转换",
+    "description": "转换音频文件格式，调整采样率、比特率和音质",
     "dropzone": {
       "title": "点击或拖拽上传音频文件",
       "description": "支持选择<span>多个</span>音频，格式包括 {{supportedFormats}}"

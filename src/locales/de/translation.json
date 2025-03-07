@@ -149,6 +149,8 @@
     "compareButton": "Vergleichen"
   },
   "audioConverter": {
+    "title": "Audiokonvertierung",
+    "description": "Audiofile-Formate konvertieren, Sampling-Rate, Bitrate und Qualität anpassen",
     "dropzone": {
       "title": "Klicken oder ziehen Sie Audiodateien zum Hochladen",
       "description": "Sie können {{highlight:mehrere}} Audiodateien auswählen. Unterstützte Formate: {{supportedFormats}}"

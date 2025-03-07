@@ -361,8 +361,8 @@ const AudioConverter = () => {
   
   return (
     <ToolLayout
-      title="音频转换"
-      description="（转换音频文件格式，调整采样率、比特率和音质）"
+      title={t('audioConverter.title')}
+      description={`（${t('audioConverter.description')}）`}
     >
       <div className="space-y-6">
         {/* 上传区域 */}

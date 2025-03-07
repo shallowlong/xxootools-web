@@ -378,7 +378,7 @@ const VideoCompress = () => {
   return (
     <ToolLayout
       title={t('videoCompress.title')}
-      description={t('videoCompress.description')}
+      description={`（${t('videoCompress.description')}）`}
     >
       <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

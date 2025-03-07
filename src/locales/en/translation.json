@@ -1,5 +1,5 @@
 {
-  "welcome": "Welcome to <span>XTools</span>, a <b>simple</b>, <b>powerful</b>, and <b>secure</b> tool box",
+  "welcome": "Welcome to <span>XTools</span>, a <b>simple</b>、 <b>powerful</b>、 and <b>secure</b> tool box",
   "categories": {
     "image": {
       "name": "Image Tools",
@@ -222,6 +222,8 @@
     "compareButton": "Compare Differences"
   },
   "audioConverter": {
+    "title": "Audio Conversion",
+    "description": "Convert audio file formats, adjust sample rate, bit rate, and quality",
     "dropzone": {
       "title": "Click or Drag to Upload Audio Files",
       "description": "You can select <span>multiple</span> audio files, supporting formats include {{supportedFormats}}"

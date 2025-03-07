@@ -291,7 +291,7 @@ const ImageConverter = () => {
   return (
     <ToolLayout
       title={t('imageConverter.title')}
-      description={t('imageConverter.description')}
+      description={`（${t('imageConverter.description')}）`}
     >
       <div>
         {/* 隐藏的canvas用于图片处理 */}

@@ -149,6 +149,8 @@
     "compareButton": "비교하기"
   },
   "audioConverter": {
+    "title": "오디오 변환",
+    "description": "오디오 파일 형식을 변환하고 샘플링 레이트, 비트 레이트 및 품질을 조정합니다",
     "dropzone": {
       "title": "오디오 파일을 클릭하거나 끌어서 업로드",
       "description": "{{highlight:여러 개의}} 오디오 파일을 선택할 수 있습니다. 지원 형식: {{supportedFormats}}"
