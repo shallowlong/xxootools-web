@@ -34,7 +34,7 @@ const Privacy: React.FC = () => {
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-3">{t('privacy.cookies', 'Cookies')}Cookie使用</h2>
+          <h2 className="text-xl font-semibold mb-3">{t('privacy.cookies', 'Cookies')}</h2>
           <p className="text-muted-foreground">
             {t('privacy.cookiesText', '我们可能使用基本的cookie来记住您的语言偏好和主题设置。这些cookie不用于追踪或广告目的。')}
           </p>
