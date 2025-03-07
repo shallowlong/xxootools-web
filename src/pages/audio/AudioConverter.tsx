@@ -41,15 +41,14 @@ interface ConversionResult {
 const AudioConverter = () => {
   const { t } = useTranslation();
   // 虽然这些变量没有在JSX中直接使用，但在处理音频上传和转换的函数中被使用
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [, setSelectedFile] = useState<File | null>(null);
   const [outputFormat, setOutputFormat] = useState<AudioFormat>('mp3');
   const [quality, setQuality] = useState<AudioQuality>('medium');
   const [sampleRate, setSampleRate] = useState<SampleRate>('44100');
   const [bitRate, setBitRate] = useState<BitRate>('192');
   const [compressionRatio, setCompressionRatio] = useState(70);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isConverting, setIsConverting] = useState(false);
+  
+  const [, setIsConverting] = useState(false);
   const [conversionResults, setConversionResults] = useState<ConversionResult[]>([]);
   const [reconvertingId, setReconvertingId] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
