@@ -27,7 +27,7 @@ export function LanguageSwitcher() {
   return (
     <div className="flex items-center gap-2">
       <Select value={i18n.language} onValueChange={handleLanguageChange}>
-        <SelectTrigger className="w-[100px]">
+        <SelectTrigger className="w-[120px]">
           <SelectValue placeholder={t('common.language')} />
         </SelectTrigger>
         <SelectContent>

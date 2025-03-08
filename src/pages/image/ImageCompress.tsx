@@ -384,6 +384,8 @@ const ImageCompress = () => {
   
   return (
     <ToolLayout
+      categoryId="image"
+      toolId="image-compress"
       title={t('imageCompress.title')}
       description={`（${t('imageCompress.description')}）`}
     >

@@ -193,7 +193,9 @@
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单",
     "toggleToDark": "切换到暗色模式",
-    "toggleToLight": "切换到亮色模式"
+    "toggleToLight": "切换到亮色模式",
+    "favorite": "添加到收藏",
+    "unfavorite": "从收藏中移除"
   },
   "imageCompress": {
     "title": "图片压缩",
@@ -451,5 +453,26 @@
       "helpText1": "* 仅支持 dayjs 原生方法",
       "helpText2": "* 示例：dayjs().format('YYYY-MM-DD') 或 dayjs().add(1, 'day')"
     }
+  },
+  "share": {
+    "button": "分享",
+    "linkCopied": "链接已复制",
+    "linkCopiedDesc": "页面链接已复制到剪贴板",
+    "copyFailed": "复制失败",
+    "copyFailedDesc": "无法复制链接到剪贴板"
+  },
+  "favorite": {
+    "add": "收藏",
+    "added": "已收藏",
+    "removed": "已取消收藏",
+    "removedDesc": "已从收藏夹中移除",
+    "addedDesc": "已添加到收藏夹"
+  },
+  "toolGroups": {
+    "favorites": "我的收藏",
+    "popular": "热门工具",
+    "recent": "最近更新",
+    "noFavorites": "您还没有添加任何收藏。点击任何工具上的星标图标将其添加到收藏夹。",
+    "noTools": "此分类中没有可用工具。"
   }
 } 

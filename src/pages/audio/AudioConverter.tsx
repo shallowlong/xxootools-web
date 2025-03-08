@@ -361,6 +361,8 @@ const AudioConverter = () => {
   
   return (
     <ToolLayout
+      categoryId="audio"
+      toolId="audio-converter"
       title={t('audioConverter.title')}
       description={`（${t('audioConverter.description')}）`}
     >

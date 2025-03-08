@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import RootLayout from './components/layout/RootLayout'
 import { lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Toaster } from './components/ui/toaster'
 
 // 懒加载工具页面
 const Home = lazy(() => import('./pages/Home'))
@@ -24,37 +25,40 @@ function App() {
   const { t } = useTranslation();
   
   return (
-    <Suspense fallback={<div className="flex items-center justify-center h-screen">{t('common.loading')}</div>}>
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          <Route index element={<Home />} />
-          <Route path="text">
-            <Route path="text-converter" element={<TextConverter />} />
-            <Route path="text-diff" element={<TextDiff />} />
+    <>
+      <Suspense fallback={<div className="flex items-center justify-center h-screen">{t('common.loading')}</div>}>
+        <Routes>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Home />} />
+            <Route path="text">
+              <Route path="text-converter" element={<TextConverter />} />
+              <Route path="text-diff" element={<TextDiff />} />
+            </Route>
+            <Route path="image">
+              <Route path="image-compress" element={<ImageCompress />} />
+              <Route path="image-converter" element={<ImageConverter />} />
+            </Route>
+            <Route path="video">
+              <Route path="video-compress" element={<VideoCompress />} />
+            </Route>
+            <Route path="audio">
+              <Route path="audio-converter" element={<AudioConverter />} />
+            </Route>
+            <Route path="writer">
+              <Route path="word-count" element={<WordCount />} />
+            </Route>
+            <Route path="date">
+              <Route path="dayjs-utils" element={<DayjsUtils />} />
+              <Route path="moment-utils" element={<MomentUtils />} />
+              <Route path="date-utils" element={<DateUtils />} />
+            </Route>
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="image">
-            <Route path="image-compress" element={<ImageCompress />} />
-            <Route path="image-converter" element={<ImageConverter />} />
-          </Route>
-          <Route path="video">
-            <Route path="video-compress" element={<VideoCompress />} />
-          </Route>
-          <Route path="audio">
-            <Route path="audio-converter" element={<AudioConverter />} />
-          </Route>
-          <Route path="writer">
-            <Route path="word-count" element={<WordCount />} />
-          </Route>
-          <Route path="date">
-            <Route path="dayjs-utils" element={<DayjsUtils />} />
-            <Route path="moment-utils" element={<MomentUtils />} />
-            <Route path="date-utils" element={<DateUtils />} />
-          </Route>
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </Suspense>
+        </Routes>
+      </Suspense>
+      <Toaster />
+    </>
   )
 }
 

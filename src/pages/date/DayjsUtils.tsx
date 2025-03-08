@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
+import ToolLayout from '@/components/tool/ToolLayout';
 
 const DayjsUtils = () => {
   const { t } = useTranslation();
@@ -41,13 +42,16 @@ const DayjsUtils = () => {
   }, [dayjsCode]);
 
   return (
-    <div className="container mx-auto px-4">
-    
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <ToolLayout
+      categoryId="date"
+      toolId="dayjs-utils"
+      title={t('dayjs-utils.title')}
+      description={``}
+    >
+      <div className="space-y-4">
         {/* 新增代码运行器 */}
-        <div className="border p-4 rounded-lg md:col-span-2 mb-4">
-          <h2 className="text-xl font-semibold mb-4">{t('dayjs-utils.codeRunner.title')}</h2>
+        <div className="rounded-lg mb-4">
+          {/* <h2 className="text-xl font-semibold mb-4">{t('dayjs-utils.codeRunner.title')}</h2> */}
           <div className="space-y-4">
             <div>
               <div className="flex justify-between items-center mb-1">
@@ -97,9 +101,8 @@ const DayjsUtils = () => {
             </div>
           </div>
         </div>
-        
       </div>
-    </div>
+    </ToolLayout>
   );
 };
 

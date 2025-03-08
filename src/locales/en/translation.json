@@ -193,7 +193,9 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "toggleToDark": "Switch to dark mode",
-    "toggleToLight": "Switch to light mode"
+    "toggleToLight": "Switch to light mode",
+    "favorite": "Add to favorites",
+    "unfavorite": "Remove from favorites"
   },
   "imageCompress": {
     "title": "Image Compression",
@@ -451,5 +453,26 @@
     "contact": "Contact Us",
     "contactText": "If you have any questions or concerns about our privacy policy, please contact us through our website.",
     "lastUpdated": "Last Updated"
+  },
+  "share": {
+    "button": "Share",
+    "linkCopied": "Link Copied",
+    "linkCopiedDesc": "Page link has been copied to clipboard",
+    "copyFailed": "Copy Failed",
+    "copyFailedDesc": "Could not copy link to clipboard"
+  },
+  "favorite": {
+    "add": "Favorite",
+    "added": "Favorited",
+    "removed": "Removed",
+    "removedDesc": "Removed from favorites",
+    "addedDesc": "Added to favorites"
+  },
+  "toolGroups": {
+    "favorites": "My Favorites",
+    "popular": "Popular Tools",
+    "recent": "Recently Updated",
+    "noFavorites": "You haven't added any favorites yet. Click the star icon on any tool to add it to favorites.",
+    "noTools": "No tools available in this category."
   }
 } 

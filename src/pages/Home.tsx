@@ -1,15 +1,57 @@
-import { Link } from 'react-router-dom';
+import { Trans } from 'react-i18next';
 import { TOOL_CATEGORY } from '@/constants/category';
-import * as LucideIcons from 'lucide-react';
-import { Trans, useTranslation } from 'react-i18next';
+import { POPULAR_TOOLS, RECENT_TOOLS, GROUP_TITLE_KEYS } from '@/constants/featured-tools';
+import { useEffect, useState } from 'react';
+import { FavoriteTool, Tool, ToolGroupType } from '@/types/tool';
+import { getFavoriteTools } from '@/services/favorites';
+import ToolGroup from '@/components/ToolGroup';
 
 const Home = () => {
-  const { t } = useTranslation();
+  const [favoriteTools, setFavoriteTools] = useState<FavoriteTool[]>([]);
+  
+  // 监听收藏变化
+  useEffect(() => {
+    setFavoriteTools(getFavoriteTools());
+    
+    const handleStorageChange = () => {
+      setFavoriteTools(getFavoriteTools());
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+  
+  // 查找工具对象
+  const findTool = (categoryId: string, toolId: string): { tool: Tool; categoryId: string } | null => {
+    const category = TOOL_CATEGORY.find(cat => cat.id === categoryId);
+    if (!category) return null;
+    
+    const tool = category.tools.find(t => t.id === toolId);
+    if (!tool) return null;
+    
+    return { tool, categoryId };
+  };
+  
+  // 获取收藏工具列表
+  const favoriteToolsList = favoriteTools
+    .map(fav => findTool(fav.categoryId, fav.toolId))
+    .filter(Boolean) as Array<{ tool: Tool; categoryId: string }>;
+  
+  // 获取热门工具列表
+  const popularToolsList = POPULAR_TOOLS
+    .map(item => findTool(item.categoryId, item.toolId))
+    .filter(Boolean) as Array<{ tool: Tool; categoryId: string }>;
+  
+  // 获取最新工具列表
+  const recentToolsList = RECENT_TOOLS
+    .map(item => findTool(item.categoryId, item.toolId))
+    .filter(Boolean) as Array<{ tool: Tool; categoryId: string }>;
   
   return (
     <div>
-      <h1 className="text-3xl text-center font-bold mb-6">
-        
+      <h1 className="text-3xl text-center font-bold mb-10">
         <Trans
           i18nKey="welcome"
           components={{ 
@@ -19,29 +61,27 @@ const Home = () => {
         />
       </h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {TOOL_CATEGORY.flatMap(category => 
-          category.tools.map(tool => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const IconComponent = (LucideIcons as any)[tool.icon] || LucideIcons.FileText;
-            return (
-              <Link 
-                key={tool.id}
-                to={tool.path}
-                className="block p-4 border rounded-lg hover:border-primary transition-colors"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                    <IconComponent className="h-5 w-5" />
-                  </div>
-                  <h2 className="text-lg font-semibold">{t(`categories.${category.id}.tools.${tool.id}.name`)}</h2>
-                </div>
-                <p className="text-muted-foreground text-sm">{t(`categories.${category.id}.tools.${tool.id}.description`)}</p>
-              </Link>
-            );
-          })
-        )}
-      </div>
+      {/* 收藏工具 */}
+      <ToolGroup
+        title={GROUP_TITLE_KEYS[ToolGroupType.FAVORITES]}
+        tools={favoriteToolsList}
+        type={ToolGroupType.FAVORITES}
+      />
+      
+      {/* 热门工具 */}
+      <ToolGroup
+        title={GROUP_TITLE_KEYS[ToolGroupType.POPULAR]}
+        tools={popularToolsList}
+        type={ToolGroupType.POPULAR}
+      />
+      
+      {/* 最新工具 */}
+      <ToolGroup
+        title={GROUP_TITLE_KEYS[ToolGroupType.RECENT]}
+        tools={recentToolsList}
+        type={ToolGroupType.RECENT}
+      />
+      
     </div>
   );
 };

@@ -377,6 +377,8 @@ const VideoCompress = () => {
   
   return (
     <ToolLayout
+      categoryId="video"
+      toolId="video-compress"
       title={t('videoCompress.title')}
       description={`（${t('videoCompress.description')}）`}
     >

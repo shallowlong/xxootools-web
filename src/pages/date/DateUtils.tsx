@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { dateUtils } from '@/lib/date';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
+import ToolLayout from '@/components/tool/ToolLayout';
 
 const DateUtils = () => {
   const { t } = useTranslation();
@@ -55,8 +56,12 @@ const DateUtils = () => {
 
 
   return (
-    <div className="container mx-auto px-4">
-      
+    <ToolLayout
+      categoryId="date"
+      toolId="date-utils"
+      title={t('date-utils.title')}
+      description={``}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* 时间戳转换工具 */}
@@ -68,7 +73,7 @@ const DateUtils = () => {
           {/* 毫秒时间戳部分 - 更紧凑的布局 */}
           <div className="space-y-2">
             <div>
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-2">
                 <label className="text-sm font-medium whitespace-nowrap min-w-[80px]">{t('date-utils.timestampTools.millisecondTimestamp')}</label>
                 <div className="flex-1 flex gap-1">
                   <input
@@ -86,7 +91,7 @@ const DateUtils = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-2">
                 <label className="text-sm font-medium whitespace-nowrap min-w-[80px]">{t('date-utils.timestampTools.format')}</label>
                 <select
                   className="flex-1 px-2 py-1 text-sm border rounded-md"
@@ -101,7 +106,7 @@ const DateUtils = () => {
                 </select>
               </div>
               
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-2">
                 <label className="text-sm font-medium whitespace-nowrap min-w-[80px]">{t('date-utils.timestampTools.result')}</label>
                 <div className="flex-1 px-2 py-1 text-sm border rounded-md bg-gray-50 dark:bg-gray-900 font-mono overflow-x-auto">
                   {moment(milliseconds).format(timeFormat)}
@@ -111,7 +116,7 @@ const DateUtils = () => {
             
             {/* 秒时间戳部分 */}
             <div className="pt-2 border-t">
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-2">
                 <label className="text-sm font-medium whitespace-nowrap min-w-[80px]">{t('date-utils.timestampTools.secondTimestamp')}</label>
                 <div className="flex-1 flex gap-1">
                   <input
@@ -264,7 +269,7 @@ const DateUtils = () => {
           </div>
         </div>
       </div>
-    </div>
+    </ToolLayout>
   );
 };
 

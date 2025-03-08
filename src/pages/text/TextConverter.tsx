@@ -23,6 +23,8 @@ const TextConverter = () => {
 
   return (
     <ToolLayout
+      categoryId="text"
+      toolId="text-converter"
       title={t('textConverter.title')}
       description={`（${t('textConverter.description')}）`}
     >

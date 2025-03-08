@@ -290,6 +290,8 @@ const ImageConverter = () => {
   
   return (
     <ToolLayout
+      categoryId="image"
+      toolId="image-converter"
       title={t('imageConverter.title')}
       description={`（${t('imageConverter.description')}）`}
     >

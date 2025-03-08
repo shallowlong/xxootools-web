@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
+import ToolLayout from '@/components/tool/ToolLayout';
 
 const MomentUtils = () => {
   const { t, i18n } = useTranslation();
@@ -54,11 +55,16 @@ const MomentUtils = () => {
   }, [i18n.language]);
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <ToolLayout
+      categoryId="date"
+      toolId="moment-utils"
+      title={t('categories.date.tools.moment-utils.name')}
+      description={``}
+    >
+      <div className="space-y-4">
         {/* 新增代码运行器 */}
-        <div className="border p-4 rounded-lg md:col-span-2 mb-4">
-          <h2 className="text-xl font-semibold mb-4">{t('categories.date.tools.moment-utils.codeRunner.title')}</h2>
+        <div className="rounded-lg mb-4">
+          {/* <h2 className="text-xl font-semibold mb-4">{t('categories.date.tools.moment-utils.codeRunner.title')}</h2> */}
           <div className="space-y-4">
             <div>
               <div className="flex justify-between items-center mb-1">
@@ -108,9 +114,8 @@ const MomentUtils = () => {
             </div>
           </div>
         </div>
-        
       </div>
-    </div>
+    </ToolLayout>
   );
 };
 

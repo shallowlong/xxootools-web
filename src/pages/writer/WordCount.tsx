@@ -83,6 +83,8 @@ const WordCount = () => {
 
   return (
     <ToolLayout 
+      categoryId="writer"
+      toolId="word-count"
       title={t('categories.writer.tools.word-count.title')} 
       description={`（${t('categories.writer.tools.word-count.fullDescription')}）`}
     >

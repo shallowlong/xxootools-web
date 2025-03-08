@@ -36,6 +36,8 @@ const TextDiff = () => {
 
   return (
     <ToolLayout
+      categoryId="text"
+      toolId="text-diff"
       title={t('textDiff.title')}
       description={`（${t('textDiff.description')}）`}
     >
