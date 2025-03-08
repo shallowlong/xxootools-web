@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Share, Heart, HeartOff } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+
 import { toast } from '@/components/ui/use-toast';
 import { useTranslation } from 'react-i18next';
 import {
@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { addToFavorites, isFavorite, removeFromFavorites, STORAGE_KEY } from '@/services/favorites';
+import { addToFavorites, isFavorite, removeFromFavorites } from '@/services/favorites';
 
 interface ToolActionsProps {
   toolName: string;
