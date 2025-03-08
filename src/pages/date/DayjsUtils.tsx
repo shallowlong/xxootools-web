@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 import dayjs from 'dayjs';
 import { useTranslation } from 'react-i18next';
 
@@ -25,7 +25,6 @@ const DayjsUtils = () => {
   const executeDayjsCode = () => {
     try {
       // 使用Function构造器创建一个可执行的函数，只提供 dayjs
-      // eslint-disable-next-line no-new-func
       const result = new Function('dayjs', `return ${dayjsCode}`)(dayjs);
       setCodeResult(String(result));
       setErrorMessage('');
@@ -38,6 +37,7 @@ const DayjsUtils = () => {
   // 当代码变化时自动执行
   useEffect(() => {
     executeDayjsCode();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dayjsCode]);
 
   return (
