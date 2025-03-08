@@ -32,8 +32,7 @@ const MomentUtils = () => {
       // 设置moment的语言环境为当前i18n语言
       moment.locale(i18n.language);
       
-      // 使用Function构造器创建一个可执行的函数，只提供 moment
-      // eslint-disable-next-line no-new-func
+      
       const result = new Function('moment', `return ${momentCode}`)(moment);
       setCodeResult(String(result));
       setErrorMessage('');
@@ -46,6 +45,7 @@ const MomentUtils = () => {
   // 当代码变化时自动执行
   useEffect(() => {
     executeMomentCode();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [momentCode, i18n.language]);
 
   // 当语言改变时设置 moment 的语言

@@ -105,8 +105,7 @@ export const getChineseMonth = (month: number): string => {
  * @param date 公历日期
  * @returns 农历日期字符串
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getLunarDate = (date: Date): string => {
+export const getLunarDate = (): string => {
   // 这里仅作为占位函数，实际实现农历转换需要使用专门的库
   // 可考虑使用 lunar-javascript 或 solarlunar 等第三方库
   return '农历日期转换需要额外的库支持';
