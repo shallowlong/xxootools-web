@@ -81,6 +81,33 @@
           }
         }
       }
+    },
+    "date": {
+      "name": "Datumswerkzeuge",
+      "tools": {
+        "dayjs-utils": {
+          "name": "Dayjs Datumswerkzeuge",
+          "description": "Datumsformatierung und Konvertierungswerkzeuge basierend auf Dayjs"
+        },
+        "moment-utils": {
+          "name": "Moment.js Datumswerkzeuge",
+          "description": "Datumsformatierung und Konvertierungswerkzeuge basierend auf Moment.js",
+          "codeRunner": {
+            "title": "Moment.js Code-Runner",
+            "inputLabel": "Moment.js Code eingeben",
+            "selectExample": "Codebeispiel auswählen",
+            "runButton": "Ausführen",
+            "resultLabel": "Ausführungsergebnis",
+            "tip1": "* Unterstützt nur native Moment.js-Methoden",
+            "tip2": "* Beispiele: moment().format('YYYY-MM-DD') oder moment().add(1, 'days')"
+          },
+          "unknownError": "Unbekannter Fehler"
+        },
+        "date-utils": {
+          "name": "Allgemeine Datumswerkzeuge",
+          "description": "Sammlung häufig verwendeter Datumsfunktionen"
+        }
+      }
     }
   },
   "common": {
@@ -194,6 +221,86 @@
     "actions": {
       "download": "Herunterladen",
       "downloadAll": "Alle als ZIP herunterladen"
+    }
+  },
+  "date-utils": {
+    "name": "Allgemeine Datumswerkzeuge",
+    "description": "Sammlung häufig verwendeter Datumsfunktionen",
+    "title": "Allgemeine Datumswerkzeuge",
+    "timestampTools": {
+      "title": "Zeitstempelumwandlungswerkzeuge",
+      "millisecondTimestamp": "Millisekunden-Zeitstempel",
+      "secondTimestamp": "Sekunden-Zeitstempel",
+      "format": "Format",
+      "result": "Ergebnis",
+      "current": "Aktuell"
+    },
+    "yearMonthDayTools": {
+      "title": "Jahr-Monat-Tag Werkzeuge",
+      "year": "Jahr",
+      "month": "Monat",
+      "day": "Tag",
+      "isLeapYear": "Ist Schaltjahr",
+      "daysInMonth": "Tage im Monat",
+      "firstDayOfMonth": "Erster Tag des Monats",
+      "isValidDate": "Ist gültiges Datum",
+      "yes": "Ja",
+      "no": "Nein",
+      "valid": "Gültig",
+      "invalid": "Ungültig"
+    },
+    "dateRangeTools": {
+      "title": "Datumsbereichswerkzeuge",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "daysBetween": "Tage im Bereich"
+    },
+    "dateInfoTools": {
+      "title": "Datumsinformationswerkzeuge",
+      "date": "Datum",
+      "weekday": "Wochentag",
+      "dayOfYear": "Tag des Jahres",
+      "currentTimestamp": "Aktueller Zeitstempel",
+      "ageIfBirthday": "Alter wenn Geburtstag",
+      "yearsOld": "Jahre alt"
+    },
+    "weekdays": {
+      "sunday": "Sonntag",
+      "monday": "Montag",
+      "tuesday": "Dienstag",
+      "wednesday": "Mittwoch",
+      "thursday": "Donnerstag",
+      "friday": "Freitag",
+      "saturday": "Samstag"
+    },
+    "months": {
+      "january": "Januar",
+      "february": "Februar",
+      "march": "März",
+      "april": "April",
+      "may": "Mai",
+      "june": "Juni",
+      "july": "Juli",
+      "august": "August",
+      "september": "September",
+      "october": "Oktober",
+      "november": "November",
+      "december": "Dezember"
+    }
+  },
+  "dayjs-utils": {
+    "name": "Dayjs Datumswerkzeuge",
+    "description": "Datumsformatierung und Konvertierungswerkzeuge basierend auf Dayjs",
+    "title": "Dayjs Datumswerkzeuge",
+    "unknownError": "Unbekannter Fehler",
+    "codeRunner": {
+      "title": "Dayjs Code-Runner",
+      "inputLabel": "Dayjs Code eingeben",
+      "selectExample": "Code-Beispiel auswählen",
+      "runButton": "Ausführen",
+      "resultLabel": "Ausführungsergebnis",
+      "helpText1": "* Nur native Dayjs-Methoden werden unterstützt",
+      "helpText2": "* Beispiel: dayjs().format('YYYY-MM-DD') oder dayjs().add(1, 'day')"
     }
   }
 } 

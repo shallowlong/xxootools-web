@@ -32,6 +32,94 @@
         }
       }
     },
+    "date": {
+      "name": "Date Tools",
+      "tools": {
+        "dayjs-utils": {
+          "name": "Dayjs Date Tools",
+          "description": "Date formatting and conversion tools based on Dayjs"
+        },
+        "moment-utils": {
+          "name": "Moment.js Date Tools",
+          "description": "Date formatting and conversion tools based on Moment.js",
+          "codeRunner": {
+            "title": "Moment.js Code Runner",
+            "inputLabel": "Enter Moment.js Code",
+            "selectExample": "Select Code Example",
+            "runButton": "Run",
+            "resultLabel": "Execution Result",
+            "tip1": "* Only supports native Moment.js methods",
+            "tip2": "* Examples: moment().format('YYYY-MM-DD') or moment().add(1, 'days')"
+          },
+          "unknownError": "Unknown error"
+        },
+        "date-utils": {
+          "name": "Common Date Tools",
+          "description": "Collection of commonly used date utility functions",
+          "title": "Common Date Tools",
+          "timestampTools": {
+            "title": "Timestamp Conversion Tools",
+            "millisecondTimestamp": "Millisecond Timestamp",
+            "secondTimestamp": "Second Timestamp",
+            "format": "Format",
+            "result": "Result",
+            "current": "Current"
+          },
+          "yearMonthDayTools": {
+            "title": "Year-Month-Day Tools",
+            "year": "Year",
+            "month": "Month",
+            "day": "Day",
+            "isLeapYear": "Is Leap Year",
+            "daysInMonth": "Days in Month",
+            "firstDayOfMonth": "First Day of Month",
+            "isValidDate": "Is Valid Date",
+            "yes": "Yes",
+            "no": "No",
+            "valid": "Valid",
+            "invalid": "Invalid"
+          },
+          "dateRangeTools": {
+            "title": "Date Range Tools",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "daysBetween": "Days in Range"
+          },
+          "dateInfoTools": {
+            "title": "Date Information Tools",
+            "date": "Date",
+            "weekday": "Weekday",
+            "dayOfYear": "Day of Year",
+            "currentTimestamp": "Current Timestamp",
+            "ageIfBirthday": "Age if Birthday",
+            "yearsOld": "years old"
+          },
+          "weekdays": {
+            "sunday": "Sunday",
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday"
+          },
+          "months": {
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "November",
+            "december": "December"
+          }
+        }
+      }
+    },
     "text": {
       "name": "Text Tools",
       "tools": {
@@ -220,6 +308,86 @@
     "firstTextPlaceholder": "Enter the first text...",
     "secondTextPlaceholder": "Enter the second text...",
     "compareButton": "Compare Differences"
+  },
+  "date-utils": {
+    "name": "Common Date Tools",
+    "description": "Collection of commonly used date utility functions",
+    "title": "Common Date Tools",
+    "timestampTools": {
+      "title": "Timestamp Conversion Tools",
+      "millisecondTimestamp": "Millisecond Timestamp",
+      "secondTimestamp": "Second Timestamp",
+      "format": "Format",
+      "result": "Result",
+      "current": "Current"
+    },
+    "yearMonthDayTools": {
+      "title": "Year-Month-Day Tools",
+      "year": "Year",
+      "month": "Month",
+      "day": "Day",
+      "isLeapYear": "Is Leap Year",
+      "daysInMonth": "Days in Month",
+      "firstDayOfMonth": "First Day of Month",
+      "isValidDate": "Is Valid Date",
+      "yes": "Yes",
+      "no": "No",
+      "valid": "Valid",
+      "invalid": "Invalid"
+    },
+    "dateRangeTools": {
+      "title": "Date Range Tools",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "daysBetween": "Days in Range"
+    },
+    "dateInfoTools": {
+      "title": "Date Information Tools",
+      "date": "Date",
+      "weekday": "Weekday",
+      "dayOfYear": "Day of Year",
+      "currentTimestamp": "Current Timestamp",
+      "ageIfBirthday": "Age if Birthday",
+      "yearsOld": "years old"
+    },
+    "weekdays": {
+      "sunday": "Sunday",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    }
+  },
+  "dayjs-utils": {
+    "name": "Dayjs Date Tools",
+    "description": "Date formatting and conversion tools based on Dayjs",
+    "title": "Dayjs Date Tools",
+    "unknownError": "Unknown error",
+    "codeRunner": {
+      "title": "Dayjs Code Runner",
+      "inputLabel": "Enter Dayjs Code",
+      "selectExample": "Select Code Example",
+      "runButton": "Run",
+      "resultLabel": "Execution Result",
+      "helpText1": "* Only native dayjs methods are supported",
+      "helpText2": "* Example: dayjs().format('YYYY-MM-DD') or dayjs().add(1, 'day')"
+    }
   },
   "audioConverter": {
     "title": "Audio Conversion",

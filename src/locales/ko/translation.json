@@ -81,6 +81,33 @@
           }
         }
       }
+    },
+    "date": {
+      "name": "날짜 도구",
+      "tools": {
+        "dayjs-utils": {
+          "name": "Dayjs 날짜 도구",
+          "description": "Dayjs 기반 날짜 형식 및 변환 도구"
+        },
+        "moment-utils": {
+          "name": "Moment.js 날짜 도구",
+          "description": "Moment.js 기반 날짜 형식 지정 및 변환 도구",
+          "codeRunner": {
+            "title": "Moment.js 코드 실행기",
+            "inputLabel": "Moment.js 코드 입력",
+            "selectExample": "코드 예제 선택",
+            "runButton": "실행",
+            "resultLabel": "실행 결과",
+            "tip1": "* Moment.js 네이티브 메서드만 지원",
+            "tip2": "* 예시: moment().format('YYYY-MM-DD') 또는 moment().add(1, 'days')"
+          },
+          "unknownError": "알 수 없는 오류"
+        },
+        "date-utils": {
+          "name": "일반 날짜 도구",
+          "description": "자주 사용되는 날짜 유틸리티 함수 모음"
+        }
+      }
     }
   },
   "common": {
@@ -194,6 +221,86 @@
     "actions": {
       "download": "다운로드",
       "downloadAll": "모두 ZIP으로 다운로드"
+    }
+  },
+  "date-utils": {
+    "name": "일반 날짜 도구",
+    "description": "자주 사용되는 날짜 유틸리티 함수 모음",
+    "title": "일반 날짜 도구",
+    "timestampTools": {
+      "title": "타임스탬프 변환 도구",
+      "millisecondTimestamp": "밀리초 타임스탬프",
+      "secondTimestamp": "초 타임스탬프",
+      "format": "형식",
+      "result": "결과",
+      "current": "현재"
+    },
+    "yearMonthDayTools": {
+      "title": "년월일 도구",
+      "year": "년",
+      "month": "월",
+      "day": "일",
+      "isLeapYear": "윤년인가",
+      "daysInMonth": "월의 일수",
+      "firstDayOfMonth": "월의 첫 요일",
+      "isValidDate": "유효한 날짜인가",
+      "yes": "예",
+      "no": "아니오",
+      "valid": "유효함",
+      "invalid": "유효하지 않음"
+    },
+    "dateRangeTools": {
+      "title": "날짜 범위 도구",
+      "startDate": "시작 날짜",
+      "endDate": "종료 날짜",
+      "daysBetween": "범위의 일수"
+    },
+    "dateInfoTools": {
+      "title": "날짜 정보 도구",
+      "date": "날짜",
+      "weekday": "요일",
+      "dayOfYear": "연중 일",
+      "currentTimestamp": "현재 타임스탬프",
+      "ageIfBirthday": "생일이면 나이",
+      "yearsOld": "세"
+    },
+    "weekdays": {
+      "sunday": "일요일",
+      "monday": "월요일",
+      "tuesday": "화요일",
+      "wednesday": "수요일",
+      "thursday": "목요일",
+      "friday": "금요일",
+      "saturday": "토요일"
+    },
+    "months": {
+      "january": "1월",
+      "february": "2월",
+      "march": "3월",
+      "april": "4월",
+      "may": "5월",
+      "june": "6월",
+      "july": "7월",
+      "august": "8월",
+      "september": "9월",
+      "october": "10월",
+      "november": "11월",
+      "december": "12월"
+    }
+  },
+  "dayjs-utils": {
+    "name": "Dayjs 날짜 도구",
+    "description": "Dayjs 기반 날짜 형식 및 변환 도구",
+    "title": "Dayjs 날짜 도구",
+    "unknownError": "알 수 없는 오류",
+    "codeRunner": {
+      "title": "Dayjs 코드 실행기",
+      "inputLabel": "Dayjs 코드 입력",
+      "selectExample": "코드 예제 선택",
+      "runButton": "실행",
+      "resultLabel": "실행 결과",
+      "helpText1": "* Dayjs 네이티브 메소드만 지원됩니다",
+      "helpText2": "* 예: dayjs().format('YYYY-MM-DD') 또는 dayjs().add(1, 'day')"
     }
   }
 } 

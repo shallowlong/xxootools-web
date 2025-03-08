@@ -32,6 +32,94 @@
         }
       }
     },
+    "date": {
+      "name": "日期工具",
+      "tools": {
+        "dayjs-utils": {
+          "name": "Dayjs 工具",
+          "description": "基于 Dayjs 的日期格式化、转换工具"
+        },
+        "moment-utils": {
+          "name": "Moment.js 工具",
+          "description": "基于 Moment.js 的日期格式化、转换工具",
+          "codeRunner": {
+            "title": "Moment.js 代码运行器",
+            "inputLabel": "输入 Moment.js 代码",
+            "selectExample": "选择代码示例",
+            "runButton": "运行",
+            "resultLabel": "执行结果",
+            "tip1": "* 仅支持 moment.js 原生方法",
+            "tip2": "* 示例：moment().format('YYYY-MM-DD') 或 moment().add(1, 'days')"
+          },
+          "unknownError": "未知错误"
+        },
+        "date-utils": {
+          "name": "通用日期工具",
+          "description": "常用日期工具函数集合",
+          "title": "通用日期工具",
+          "timestampTools": {
+            "title": "时间戳转换工具",
+            "millisecondTimestamp": "毫秒时间戳",
+            "secondTimestamp": "秒时间戳",
+            "format": "格式",
+            "result": "结果",
+            "current": "当前"
+          },
+          "yearMonthDayTools": {
+            "title": "年月日工具",
+            "year": "年",
+            "month": "月",
+            "day": "日",
+            "isLeapYear": "是否闰年",
+            "daysInMonth": "月份天数",
+            "firstDayOfMonth": "月首星期几",
+            "isValidDate": "日期是否有效",
+            "yes": "是",
+            "no": "否",
+            "valid": "有效",
+            "invalid": "无效"
+          },
+          "dateRangeTools": {
+            "title": "日期区间工具",
+            "startDate": "开始日期",
+            "endDate": "结束日期",
+            "daysBetween": "日期范围天数"
+          },
+          "dateInfoTools": {
+            "title": "日期信息工具",
+            "date": "日期",
+            "weekday": "星期几",
+            "dayOfYear": "一年中的第几天",
+            "currentTimestamp": "当前时间戳",
+            "ageIfBirthday": "如果生日计算年龄",
+            "yearsOld": "岁"
+          },
+          "weekdays": {
+            "sunday": "星期日",
+            "monday": "星期一",
+            "tuesday": "星期二",
+            "wednesday": "星期三",
+            "thursday": "星期四",
+            "friday": "星期五",
+            "saturday": "星期六"
+          },
+          "months": {
+            "january": "一月",
+            "february": "二月",
+            "march": "三月",
+            "april": "四月",
+            "may": "五月",
+            "june": "六月",
+            "july": "七月",
+            "august": "八月",
+            "september": "九月",
+            "october": "十月",
+            "november": "十一月",
+            "december": "十二月"
+          }
+        }
+      }
+    },
     "text": {
       "name": "文本工具",
       "tools": {
@@ -221,6 +309,71 @@
     "secondTextPlaceholder": "请输入第二段文本...",
     "compareButton": "比较差异"
   },
+  "date-utils": {
+    "name": "通用日期工具",
+    "description": "常用日期工具函数集合",
+    "title": "通用日期工具",
+    "timestampTools": {
+      "title": "时间戳转换工具",
+      "millisecondTimestamp": "毫秒时间戳",
+      "secondTimestamp": "秒时间戳",
+      "format": "格式",
+      "result": "结果",
+      "current": "当前"
+    },
+    "yearMonthDayTools": {
+      "title": "年月日工具",
+      "year": "年",
+      "month": "月",
+      "day": "日",
+      "isLeapYear": "是否闰年",
+      "daysInMonth": "月份天数",
+      "firstDayOfMonth": "月首星期几",
+      "isValidDate": "日期是否有效",
+      "yes": "是",
+      "no": "否",
+      "valid": "有效",
+      "invalid": "无效"
+    },
+    "dateRangeTools": {
+      "title": "日期区间工具",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "daysBetween": "日期范围天数"
+    },
+    "dateInfoTools": {
+      "title": "日期信息工具",
+      "date": "日期",
+      "weekday": "星期几",
+      "dayOfYear": "一年中的第几天",
+      "currentTimestamp": "当前时间戳",
+      "ageIfBirthday": "如果生日计算年龄",
+      "yearsOld": "岁"
+    },
+    "weekdays": {
+      "sunday": "星期日",
+      "monday": "星期一",
+      "tuesday": "星期二",
+      "wednesday": "星期三",
+      "thursday": "星期四",
+      "friday": "星期五",
+      "saturday": "星期六"
+    },
+    "months": {
+      "january": "一月",
+      "february": "二月",
+      "march": "三月",
+      "april": "四月",
+      "may": "五月",
+      "june": "六月",
+      "july": "七月",
+      "august": "八月",
+      "september": "九月",
+      "october": "十月",
+      "november": "十一月",
+      "december": "十二月"
+    }
+  },
   "audioConverter": {
     "title": "音频转换",
     "description": "转换音频文件格式，调整采样率、比特率和音质",
@@ -283,5 +436,20 @@
     "contact": "联系我们",
     "contactText": "如果您对我们的隐私政策有任何疑问或顾虑，请通过我们的网站联系我们。",
     "lastUpdated": "最后更新"
+  },
+  "dayjs-utils": {
+    "name": "Dayjs 日期工具",
+    "description": "基于 Dayjs 的日期格式化、转换工具",
+    "title": "Dayjs 日期工具",
+    "unknownError": "未知错误",
+    "codeRunner": {
+      "title": "Dayjs 代码运行器",
+      "inputLabel": "输入 Dayjs 代码",
+      "selectExample": "选择代码示例",
+      "runButton": "运行",
+      "resultLabel": "执行结果",
+      "helpText1": "* 仅支持 dayjs 原生方法",
+      "helpText2": "* 示例：dayjs().format('YYYY-MM-DD') 或 dayjs().add(1, 'day')"
+    }
   }
 } 

@@ -49,6 +49,33 @@ export const TOOL_CATEGORY: ToolCategory[] = [
     ]
   },
   {
+    id: 'date',
+    name: 'date',
+    tools: [
+      {
+        id: 'dayjs-utils',
+        name: 'dayjs-utils',
+        description: 'dayjs-utils',
+        icon: 'Calendar',
+        path: '/date/dayjs-utils'
+      },
+      {
+        id: 'moment-utils',
+        name: 'moment-utils',
+        description: 'moment-utils',
+        icon: 'CalendarDays',
+        path: '/date/moment-utils'
+      },
+      {
+        id: 'date-utils',
+        name: 'date-utils',
+        description: 'date-utils',
+        icon: 'CalendarClock',
+        path: '/date/date-utils'
+      }
+    ]
+  },
+  {
     id: 'text',
     name: 'text',
     tools: [

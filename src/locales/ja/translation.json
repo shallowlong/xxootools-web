@@ -81,6 +81,33 @@
           }
         }
       }
+    },
+    "date": {
+      "name": "日付ツール",
+      "tools": {
+        "dayjs-utils": {
+          "name": "Dayjs 日付ツール",
+          "description": "Dayjsベースの日付フォーマットおよび変換ツール"
+        },
+        "moment-utils": {
+          "name": "Moment.js 日付ツール",
+          "description": "Moment.jsを利用した日付のフォーマットと変換ツール",
+          "codeRunner": {
+            "title": "Moment.js コードランナー",
+            "inputLabel": "Moment.js コードを入力",
+            "selectExample": "コード例を選択",
+            "runButton": "実行",
+            "resultLabel": "実行結果",
+            "tip1": "* Moment.jsのネイティブメソッドのみサポート",
+            "tip2": "* 例: moment().format('YYYY-MM-DD') または moment().add(1, 'days')"
+          },
+          "unknownError": "不明なエラー"
+        },
+        "date-utils": {
+          "name": "一般日付ツール",
+          "description": "一般的な日付ユーティリティ関数のコレクション"
+        }
+      }
     }
   },
   "common": {
@@ -194,6 +221,86 @@
     "actions": {
       "download": "ダウンロード",
       "downloadAll": "すべてをZIPでダウンロード"
+    }
+  },
+  "date-utils": {
+    "name": "一般日付ツール",
+    "description": "一般的な日付ユーティリティ関数のコレクション",
+    "title": "一般日付ツール",
+    "timestampTools": {
+      "title": "タイムスタンプ変換ツール",
+      "millisecondTimestamp": "ミリ秒タイムスタンプ",
+      "secondTimestamp": "秒タイムスタンプ",
+      "format": "フォーマット",
+      "result": "結果",
+      "current": "現在"
+    },
+    "yearMonthDayTools": {
+      "title": "年月日ツール",
+      "year": "年",
+      "month": "月",
+      "day": "日",
+      "isLeapYear": "閏年ですか",
+      "daysInMonth": "月の日数",
+      "firstDayOfMonth": "月の最初の曜日",
+      "isValidDate": "有効な日付ですか",
+      "yes": "はい",
+      "no": "いいえ",
+      "valid": "有効",
+      "invalid": "無効"
+    },
+    "dateRangeTools": {
+      "title": "日付範囲ツール",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "daysBetween": "範囲内の日数"
+    },
+    "dateInfoTools": {
+      "title": "日付情報ツール",
+      "date": "日付",
+      "weekday": "曜日",
+      "dayOfYear": "年間の日",
+      "currentTimestamp": "現在のタイムスタンプ",
+      "ageIfBirthday": "誕生日なら年齢",
+      "yearsOld": "歳"
+    },
+    "weekdays": {
+      "sunday": "日曜日",
+      "monday": "月曜日",
+      "tuesday": "火曜日",
+      "wednesday": "水曜日",
+      "thursday": "木曜日",
+      "friday": "金曜日",
+      "saturday": "土曜日"
+    },
+    "months": {
+      "january": "1月",
+      "february": "2月",
+      "march": "3月",
+      "april": "4月",
+      "may": "5月",
+      "june": "6月",
+      "july": "7月",
+      "august": "8月",
+      "september": "9月",
+      "october": "10月",
+      "november": "11月",
+      "december": "12月"
+    }
+  },
+  "dayjs-utils": {
+    "name": "Dayjs 日付ツール",
+    "description": "Dayjsベースの日付フォーマットおよび変換ツール",
+    "title": "Dayjs 日付ツール",
+    "unknownError": "不明なエラー",
+    "codeRunner": {
+      "title": "Dayjs コードランナー",
+      "inputLabel": "Dayjs コードを入力",
+      "selectExample": "コード例を選択",
+      "runButton": "実行",
+      "resultLabel": "実行結果",
+      "helpText1": "* Dayjsのネイティブメソッドのみサポートしています",
+      "helpText2": "* 例：dayjs().format('YYYY-MM-DD') または dayjs().add(1, 'day')"
     }
   }
 } 

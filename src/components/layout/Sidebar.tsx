@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Input } from '@/components/ui/input';
-import { Search, ChevronRight, ChevronDown, Image, FileVideo, FileAudio, FileType, FileCode, Hash, Database, Gauge, FolderKanban, Pencil } from 'lucide-react';
+import { Search, ChevronRight, ChevronDown, Image, FileVideo, FileAudio, FileType, FileCode, Hash, Database, Gauge, FolderKanban, Pencil, Clock } from 'lucide-react';
 import { TOOL_CATEGORY } from '@/constants/category';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +13,7 @@ const categoryIconMap: Record<string, { icon: React.ElementType, color: string }
   image: { icon: Image, color: '#10B981' },     // 绿色
   video: { icon: FileVideo, color: '#F59E0B' },  // 琥珀色
   audio: { icon: FileAudio, color: '#8B5CF6' },  // 紫色
+  date: { icon: Clock, color: '#F43F5E' },       // 红粉色
   file: { icon: FileType, color: '#EC4899' },    // 粉色
   dev: { icon: Hash, color: '#EF4444' },         // 红色
   data: { icon: Database, color: '#6366F1' },    // 靛蓝色

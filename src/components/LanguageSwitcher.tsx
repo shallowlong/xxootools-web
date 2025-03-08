@@ -8,11 +8,11 @@ import {
 } from '@/components/ui/select';
 
 const languages = [
-  { code: 'zh', name: '中文' },
-  { code: 'en', name: 'English' },
-  { code: 'ja', name: '日本語' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'ko', name: '한국어' },
+  { code: 'zh', name: '🇨🇳 中文' },
+  { code: 'en', name: '🇺🇸 English' },
+  { code: 'ja', name: '🇯🇵 日本語' },
+  { code: 'de', name: '🇩🇪 Deutsch' },
+  { code: 'ko', name: '🇰🇷 한국어' },
 ];
 
 export function LanguageSwitcher() {
@@ -27,7 +27,7 @@ export function LanguageSwitcher() {
   return (
     <div className="flex items-center gap-2">
       <Select value={i18n.language} onValueChange={handleLanguageChange}>
-        <SelectTrigger className="w-[120px]">
+        <SelectTrigger className="w-[100px]">
           <SelectValue placeholder={t('common.language')} />
         </SelectTrigger>
         <SelectContent>
