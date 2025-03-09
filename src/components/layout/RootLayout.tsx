@@ -25,7 +25,9 @@ const RootLayout: React.FC = () => {
               </div>
             </Link>
           </div>
+          <a href="https://www.producthunt.com/posts/xtools?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xtools" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=939919&theme=light&t=1741521594354" alt="XTools - a&#0032;free&#0044;&#0032;open&#0045;source&#0044;&#0032;and&#0032;data&#0045;secure&#0032;toolbox&#0046; | Product Hunt" style={{width: "250px", height: "54px"}} /></a>
           <div className="flex items-center gap-4">
+          
             <a
               href="https://github.com/Go7hic/xxootools-web"
               target="_blank"
