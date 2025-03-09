@@ -1,5 +1,24 @@
-## xxoo-tools
+## XTools
 
-XTools 一个简洁、强大、安全的工具箱
+![xtools logo](/public/logo.png)
 
-地址：https://xxoo.tools
+XTools is a free, open-source, and data-secure toolbox.
+
+
+
+
+### Dev
+
+- git clone git@github.com:Go7hic/xxootools-web.git
+
+- pnpm install 
+
+- pnpm dev
+
+### DEMO
+
+[https://xxoo.tools](https://xxoo.tools)
+
+### License
+
+The MIT License.

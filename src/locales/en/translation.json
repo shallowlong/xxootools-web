@@ -1,5 +1,6 @@
 {
-  "welcome": "Welcome to <span>XTools</span>, a <b>simple</b>、 <b>powerful</b>、 and <b>secure</b> tool box",
+  "welcome": "Welcome to <span>XTools</span>, a <b>Free</b>、<b>Open-Source</b>、and <b>Data-Secure</b> toolbox",
+  
   "categories": {
     "image": {
       "name": "Image Tools",

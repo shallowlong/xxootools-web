@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
+import { Github } from 'lucide-react';
 
 const RootLayout: React.FC = () => {
   const { t } = useTranslation();
@@ -25,8 +26,17 @@ const RootLayout: React.FC = () => {
             </Link>
           </div>
           <div className="flex items-center gap-4">
-            <LanguageSwitcher />
+            <a
+              href="https://github.com/Go7hic/xxootools-web"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+              title={t('common.viewOnGithub')}
+            >
+              <Github />
+            </a>
             <ModeToggle />
+            <LanguageSwitcher />
           </div>
         </div>
       </header>
