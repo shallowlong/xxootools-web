@@ -126,6 +126,53 @@
     "language": "言語",
     "search": "ツールを検索"
   },
+  "imageCompress": {
+    "title": "画像圧縮",
+    "description": "画像ファイルサイズを圧縮し、さまざまなフォーマットとカスタム圧縮オプションをサポート",
+    "dropToUpload": "画像をドロップしてアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして画像をアップロード",
+    "supportedFormats": "<span>複数</span>の画像をサポート、形式には {{formats}} が含まれます",
+    "compressionOptions": "圧縮オプション",
+    "outputFormat": "出力形式",
+    "selectOutputFormat": "出力形式を選択",
+    "useOriginalFormat": "アップロード時に元の画像形式を使用",
+    "quality": "品質",
+    "compressionHistory": "圧縮履歴",
+    "downloadAll": "すべてをZIPでダウンロード",
+    "image": "画像",
+    "fileInfo": "ファイル情報",
+    "compressionInfo": "圧縮情報",
+    "actions": "アクション",
+    "preview": "プレビュー",
+    "format": "形式",
+    "compressing": "圧縮中...",
+    "original": "元の画像",
+    "compressed": "圧縮後",
+    "compressionFailed": "圧縮失敗",
+    "errors": {
+      "canvasContextNotAvailable": "Canvasコンテキストが利用できません",
+      "avifNotSupported": "AVIF形式はサポートされていません",
+      "compressionError": "圧縮中にエラーが発生しました",
+      "createZipError": "ZIPファイルの作成中にエラーが発生しました",
+      "downloadFailed": "ダウンロードに失敗しました。再試行するか、画像を個別にダウンロードしてください"
+    }
+  },
+  "imageConverter": {
+    "title": "画像フォーマット変換",
+    "description": "画像を異なるフォーマットに変換、WebP、PNG、JPG、GIFをサポート",
+    "dropToUpload": "画像をドロップしてアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして画像をアップロード",
+    "supportedFormats": "<span>複数</span>の画像をサポート、形式には {{formats}} が含まれます",
+    "dragMessage": "変換を開始するにはリリース",
+    "convertSettings": "変換設定",
+    "targetFormat": "対象フォーマット",
+    "selectFormat": "フォーマットを選択",
+    "conversionResults": "変換結果",
+    "downloadAll": "すべてをZIPでダウンロード",
+    "originalFormat": "元のフォーマット",
+    "convertingTo": "変換先",
+    "converting": "変換中..."
+  },
   "videoCompress": {
     "title": "動画圧縮",
     "description": "動画ファイルサイズを圧縮し、さまざまなフォーマットとカスタム圧縮オプションをサポート",
@@ -178,9 +225,10 @@
   "audioConverter": {
     "title": "音声変換",
     "description": "音声ファイルの形式を変換し、サンプルレート、ビットレート、音質を調整します",
+    "conversionResults": "変換結果",
     "dropzone": {
       "title": "クリックまたはドラッグして音声ファイルをアップロード",
-      "description": "{{highlight:複数の}}オーディオファイルを選択できます。対応フォーマット：{{supportedFormats}}"
+      "description": "<span>複数の</span>音声ファイルを選択できます。対応フォーマット：{{supportedFormats}}"
     },
     "options": {
       "title": "変換オプション",
@@ -188,6 +236,9 @@
       "selectFormat": "出力フォーマットを選択",
       "quality": "音質",
       "selectQuality": "音質を選択",
+      "highQualityShort": "高",
+      "mediumQualityShort": "中",
+      "lowQualityShort": "低",
       "sampleRate": "サンプルレート",
       "selectSampleRate": "サンプルレートを選択",
       "bitRate": "ビットレート",
@@ -195,7 +246,7 @@
       "compressionRatio": "圧縮率"
     },
     "formats": {
-      "mp3": "MP3（おすすめ）",
+      "mp3": "MP3（推奨）",
       "wav": "WAV",
       "ogg": "OGG",
       "aac": "AAC",
@@ -203,12 +254,16 @@
       "flac": "FLAC"
     },
     "quality": {
-      "high": "高音質",
-      "medium": "中音質",
-      "low": "低音質"
+      "high": "高品質",
+      "medium": "中品質",
+      "low": "低品質"
     },
     "results": {
       "title": "変換履歴",
+      "file": "音声",
+      "fileInfo": "ファイル情報",
+      "conversionInfo": "変換情報",
+      "actions": "操作",
       "originalFormat": "元のフォーマット",
       "fileSize": "サイズ",
       "duration": "長さ",
@@ -216,7 +271,12 @@
       "converting": "変換中",
       "targetFormat": "変換先フォーマット",
       "convertedSize": "変換後のサイズ",
-      "compressionRatio": "圧縮率"
+      "compressionRatio": "圧縮率",
+      "format": "フォーマット",
+      "quality": "品質",
+      "originalAudio": "元のサイズ: {{size}}",
+      "convertedAudio": "変換後: {{size}}",
+      "conversionFailed": "変換失敗"
     },
     "actions": {
       "download": "ダウンロード",
@@ -299,8 +359,53 @@
       "selectExample": "コード例を選択",
       "runButton": "実行",
       "resultLabel": "実行結果",
-      "helpText1": "* Dayjsのネイティブメソッドのみサポートしています",
-      "helpText2": "* 例：dayjs().format('YYYY-MM-DD') または dayjs().add(1, 'day')"
+      "helpText1": "* ネイティブのDayjs方法のみサポートされています",
+      "helpText2": "* 例：dayjs().format('YYYY-MM-DD')またはdayjs().add(1, 'day')"
     }
+  },
+  "textConverter": {
+    "title": "テキスト変換",
+    "description": "大文字小文字の変換、簡体字/繁体字の変換など",
+    "placeholder": "変換するテキストを入力してください...",
+    "toUpperCase": "大文字に変換",
+    "toLowerCase": "小文字に変換",
+    "toTraditional": "繁体字中国語に変換",
+    "toSimplified": "簡体字中国語に変換"
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "introduction": "はじめに",
+    "introText": "XToolsへようこそ。私たちはあなたのプライバシーとデータセキュリティを大切にしています。このプライバシーポリシーは、当社のサービスを利用する際にお客様のデータをどのように取り扱うかについて説明するものです。",
+    "dataPolicy": "データ処理ポリシー",
+    "noStorage": "アップロードまたは処理されたファイルデータは保存しません。すべてのファイル処理はブラウザ上でローカルに行われ、データは当社のサーバーに送信されません。",
+    "localProcessing": "当社のツールはクライアントサイドで完全に動作するように設計されており、ファイルの内容がお使いのデバイスから外部に送信されることはありません。これによりデータのセキュリティとプライバシーが確保されます。",
+    "analytics": "利用状況の分析",
+    "analyticsText": "サービス改善のため、ページ訪問数や機能の使用統計などの匿名の使用データを収集する場合があります。このデータには個人を特定できる情報やファイルの内容は含まれません。",
+    "cookies": "Cookieの使用",
+    "cookiesText": "言語設定やテーマ設定を記憶するために基本的なCookieを使用する場合があります。これらのCookieはトラッキングや広告目的には使用されません。",
+    "contact": "お問い合わせ",
+    "contactText": "プライバシーポリシーに関するご質問やご不明な点がございましたら、当社のウェブサイトからお問い合わせください。",
+    "lastUpdated": "最終更新日"
+  },
+  "share": {
+    "button": "共有",
+    "linkCopied": "リンクコピー完了",
+    "linkCopiedDesc": "ページリンクがクリップボードにコピーされました",
+    "copyFailed": "コピー失敗",
+    "copyFailedDesc": "リンクをクリップボードにコピーできませんでした"
+  },
+  "favorite": {
+    "add": "お気に入り",
+    "added": "お気に入り済み",
+    "removed": "削除済み",
+    "removedDesc": "お気に入りから削除されました",
+    "addedDesc": "お気に入りに追加されました"
+  },
+  "toolGroups": {
+    "favorites": "お気に入り",
+    "popular": "人気ツール",
+    "recent": "最近更新されたツール",
+    "noFavorites": "まだお気に入りがありません。任意のツールの星アイコンをクリックしてお気に入りに追加してください。",
+    "noTools": "このカテゴリにはツールがありません。"
   }
 } 

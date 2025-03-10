@@ -5,7 +5,7 @@ import ToolLayout from '@/components/tool/ToolLayout';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { UploadCloud, FileAudio, Download, Trash2, Archive } from 'lucide-react';
+import { UploadCloud, FileAudio, Download, Trash2, Archive, RefreshCw } from 'lucide-react';
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 import { fetchFile } from '@ffmpeg/util';
@@ -591,84 +591,116 @@ const AudioConverter = () => {
         {/* 转换结果列表 */}
         {conversionResults.length > 0 && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-medium">{t('audioConverter.results.title')}</h3>
-              {conversionResults.length >= 2 && (
-                <Button variant="outline" size="sm" onClick={handleBatchDownload}>
-                  <Archive className="h-4 w-4 mr-2" />
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-lg font-medium">{t('audioConverter.conversionResults')} ({conversionResults.length})</h3>
+              {conversionResults.filter(r => !r.isConverting && r.url).length > 0 && (
+                <Button
+                  onClick={handleBatchDownload}
+                  variant="outline"
+                  size="sm"
+                >
+                  <Archive className="mr-2 h-3.5 w-3.5" />
                   {t('audioConverter.actions.downloadAll')}
                 </Button>
               )}
             </div>
             
-            <div className="space-y-4">
-              {conversionResults.map((result) => (
-                <div key={result.id} className="border rounded-lg p-4 relative">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center">
-                      <FileAudio className="h-5 w-5 mr-2 text-muted-foreground" />
-                      <div>
-                        <h4 className="font-medium text-sm">{result.originalFile.name}</h4>
-                        <p className="text-xs text-muted-foreground">
-                          {t('audioConverter.results.originalFormat')}: {result.originalExt.toUpperCase()} • 
-                          {t('audioConverter.results.fileSize')}: {formatFileSize(result.originalFile.size)} •
-                          {result.duration && <> {t('audioConverter.results.duration')}: {formatDuration(result.duration)} •</>}
-                          {t('audioConverter.results.uploadTime')}: {new Date(result.timestamp).toLocaleTimeString()}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => handleDownload(result)}
-                        disabled={result.isConverting}
-                      >
-                        <Download className="h-4 w-4 mr-1" />
-                        {t('audioConverter.actions.download')}
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        onClick={() => handleDeleteResult(result.id)}
-                      >
-                        <Trash2 className="h-4 w-4 text-muted-foreground" />
-                      </Button>
-                    </div>
-                  </div>
-                  
-                  {result.isConverting ? (
-                    <div className="mt-4">
-                      <div className="flex justify-between text-xs mb-1">
-                        <span>{t('audioConverter.results.converting')}</span>
-                        <span>{Math.round(result.conversionProgress)}%</span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-1.5 dark:bg-gray-700">
-                        <div 
-                          className="bg-primary h-1.5 rounded-full" 
-                          style={{ width: `${result.conversionProgress}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
-                      <div>
-                        <span className="text-xs font-medium">{t('audioConverter.results.targetFormat')}</span>
-                        <p className="text-sm">{result.format.toUpperCase()}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs font-medium">{t('audioConverter.results.convertedSize')}</span>
-                        <p className="text-sm">{formatFileSize(result.size)}</p>
-                      </div>
-                      <div>
-                        <span className="text-xs font-medium">{t('audioConverter.results.compressionRatio')}</span>
-                        <p className="text-sm">{getCompressionRatio(result.originalFile.size, result.size)}</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+            <div className="border rounded-lg overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-muted/50">
+                  <tr>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('audioConverter.results.file')}</th>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('audioConverter.results.fileInfo')}</th>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('audioConverter.results.conversionInfo')}</th>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('audioConverter.results.actions')}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {conversionResults.map((result) => (
+                    <tr key={result.id} className="hover:bg-muted/30">
+                      <td className="py-2 px-3 w-16">
+                        <div className="relative w-10 h-10 bg-muted rounded overflow-hidden flex items-center justify-center">
+                          <FileAudio className="h-5 w-5 text-muted-foreground" />
+                          {result.isConverting && (
+                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                              <RefreshCw className="animate-spin h-4 w-4 text-white" />
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="py-2 px-3">
+                        <div className="flex flex-col gap-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium truncate max-w-[150px]">{result.originalFile.name}</span>
+                            <span className="text-xs text-muted-foreground">{new Date(result.timestamp).toLocaleTimeString()}</span>
+                          </div>
+                          
+                          {result.isConverting ? (
+                            <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden mt-1">
+                              <div 
+                                className="bg-primary h-full transition-all" 
+                                style={{ width: `${result.conversionProgress}%` }}
+                              />
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <span>{t('audioConverter.results.format')}: {result.originalExt.toUpperCase()}</span>
+                              <span className="text-xs text-muted-foreground">•</span>
+                              <span>{t('audioConverter.results.duration')}: {formatDuration(result.duration)}</span>
+                              <span className="text-xs text-muted-foreground">•</span>
+                              <span>{t('audioConverter.results.quality')}: {
+                                result.quality === 'high' 
+                                  ? t('audioConverter.options.highQualityShort') 
+                                  : result.quality === 'medium' 
+                                    ? t('audioConverter.options.mediumQualityShort') 
+                                    : t('audioConverter.options.lowQualityShort')
+                              }</span>
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="py-2 px-3">
+                        {result.isConverting ? (
+                          <div className="text-xs">{t('audioConverter.results.converting')}</div>
+                        ) : result.url ? (
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="text-xs whitespace-nowrap">{t('audioConverter.results.originalAudio', { size: formatFileSize(result.originalFile.size) })}</span>
+                            <span className="text-xs whitespace-nowrap">→</span>
+                            <span className="text-xs whitespace-nowrap">{t('audioConverter.results.convertedAudio', { size: formatFileSize(result.size) })}</span>
+                            <span className="text-xs text-green-500 whitespace-nowrap">(-{getCompressionRatio(result.originalFile.size, result.size)})</span>
+                          </div>
+                        ) : (
+                          <div className="text-xs text-red-500">{t('audioConverter.results.conversionFailed')}</div>
+                        )}
+                      </td>
+                      <td className="py-2 px-3">
+                        <div className="flex gap-1">
+                          {!result.isConverting && result.url && (
+                            <Button 
+                              onClick={() => handleDownload(result)}
+                              variant="outline"
+                              size="icon"
+                              className="h-7 w-7"
+                            >
+                              <Download className="h-3.5 w-3.5" />
+                            </Button>
+                          )}
+                          
+                          <Button 
+                            onClick={() => handleDeleteResult(result.id)}
+                            variant="outline"
+                            size="icon"
+                            className="h-7 w-7 text-destructive hover:bg-destructive/10"
+                            disabled={result.isConverting}
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         )}

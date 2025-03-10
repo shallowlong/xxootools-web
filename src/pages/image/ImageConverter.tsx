@@ -2,7 +2,7 @@ import React, { useRef, useState, useCallback } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import ToolLayout from '@/components/tool/ToolLayout';
 import { Button } from '@/components/ui/button';
-import { UploadCloud, Download, Trash2, Archive } from 'lucide-react';
+import { UploadCloud, Download, Trash2, Archive, RefreshCw } from 'lucide-react';
 import { 
   Select,
   SelectContent,
@@ -284,8 +284,26 @@ const ImageConverter = () => {
   
   // 格式化时间
   const formatTime = (timestamp: number): string => {
-    const date = new Date(timestamp);
-    return date.toLocaleTimeString();
+    return new Date(timestamp).toLocaleTimeString();
+  };
+  
+  // 格式化文件大小显示
+  const formatFileSize = (bytes: number): string => {
+    if (bytes < 1024) {
+      return `${bytes} B`;
+    } else if (bytes < 1024 * 1024) {
+      return `${(bytes / 1024).toFixed(2)} KB`;
+    } else {
+      return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+    }
+  };
+  
+  // 计算转换率 - 文件大小变化比例
+  const getConversionRatio = (original: number, converted: number): string => {
+    if (original <= 0) return '0%';
+    
+    const ratio = ((original - converted) / original) * 100;
+    return ratio > 0 ? `${ratio.toFixed(1)}%` : `+${Math.abs(ratio).toFixed(1)}%`;
   };
   
   return (
@@ -295,7 +313,7 @@ const ImageConverter = () => {
       title={t('imageConverter.title')}
       description={`（${t('imageConverter.description')}）`}
     >
-      <div>
+      <div className="space-y-6">
         {/* 隐藏的canvas用于图片处理 */}
         <canvas ref={canvasRef} className="hidden" />
         
@@ -362,9 +380,9 @@ const ImageConverter = () => {
         
         {/* 转换结果列表 */}
         {conversionResults.length > 0 && (
-          <div className="border rounded-lg p-4">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-medium">{t('imageConverter.conversionResults')}</h3>
+          <div className="rounded-lg">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-medium">{t('imageConverter.conversionResults')} ({conversionResults.length})</h3>
               
               {/* 批量下载按钮 */}
               {conversionResults.some(r => !r.isConverting && r.url) && (
@@ -374,86 +392,120 @@ const ImageConverter = () => {
                   onClick={handleBatchDownload}
                   className="flex items-center"
                 >
-                  <Archive className="mr-2 h-4 w-4" /> 
+                  <Archive className="mr-2 h-3.5 w-3.5" /> 
                   {t('imageConverter.downloadAll')}
                 </Button>
               )}
             </div>
             
-            <div className="space-y-3">
-              {conversionResults.map(result => (
-                <div key={result.id} className="border rounded-lg p-3 flex flex-col md:flex-row">
-                  {/* 左侧：文件信息和状态 */}
-                  <div className="flex-grow mb-3 md:mb-0 md:mr-4">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 bg-muted rounded-md overflow-hidden flex items-center justify-center shrink-0">
-                        <img 
-                          src={result.originalPreview} 
-                          alt={t('common.preview')} 
-                          className="max-w-full max-h-full object-contain" 
-                        />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-medium text-sm truncate">{result.originalFile.name}</p>
-                        <p className="text-xs text-muted-foreground flex items-center mt-0.5">
-                          <span className="inline-flex items-center">
-                            {result.originalFormat.toUpperCase()} → {result.targetFormat.toUpperCase()}
-                          </span>
-                          <span className="mx-2">•</span>
-                          <span>{formatTime(result.timestamp)}</span>
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* 转换状态/进度 */}
-                    {result.isConverting ? (
-                      <div className="w-full bg-muted rounded-full h-2 mt-1">
-                        <div 
-                          className="bg-primary h-2 rounded-full transition-all duration-300"
-                          style={{ width: `${result.conversionProgress}%` }}
-                        />
-                      </div>
-                    ) : result.url ? (
-                      <div className="flex items-center text-xs text-green-600 mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        {t('imageConverter.conversionStatus.success')}
-                      </div>
-                    ) : (
-                      <div className="flex items-center text-xs text-red-500 mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                        </svg>
-                        {t('imageConverter.conversionStatus.failed')}
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* 右侧：操作按钮 */}
-                  {!result.isConverting && result.url && (
-                    <div className="flex items-center space-x-2 shrink-0">
-                       <Button 
-                        onClick={() => handleDownload(result)}
-                        variant="outline"
-                        size="icon"
-                        className="h-7 w-7"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                      </Button>
-                     
-                      <Button 
-                        onClick={() => handleDeleteResult(result.id)}
-                        variant="outline"
-                        size="icon"
-                        className="h-7 w-7 text-destructive hover:bg-destructive/10"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              ))}
+            <div className="border rounded-lg overflow-hidden">
+              <table className="w-full">
+                <thead className="bg-muted/50">
+                  <tr>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('common.image')}</th>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('common.fileInfo')}</th>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('common.conversionInfo')}</th>
+                    <th className="text-xs font-medium text-left py-2 px-3">{t('common.actions')}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {conversionResults.map(result => (
+                    <tr key={result.id} className="hover:bg-muted/30">
+                      <td className="py-2 px-3 w-16">
+                        <div className="relative w-12 h-12 bg-muted rounded overflow-hidden flex items-center justify-center">
+                          <img 
+                            src={result.originalPreview} 
+                            alt={t('common.preview')} 
+                            className="max-w-full max-h-full object-contain" 
+                          />
+                          
+                          {result.isConverting && (
+                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                              <RefreshCw className="animate-spin h-4 w-4 text-white" />
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="py-2 px-3">
+                        <div className="flex flex-col gap-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium truncate max-w-[150px]">{result.originalFile.name}</span>
+                            <span className="text-xs text-muted-foreground">{formatTime(result.timestamp)}</span>
+                          </div>
+                          
+                          {result.isConverting ? (
+                            <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden mt-1">
+                              <div 
+                                className="bg-primary h-full transition-all" 
+                                style={{ width: `${result.conversionProgress}%` }}
+                              />
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <span>{formatFileSize(result.originalFile.size)}</span>
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="py-2 px-3">
+                        {result.isConverting ? (
+                          <div className="text-xs">{t('imageConverter.converting')}...</div>
+                        ) : result.url ? (
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="text-xs whitespace-nowrap">{result.originalFormat.toUpperCase()} → {result.targetFormat.toUpperCase()}</span>
+                            <span className="text-xs text-muted-foreground mx-1">|</span>
+                            <span className="text-xs whitespace-nowrap">{formatFileSize(result.originalFile.size)} → </span>
+                            {/* 估算转换后大小，实际可能受多种因素影响 */}
+                            {(() => {
+                              // 从 dataURL 中估算文件大小
+                              const convertedSize = result.url ? 
+                                Math.round((result.url.length - result.url.indexOf(',') - 1) * 0.75) : 
+                                0;
+                              
+                              return (
+                                <>
+                                  <span className="text-xs whitespace-nowrap">{formatFileSize(convertedSize)}</span>
+                                  {convertedSize < result.originalFile.size ? (
+                                    <span className="text-xs text-green-500 whitespace-nowrap">(-{getConversionRatio(result.originalFile.size, convertedSize)})</span>
+                                  ) : (
+                                    <span className="text-xs text-orange-500 whitespace-nowrap">(+{getConversionRatio(convertedSize, result.originalFile.size)})</span>
+                                  )}
+                                </>
+                              );
+                            })()}
+                          </div>
+                        ) : (
+                          <div className="text-xs text-red-500">{t('imageConverter.conversionStatus.failed')}</div>
+                        )}
+                      </td>
+                      <td className="py-2 px-3">
+                        <div className="flex gap-1">
+                          {!result.isConverting && result.url && (
+                            <Button 
+                              onClick={() => handleDownload(result)}
+                              variant="outline"
+                              size="icon"
+                              className="h-7 w-7"
+                            >
+                              <Download className="h-3.5 w-3.5" />
+                            </Button>
+                          )}
+                          
+                          <Button 
+                            onClick={() => handleDeleteResult(result.id)}
+                            variant="outline"
+                            size="icon"
+                            className="h-7 w-7 text-destructive hover:bg-destructive/10"
+                            disabled={result.isConverting}
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         )}

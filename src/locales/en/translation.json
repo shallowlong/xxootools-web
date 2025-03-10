@@ -196,7 +196,12 @@
     "toggleToDark": "Switch to dark mode",
     "toggleToLight": "Switch to light mode",
     "favorite": "Add to favorites",
-    "unfavorite": "Remove from favorites"
+    "unfavorite": "Remove from favorites",
+    "image": "Image",
+    "fileInfo": "File Info",
+    "conversionInfo": "Conversion Info",
+    "actions": "Actions",
+    "preview": "Preview"
   },
   "imageCompress": {
     "title": "Image Compression",
@@ -243,6 +248,7 @@
     "downloadAll": "Download All as ZIP",
     "originalFormat": "Original format",
     "convertingTo": "Converting to",
+    "converting": "Converting",
     "conversionStatus": {
       "success": "Conversion Successful",
       "failed": "Conversion Failed",
@@ -395,6 +401,7 @@
   "audioConverter": {
     "title": "Audio Conversion",
     "description": "Convert audio file formats, adjust sample rate, bit rate, and quality",
+    "conversionResults": "Conversion Results",
     "dropzone": {
       "title": "Click or Drag to Upload Audio Files",
       "description": "You can select <span>multiple</span> audio files, supporting formats include {{supportedFormats}}"
@@ -405,6 +412,9 @@
       "selectFormat": "Select output format",
       "quality": "Audio Quality",
       "selectQuality": "Select audio quality",
+      "highQualityShort": "High",
+      "mediumQualityShort": "Medium",
+      "lowQualityShort": "Low",
       "sampleRate": "Sample Rate",
       "selectSampleRate": "Select sample rate",
       "bitRate": "Bit Rate",
@@ -426,6 +436,10 @@
     },
     "results": {
       "title": "Conversion Records",
+      "file": "Audio",
+      "fileInfo": "File Info",
+      "conversionInfo": "Conversion Info",
+      "actions": "Actions",
       "originalFormat": "Original Format",
       "fileSize": "Size",
       "duration": "Duration",
@@ -433,7 +447,12 @@
       "converting": "Converting",
       "targetFormat": "Target Format",
       "convertedSize": "Converted Size",
-      "compressionRatio": "Compression Ratio"
+      "compressionRatio": "Compression Ratio",
+      "format": "Format",
+      "quality": "Quality",
+      "originalAudio": "Original: {{size}}",
+      "convertedAudio": "Converted: {{size}}",
+      "conversionFailed": "Conversion failed"
     },
     "actions": {
       "download": "Download",

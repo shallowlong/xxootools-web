@@ -195,7 +195,12 @@
     "toggleToDark": "切换到暗色模式",
     "toggleToLight": "切换到亮色模式",
     "favorite": "添加到收藏",
-    "unfavorite": "从收藏中移除"
+    "unfavorite": "从收藏中移除",
+    "image": "图片",
+    "fileInfo": "文件信息",
+    "conversionInfo": "转换信息",
+    "actions": "操作",
+    "preview": "预览"
   },
   "imageCompress": {
     "title": "图片压缩",
@@ -242,6 +247,7 @@
     "downloadAll": "打包下载全部",
     "originalFormat": "原格式",
     "convertingTo": "转换为",
+    "converting": "转换中",
     "conversionStatus": {
       "success": "转换成功",
       "failed": "转换失败",
@@ -379,6 +385,7 @@
   "audioConverter": {
     "title": "音频转换",
     "description": "转换音频文件格式，调整采样率、比特率和音质",
+    "conversionResults": "转换结果",
     "dropzone": {
       "title": "点击或拖拽上传音频文件",
       "description": "支持选择<span>多个</span>音频，格式包括 {{supportedFormats}}"
@@ -389,6 +396,9 @@
       "selectFormat": "选择输出格式",
       "quality": "音频质量",
       "selectQuality": "选择音频质量",
+      "highQualityShort": "高",
+      "mediumQualityShort": "中",
+      "lowQualityShort": "低",
       "sampleRate": "采样率",
       "selectSampleRate": "选择采样率",
       "bitRate": "比特率",
@@ -410,6 +420,10 @@
     },
     "results": {
       "title": "转换记录",
+      "file": "音频",
+      "fileInfo": "文件信息",
+      "conversionInfo": "转换信息",
+      "actions": "操作",
       "originalFormat": "原格式",
       "fileSize": "大小",
       "duration": "时长",
@@ -417,7 +431,12 @@
       "converting": "转换中",
       "targetFormat": "目标格式",
       "convertedSize": "转换后大小",
-      "compressionRatio": "压缩比"
+      "compressionRatio": "压缩比",
+      "format": "格式",
+      "quality": "质量",
+      "originalAudio": "原始: {{size}}",
+      "convertedAudio": "转换后: {{size}}",
+      "conversionFailed": "转换失败"
     },
     "actions": {
       "download": "下载",

@@ -126,6 +126,53 @@
     "language": "언어",
     "search": "도구 검색"
   },
+  "imageCompress": {
+    "title": "이미지 압축",
+    "description": "이미지 파일 크기를 압축하고 다양한 형식과 사용자 정의 압축 옵션을 지원합니다",
+    "dropToUpload": "이미지를 놓아서 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 이미지 업로드",
+    "supportedFormats": "<span>여러</span> 이미지 업로드 지원, 지원 형식: {{formats}}",
+    "compressionOptions": "압축 옵션",
+    "outputFormat": "출력 형식",
+    "selectOutputFormat": "출력 형식 선택",
+    "useOriginalFormat": "업로드 시 원본 이미지 형식이 사용됩니다",
+    "quality": "품질",
+    "compressionHistory": "압축 기록",
+    "downloadAll": "모두 ZIP으로 다운로드",
+    "image": "이미지",
+    "fileInfo": "파일 정보",
+    "compressionInfo": "압축 정보",
+    "actions": "작업",
+    "preview": "미리보기",
+    "format": "형식",
+    "compressing": "압축 중...",
+    "original": "원본",
+    "compressed": "압축됨",
+    "compressionFailed": "압축 실패",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 컨텍스트를 사용할 수 없습니다",
+      "avifNotSupported": "AVIF 형식이 지원되지 않습니다",
+      "compressionError": "압축 중 오류 발생",
+      "createZipError": "ZIP 파일 생성 중 오류 발생",
+      "downloadFailed": "다운로드 실패, 다시 시도하거나 이미지를 개별적으로 다운로드하세요"
+    }
+  },
+  "imageConverter": {
+    "title": "이미지 형식 변환기",
+    "description": "이미지를 다른 형식으로 변환, WebP, PNG, JPG 및 GIF 지원",
+    "dropToUpload": "이미지를 놓아서 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 이미지 업로드",
+    "supportedFormats": "<span>여러</span> 이미지 업로드 지원, 지원 형식: {{formats}}",
+    "dragMessage": "변환을 시작하려면 놓으세요",
+    "convertSettings": "변환 설정",
+    "targetFormat": "대상 형식",
+    "selectFormat": "형식 선택",
+    "conversionResults": "변환 결과",
+    "downloadAll": "모두 ZIP으로 다운로드",
+    "originalFormat": "원본 형식",
+    "convertingTo": "변환 대상",
+    "converting": "변환 중..."
+  },
   "videoCompress": {
     "title": "비디오 압축",
     "description": "비디오 파일 크기를 압축하고 다양한 형식과 사용자 정의 압축 옵션을 지원합니다",
@@ -178,9 +225,10 @@
   "audioConverter": {
     "title": "오디오 변환",
     "description": "오디오 파일 형식을 변환하고 샘플링 레이트, 비트 레이트 및 품질을 조정합니다",
+    "conversionResults": "변환 결과",
     "dropzone": {
       "title": "오디오 파일을 클릭하거나 끌어서 업로드",
-      "description": "{{highlight:여러 개의}} 오디오 파일을 선택할 수 있습니다. 지원 형식: {{supportedFormats}}"
+      "description": "<span>여러 개의</span> 오디오 파일을 선택할 수 있습니다. 지원 형식: {{supportedFormats}}"
     },
     "options": {
       "title": "변환 옵션",
@@ -188,6 +236,9 @@
       "selectFormat": "출력 형식 선택",
       "quality": "오디오 품질",
       "selectQuality": "오디오 품질 선택",
+      "highQualityShort": "높음",
+      "mediumQualityShort": "중간",
+      "lowQualityShort": "낮음",
       "sampleRate": "샘플링 레이트",
       "selectSampleRate": "샘플링 레이트 선택",
       "bitRate": "비트 레이트",
@@ -209,6 +260,10 @@
     },
     "results": {
       "title": "변환 기록",
+      "file": "오디오",
+      "fileInfo": "파일 정보",
+      "conversionInfo": "변환 정보",
+      "actions": "작업",
       "originalFormat": "원본 형식",
       "fileSize": "크기",
       "duration": "길이",
@@ -216,7 +271,12 @@
       "converting": "변환 중",
       "targetFormat": "대상 형식",
       "convertedSize": "변환된 크기",
-      "compressionRatio": "압축률"
+      "compressionRatio": "압축률",
+      "format": "형식",
+      "quality": "품질",
+      "originalAudio": "원본: {{size}}",
+      "convertedAudio": "변환 후: {{size}}",
+      "conversionFailed": "변환 실패"
     },
     "actions": {
       "download": "다운로드",
@@ -299,8 +359,53 @@
       "selectExample": "코드 예제 선택",
       "runButton": "실행",
       "resultLabel": "실행 결과",
-      "helpText1": "* Dayjs 네이티브 메소드만 지원됩니다",
-      "helpText2": "* 예: dayjs().format('YYYY-MM-DD') 또는 dayjs().add(1, 'day')"
+      "helpText1": "* 네이티브 Dayjs 메서드만 지원됩니다",
+      "helpText2": "* 예시: dayjs().format('YYYY-MM-DD') 또는 dayjs().add(1, 'day')"
     }
+  },
+  "textConverter": {
+    "title": "텍스트 변환",
+    "description": "대소문자 변환, 간체/번체 중국어 변환 등",
+    "placeholder": "변환할 텍스트를 입력하세요...",
+    "toUpperCase": "대문자로 변환",
+    "toLowerCase": "소문자로 변환",
+    "toTraditional": "번체 중국어로 변환",
+    "toSimplified": "간체 중국어로 변환"
+  },
+  "privacy": {
+    "title": "개인정보 처리방침",
+    "introduction": "소개",
+    "introText": "XTools에 오신 것을 환영합니다. 저희는 귀하의 개인정보와 데이터 보안을 중요하게 생각합니다. 이 개인정보 처리방침은 귀하가 저희 서비스를 이용할 때 데이터를 어떻게 처리하는지 알려드리기 위해 마련되었습니다.",
+    "dataPolicy": "데이터 처리 정책",
+    "noStorage": "저희는 귀하가 업로드하거나 처리한 파일 데이터를 저장하지 않습니다. 모든 파일 처리는 귀하의 브라우저에서 로컬로 진행되며, 데이터는 저희 서버로 전송되지 않습니다.",
+    "localProcessing": "저희 도구는 클라이언트 측에서 완전히 실행되도록 설계되어 있어 파일 내용이 귀하의 기기를 떠나지 않습니다. 이는 데이터 보안과 개인정보를 보장합니다.",
+    "analytics": "사용 분석",
+    "analyticsText": "저희는 서비스 개선을 위해 페이지 방문 및 기능 사용 통계와 같은 익명의 사용 데이터를 수집할 수 있습니다. 이 데이터에는 개인 식별 정보나 파일 내용이 포함되지 않습니다.",
+    "cookies": "쿠키 사용",
+    "cookiesText": "저희는 언어 선호도 및 테마 설정을 기억하기 위해 기본 쿠키를 사용할 수 있습니다. 이러한 쿠키는 추적이나 광고 목적으로 사용되지 않습니다.",
+    "contact": "문의하기",
+    "contactText": "개인정보 처리방침에 관한 질문이나 우려사항이 있으시면 저희 웹사이트를 통해 문의해 주세요.",
+    "lastUpdated": "최종 업데이트"
+  },
+  "share": {
+    "button": "공유",
+    "linkCopied": "링크 복사됨",
+    "linkCopiedDesc": "페이지 링크가 클립보드에 복사되었습니다",
+    "copyFailed": "복사 실패",
+    "copyFailedDesc": "클립보드에 링크를 복사할 수 없습니다"
+  },
+  "favorite": {
+    "add": "즐겨찾기",
+    "added": "즐겨찾기됨",
+    "removed": "제거됨",
+    "removedDesc": "즐겨찾기에서 제거됨",
+    "addedDesc": "즐겨찾기에 추가됨"
+  },
+  "toolGroups": {
+    "favorites": "내 즐겨찾기",
+    "popular": "인기 도구",
+    "recent": "최근 업데이트",
+    "noFavorites": "아직 즐겨찾기를 추가하지 않았습니다. 도구에 있는 별표 아이콘을 클릭하여 즐겨찾기에 추가하세요.",
+    "noTools": "이 카테고리에 사용 가능한 도구가 없습니다."
   }
 } 

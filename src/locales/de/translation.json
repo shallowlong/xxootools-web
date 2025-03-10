@@ -126,6 +126,53 @@
     "language": "Sprache",
     "search": "Tools suchen"
   },
+  "imageCompress": {
+    "title": "Bildkomprimierung",
+    "description": "Bildgröße komprimieren, unterstützt verschiedene Formate und benutzerdefinierte Komprimierungsoptionen",
+    "dropToUpload": "Bilder zum Hochladen ablegen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie Bilder zum Hochladen",
+    "supportedFormats": "Unterstützt das Hochladen <span>mehrerer</span> Bilder, Formate umfassen {{formats}}",
+    "compressionOptions": "Komprimierungsoptionen",
+    "outputFormat": "Ausgabeformat",
+    "selectOutputFormat": "Ausgabeformat auswählen",
+    "useOriginalFormat": "Beim Hochladen wird das ursprüngliche Bildformat verwendet",
+    "quality": "Qualität",
+    "compressionHistory": "Komprimierungsverlauf",
+    "downloadAll": "Alle als ZIP herunterladen",
+    "image": "Bild",
+    "fileInfo": "Dateiinformationen",
+    "compressionInfo": "Komprimierungsinformationen",
+    "actions": "Aktionen",
+    "preview": "Vorschau",
+    "format": "Format",
+    "compressing": "Komprimierung...",
+    "original": "Original",
+    "compressed": "Komprimiert",
+    "compressionFailed": "Komprimierung fehlgeschlagen",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas-Kontext nicht verfügbar",
+      "avifNotSupported": "AVIF-Format wird nicht unterstützt",
+      "compressionError": "Fehler bei der Komprimierung",
+      "createZipError": "Fehler beim Erstellen der ZIP-Datei",
+      "downloadFailed": "Download fehlgeschlagen, bitte versuchen Sie es erneut oder laden Sie die Bilder einzeln herunter"
+    }
+  },
+  "imageConverter": {
+    "title": "Bildformatkonverter",
+    "description": "Bilder in verschiedene Formate konvertieren, unterstützt WebP, PNG, JPG und GIF",
+    "dropToUpload": "Bilder zum Hochladen ablegen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie Bilder zum Hochladen",
+    "supportedFormats": "Unterstützt das Hochladen <span>mehrerer</span> Bilder, Formate umfassen {{formats}}",
+    "dragMessage": "Loslassen, um die Konvertierung zu starten",
+    "convertSettings": "Konvertierungseinstellungen",
+    "targetFormat": "Zielformat",
+    "selectFormat": "Format auswählen",
+    "conversionResults": "Konvertierungsergebnisse",
+    "downloadAll": "Alle als ZIP herunterladen",
+    "originalFormat": "Originalformat",
+    "convertingTo": "Konvertieren zu",
+    "converting": "Konvertierung..."
+  },
   "videoCompress": {
     "title": "Videokomprimierung",
     "description": "Videodateigröße komprimieren, unterstützt verschiedene Formate und benutzerdefinierte Komprimierungsoptionen",
@@ -302,5 +349,50 @@
       "helpText1": "* Nur native Dayjs-Methoden werden unterstützt",
       "helpText2": "* Beispiel: dayjs().format('YYYY-MM-DD') oder dayjs().add(1, 'day')"
     }
+  },
+  "textConverter": {
+    "title": "Textkonvertierung",
+    "description": "Konvertieren von Textfällen, vereinfachtem/traditionellem Chinesisch usw.",
+    "placeholder": "Geben Sie den zu konvertierenden Text ein...",
+    "toUpperCase": "IN GROSSBUCHSTABEN",
+    "toLowerCase": "in kleinbuchstaben",
+    "toTraditional": "In traditionelles Chinesisch",
+    "toSimplified": "In vereinfachtes Chinesisch"
+  },
+  "privacy": {
+    "title": "Datenschutzrichtlinie",
+    "introduction": "Einführung",
+    "introText": "Willkommen bei XTools. Wir schätzen Ihre Privatsphäre und Datensicherheit. Diese Datenschutzrichtlinie soll Sie darüber informieren, wie wir mit Ihren Daten umgehen, wenn Sie unsere Dienste nutzen.",
+    "dataPolicy": "Datenverarbeitungsrichtlinie",
+    "noStorage": "Wir speichern keine von Ihnen hochgeladenen oder verarbeiteten Dateidaten. Die gesamte Dateiverarbeitung erfolgt lokal in Ihrem Browser, und Daten werden nicht an unsere Server übertragen.",
+    "localProcessing": "Unsere Tools sind so konzipiert, dass sie vollständig auf der Client-Seite ausgeführt werden, was bedeutet, dass Ihre Dateiinhalte Ihr Gerät nie verlassen. Dies gewährleistet Ihre Datensicherheit und Privatsphäre.",
+    "analytics": "Nutzungsanalyse",
+    "analyticsText": "Wir können anonyme Nutzungsdaten wie Seitenaufrufe und Nutzungsstatistiken von Funktionen sammeln, um unsere Dienste zu verbessern. Diese Daten enthalten keine personenidentifizierbaren Informationen oder Dateiinhalte.",
+    "cookies": "Cookie-Nutzung",
+    "cookiesText": "Wir können grundlegende Cookies verwenden, um Ihre Spracheinstellungen und Designeinstellungen zu speichern. Diese Cookies werden nicht für Tracking- oder Werbezwecke verwendet.",
+    "contact": "Kontakt",
+    "contactText": "Wenn Sie Fragen oder Bedenken zu unserer Datenschutzrichtlinie haben, kontaktieren Sie uns bitte über unsere Website.",
+    "lastUpdated": "Zuletzt aktualisiert"
+  },
+  "share": {
+    "button": "Teilen",
+    "linkCopied": "Link kopiert",
+    "linkCopiedDesc": "Seitenlink wurde in die Zwischenablage kopiert",
+    "copyFailed": "Kopieren fehlgeschlagen",
+    "copyFailedDesc": "Link konnte nicht in die Zwischenablage kopiert werden"
+  },
+  "favorite": {
+    "add": "Favorisieren",
+    "added": "Favorisiert",
+    "removed": "Entfernt",
+    "removedDesc": "Aus Favoriten entfernt",
+    "addedDesc": "Zu Favoriten hinzugefügt"
+  },
+  "toolGroups": {
+    "favorites": "Meine Favoriten",
+    "popular": "Beliebte Tools",
+    "recent": "Kürzlich aktualisiert",
+    "noFavorites": "Sie haben noch keine Favoriten hinzugefügt. Klicken Sie auf das Sternsymbol bei einem beliebigen Tool, um es zu Favoriten hinzuzufügen.",
+    "noTools": "Keine Tools in dieser Kategorie verfügbar."
   }
 } 
