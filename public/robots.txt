@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xxoo.tools/sitemap.xml

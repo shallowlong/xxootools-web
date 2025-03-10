@@ -7,6 +7,8 @@ import { Slider } from '@/components/ui/slider';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { Trans, useTranslation } from 'react-i18next';
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import { fetchFile } from '@ffmpeg/util';
 
 // 定义压缩格式类型
 type VideoFormat = 'mp4' | 'webm';
@@ -166,33 +168,84 @@ const VideoCompress = () => {
   // 压缩视频 (使用Web API，FFmpeg.wasm)
   const compressVideo = async (result: CompressionResult) => {
     try {
-      updateCompressionProgress(result.id, 10);
+      updateCompressionProgress(result.id, 5);
       
-      // 模拟加载FFmpeg
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      updateCompressionProgress(result.id, 20);
-      
-      // 模拟视频处理
-      // 实际项目中，这里应该使用FFmpeg.wasm进行真实的视频压缩
-      // https://github.com/ffmpegwasm/ffmpeg.wasm
-      
-      // 以下是模拟代码，实际项目中需要替换为真实的FFmpeg处理
-      const totalSteps = 8;
-      for (let i = 1; i <= totalSteps; i++) {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        updateCompressionProgress(result.id, 20 + (i / totalSteps) * 70);
-      }
+      // 创建FFmpeg实例
+      const ffmpeg = new FFmpeg();
       
       // 获取压缩质量参数
       const compressionQuality = recompressingId === result.id ? quality : result.quality;
       const outputFormat = recompressingId === result.id ? format : result.format;
       
-      // 模拟生成压缩后的视频（实际项目需要替换）
-      const compressedSize = Math.floor(result.originalFile.size * (
-        compressionQuality === 'high' ? 0.7 : 
-        compressionQuality === 'medium' ? 0.5 : 
-        0.3
-      ));
+      // 加载FFmpeg
+      updateCompressionProgress(result.id, 10);
+      await ffmpeg.load({
+        coreURL: 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/ffmpeg-core.js',
+        wasmURL: 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/ffmpeg-core.wasm',
+      });
+      updateCompressionProgress(result.id, 20);
+      
+      // 设置进度回调
+      ffmpeg.on('progress', ({ progress }) => {
+        updateCompressionProgress(result.id, 20 + progress * 70);
+      });
+
+      // 写入原始文件到虚拟文件系统
+      const inputFileName = `input-${result.id}.${result.originalExt}`;
+      const outputFileName = `output-${result.id}.${outputFormat}`;
+      
+      await ffmpeg.writeFile(inputFileName, await fetchFile(result.originalFile));
+      updateCompressionProgress(result.id, 30);
+      
+      // 根据压缩质量设置参数
+      let ffmpegArgs: string[] = [];
+      
+      if (outputFormat === 'mp4') {
+        // 使用H.264编码器
+        ffmpegArgs = [
+          '-i', inputFileName,
+          '-c:v', 'libx264',
+          '-preset', compressionQuality === 'high' ? 'slow' : compressionQuality === 'medium' ? 'medium' : 'fast',
+          '-crf', compressionQuality === 'high' ? '23' : compressionQuality === 'medium' ? '28' : '32',
+          '-c:a', 'aac',
+          '-b:a', '128k',
+          outputFileName
+        ];
+      } else if (outputFormat === 'webm') {
+        // 使用VP9编码器
+        ffmpegArgs = [
+          '-i', inputFileName,
+          '-c:v', 'libvpx-vp9',
+          '-b:v', compressionQuality === 'high' ? '1M' : compressionQuality === 'medium' ? '750K' : '500K',
+          '-c:a', 'libopus',
+          '-b:a', '128k',
+          outputFileName
+        ];
+      }
+      
+      // 执行FFmpeg命令
+      await ffmpeg.exec(ffmpegArgs);
+      updateCompressionProgress(result.id, 90);
+      
+      // 读取压缩后的文件
+      const compressedData = await ffmpeg.readFile(outputFileName);
+      // 处理不同类型的返回值
+      let compressedBuffer: Uint8Array;
+      if (compressedData instanceof Uint8Array) {
+        compressedBuffer = compressedData;
+      } else if (typeof compressedData === 'object') {
+        // 对于对象类型，尝试获取buffer或转换为Uint8Array
+        compressedBuffer = new Uint8Array(compressedData as ArrayBuffer);
+      } else {
+        // 对于其他情况（如string），创建一个空的缓冲区
+        console.error('Unexpected data type from FFmpeg:', typeof compressedData);
+        compressedBuffer = new Uint8Array();
+      }
+      const compressedBlob = new Blob([compressedBuffer], { 
+        type: outputFormat === 'mp4' ? 'video/mp4' : 'video/webm' 
+      });
+      const compressedUrl = URL.createObjectURL(compressedBlob);
+      const compressedSize = compressedBlob.size;
       
       updateCompressionProgress(result.id, 95);
       
@@ -201,7 +254,7 @@ const VideoCompress = () => {
         if (r.id === result.id) {
           return {
             ...r,
-            url: r.originalPreview, // 在实际实现中，这应该是压缩后的URL
+            url: compressedUrl,
             size: compressedSize,
             isCompressing: false,
             compressionProgress: 100,
@@ -217,6 +270,9 @@ const VideoCompress = () => {
       }
       
       updateCompressionProgress(result.id, 100);
+      
+      // 释放FFmpeg资源
+      await ffmpeg.terminate();
       
       // 检查是否所有视频都已完成压缩
       checkAllCompressionsCompleted();

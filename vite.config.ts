@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from "path"
 import { VitePWA } from 'vite-plugin-pwa'
+import { ViteSitemapPlugin } from 'vite-plugin-sitemap'
+
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -95,7 +97,26 @@ export default defineConfig({
         enabled: true,
         type: 'module'
       }
+    }),
+    ViteSitemapPlugin({
+      hostname: 'https://xxoo.tools',
+      routes: [
+        '/',
+        '/text/text-converter',
+        '/text/text-diff',
+        '/image/image-converter',
+        '/image/image-compress',
+        '/video/video-compress',
+        '/audio/audio-converter',
+        '/date/dayjs-utils',
+        '/date/moment-utils',
+        '/date/date-utils',
+        '/text/text-converter',
+        '/text/text-diff',
+        '/writer/word-count'
+      ]
     })
+
   ],
   resolve: {
     alias: {

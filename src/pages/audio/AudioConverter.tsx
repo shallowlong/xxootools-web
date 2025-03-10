@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { UploadCloud, FileAudio, Download, Trash2, Archive } from 'lucide-react';
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import { fetchFile } from '@ffmpeg/util';
 
 // 定义音频格式类型
 type AudioFormat = 'mp3' | 'wav' | 'ogg' | 'aac' | 'm4a' | 'flac';
@@ -177,22 +179,10 @@ const AudioConverter = () => {
   // 转换音频 (使用Web API，FFmpeg.wasm)
   const convertAudio = async (result: ConversionResult) => {
     try {
-      updateConversionProgress(result.id, 10);
+      updateConversionProgress(result.id, 5);
       
-      // 模拟加载FFmpeg
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      updateConversionProgress(result.id, 20);
-      
-      // 模拟音频处理
-      // 实际项目中，这里应该使用FFmpeg.wasm进行真实的音频转换
-      // https://github.com/ffmpegwasm/ffmpeg.wasm
-      
-      // 以下是模拟代码，实际项目中需要替换为真实的FFmpeg处理
-      const totalSteps = 8;
-      for (let i = 1; i <= totalSteps; i++) {
-        await new Promise(resolve => setTimeout(resolve, 300));
-        updateConversionProgress(result.id, 20 + (i / totalSteps) * 70);
-      }
+      // 创建FFmpeg实例
+      const ffmpeg = new FFmpeg();
       
       // 获取转换参数
       const conversionQuality = reconvertingId === result.id ? quality : result.quality;
@@ -200,24 +190,128 @@ const AudioConverter = () => {
       const outputSampleRate = reconvertingId === result.id ? sampleRate : result.sampleRate;
       const outputBitRate = reconvertingId === result.id ? bitRate : result.bitRate;
       
-      // 模拟生成转换后的音频（实际项目需要替换）
-      const convertedSize = Math.floor(result.originalFile.size * (
-        conversionQuality === 'high' ? 0.8 : 
-        conversionQuality === 'medium' ? 0.6 : 
-        0.4
-      ));
+      // 加载FFmpeg
+      updateConversionProgress(result.id, 10);
+      await ffmpeg.load({
+        coreURL: 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/ffmpeg-core.js',
+        wasmURL: 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/ffmpeg-core.wasm',
+      });
+      updateConversionProgress(result.id, 20);
+      
+      // 设置进度回调
+      ffmpeg.on('progress', ({ progress }) => {
+        updateConversionProgress(result.id, 20 + progress * 70);
+      });
+
+      // 写入原始文件到虚拟文件系统
+      const inputFileName = `input-${result.id}.${result.originalExt}`;
+      const outputFileName = `output-${result.id}.${convertedFormat}`;
+      
+      await ffmpeg.writeFile(inputFileName, await fetchFile(result.originalFile));
+      updateConversionProgress(result.id, 30);
+      
+      // 根据音频格式和质量设置FFmpeg参数
+      let ffmpegArgs: string[] = [];
+      
+      // 基础命令
+      ffmpegArgs = [
+        '-i', inputFileName,
+        '-ar', outputSampleRate,
+      ];
+      
+      // 根据格式和质量添加特定参数
+      switch (convertedFormat) {
+        case 'mp3':
+          ffmpegArgs.push(
+            '-c:a', 'libmp3lame',
+            '-b:a', `${outputBitRate}k`,
+            '-q:a', conversionQuality === 'high' ? '0' : conversionQuality === 'medium' ? '4' : '7'
+          );
+          break;
+        case 'aac':
+          ffmpegArgs.push(
+            '-c:a', 'aac',
+            '-b:a', `${outputBitRate}k`,
+            '-q:a', conversionQuality === 'high' ? '1' : conversionQuality === 'medium' ? '3' : '5'
+          );
+          break;
+        case 'ogg':
+          ffmpegArgs.push(
+            '-c:a', 'libvorbis',
+            '-b:a', `${outputBitRate}k`,
+            '-q:a', conversionQuality === 'high' ? '6' : conversionQuality === 'medium' ? '4' : '2'
+          );
+          break;
+        case 'wav':
+          // WAV是无损格式，不需要指定比特率
+          ffmpegArgs.push('-c:a', 'pcm_s16le');
+          break;
+        case 'flac':
+          // FLAC是无损格式，但可以设置压缩级别
+          ffmpegArgs.push(
+            '-c:a', 'flac',
+            '-compression_level', conversionQuality === 'high' ? '12' : conversionQuality === 'medium' ? '8' : '5'
+          );
+          break;
+        case 'm4a':
+          ffmpegArgs.push(
+            '-c:a', 'aac',
+            '-b:a', `${outputBitRate}k`,
+            '-q:a', conversionQuality === 'high' ? '1' : conversionQuality === 'medium' ? '3' : '5'
+          );
+          break;
+        default:
+          // 默认使用AAC编码
+          ffmpegArgs.push(
+            '-c:a', 'aac',
+            '-b:a', `${outputBitRate}k`
+          );
+      }
+      
+      // 添加输出文件名
+      ffmpegArgs.push(outputFileName);
+      
+      // 执行FFmpeg命令
+      await ffmpeg.exec(ffmpegArgs);
+      updateConversionProgress(result.id, 90);
+      
+      // 读取转换后的文件
+      const convertedData = await ffmpeg.readFile(outputFileName);
+      // 处理不同类型的返回值
+      let convertedBuffer: Uint8Array;
+      if (convertedData instanceof Uint8Array) {
+        convertedBuffer = convertedData;
+      } else if (typeof convertedData === 'object') {
+        // 对于对象类型，尝试转换为Uint8Array
+        convertedBuffer = new Uint8Array(convertedData as ArrayBuffer);
+      } else {
+        // 对于其他情况，创建一个空的缓冲区
+        console.error('意外的数据类型:', typeof convertedData);
+        convertedBuffer = new Uint8Array();
+      }
+      
+      // 创建Blob和URL
+      const mimeTypes: Record<AudioFormat, string> = {
+        'mp3': 'audio/mpeg',
+        'wav': 'audio/wav',
+        'ogg': 'audio/ogg',
+        'aac': 'audio/aac',
+        'm4a': 'audio/mp4',
+        'flac': 'audio/flac'
+      };
+      
+      const convertedBlob = new Blob([convertedBuffer], { type: mimeTypes[convertedFormat] });
+      const convertedUrl = URL.createObjectURL(convertedBlob);
+      const convertedSize = convertedBlob.size;
       
       updateConversionProgress(result.id, 95);
-      
-      // 创建预览URL (实际项目中应该使用转换后的音频)
-      const previewUrl = URL.createObjectURL(result.originalFile);
       
       // 更新结果
       setConversionResults(prev => prev.map(r => {
         if (r.id === result.id) {
           return {
             ...r,
-            url: previewUrl,
+            url: convertedUrl,
             size: convertedSize,
             isConverting: false,
             conversionProgress: 100,
@@ -236,10 +330,13 @@ const AudioConverter = () => {
       
       updateConversionProgress(result.id, 100);
       
+      // 释放FFmpeg资源
+      await ffmpeg.terminate();
+      
       // 检查是否所有音频都已完成转换
       checkAllConversionsCompleted();
     } catch (error) {
-      console.error('Audio conversion error:', error);
+      console.error('音频转换错误:', error);
       
       // 更新状态为转换失败
       setConversionResults(prev => prev.map(r => {
