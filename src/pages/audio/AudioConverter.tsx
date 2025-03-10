@@ -195,7 +195,7 @@ const AudioConverter = () => {
       await ffmpeg.load({
         coreURL: window.location.origin + '/ffmpeg/ffmpeg-core.js',
         wasmURL: window.location.origin + '/ffmpeg/ffmpeg-core.wasm',
-        workerURL: window.location.origin + '/ffmpeg/ffmpeg-core.worker.js',
+        // workerURL: window.location.origin + '/ffmpeg/ffmpeg-core.worker.js',
       });
       updateConversionProgress(result.id, 20);
       
