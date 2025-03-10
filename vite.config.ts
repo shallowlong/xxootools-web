@@ -11,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'xtools-logo.svg'],
       manifest: {
-        name: 'XTools - Your Online Toolbox',
+        name: 'XTools',
         short_name: 'XTools',
-        description: 'Your Online Toolbox for file conversion, text processing, image editing and more.',
+        description: "Your Online Toolbox for file conversion, text processing, image compression and more. It's a free, open-source, and data-secure toolbox.",
         theme_color: '#4f46e5',
         icons: [
           {
