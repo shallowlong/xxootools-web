@@ -193,8 +193,9 @@ const AudioConverter = () => {
       // 加载FFmpeg
       updateConversionProgress(result.id, 10);
       await ffmpeg.load({
-        coreURL: '/ffmpeg/ffmpeg-core.js',
-        wasmURL: '/ffmpeg/ffmpeg-core.wasm',
+        coreURL: window.location.origin + '/ffmpeg/ffmpeg-core.js',
+        wasmURL: window.location.origin + '/ffmpeg/ffmpeg-core.wasm',
+        workerURL: window.location.origin + '/ffmpeg/ffmpeg-core.worker.js',
       });
       updateConversionProgress(result.id, 20);
       
