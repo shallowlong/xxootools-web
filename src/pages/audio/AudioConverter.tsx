@@ -9,7 +9,7 @@ import { UploadCloud, FileAudio, Download, Trash2, Archive } from 'lucide-react'
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
-import { fetchFile } from '@ffmpeg/util';
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
 
 // 定义音频格式类型
 type AudioFormat = 'mp3' | 'wav' | 'ogg' | 'aac' | 'm4a' | 'flac';
@@ -192,10 +192,10 @@ const AudioConverter = () => {
       
       // 加载FFmpeg
       updateConversionProgress(result.id, 10);
+      const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
       await ffmpeg.load({
-        coreURL: 'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js',
-        wasmURL: 'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.wasm',
-        workerURL: 'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.worker.js',
+        coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+        wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
       });
       updateConversionProgress(result.id, 20);
       

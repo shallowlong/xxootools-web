@@ -8,7 +8,7 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { Trans, useTranslation } from 'react-i18next';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
-import { fetchFile } from '@ffmpeg/util';
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
 
 // 定义压缩格式类型
 type VideoFormat = 'mp4' | 'webm';
@@ -44,6 +44,9 @@ const VideoCompress = () => {
   const [isDragging, setIsDragging] = useState(false);
   const dropzoneRef = useRef<HTMLDivElement>(null);
   
+  
+
+
   // 从文件名获取视频格式
   const getVideoFormatFromFileName = (fileName: string): {format: VideoFormat, ext: string} => {
     const extension = fileName.split('.').pop()?.toLowerCase() || '';
@@ -179,11 +182,12 @@ const VideoCompress = () => {
       
       // 加载FFmpeg
       updateCompressionProgress(result.id, 10);
+      const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
       await ffmpeg.load({
-        coreURL: 'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js',
-        wasmURL: 'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.wasm',
-        workerURL: 'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.worker.js',
+        coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+        wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
       });
+    
       updateCompressionProgress(result.id, 20);
       
       // 设置进度回调
