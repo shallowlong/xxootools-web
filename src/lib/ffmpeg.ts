@@ -31,6 +31,7 @@ class FFmpegManager {
         // 也可以选择从CDN加载，但使用更快的CDN，比如从jsdelivr获取
         // const baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/esm';
         
+        // 加载FFmpeg
         await this.instance!.load({
           coreURL: await toBlobURL(`${localBaseURL}/ffmpeg-core.js`, 'text/javascript'),
           wasmURL: await toBlobURL(`${localBaseURL}/ffmpeg-core.wasm`, 'application/wasm'),
@@ -53,7 +54,9 @@ class FFmpegManager {
 
   // 预加载FFmpeg（可在应用启动时调用）
   public static preload(): void {
-    this.getInstance().catch(console.error);
+    this.getInstance().catch(error => {
+      console.error('FFmpeg preloading failed:', error);
+    });
   }
 
   // 释放FFmpeg实例

@@ -50,7 +50,7 @@ const AudioConverter = () => {
   const [bitRate, setBitRate] = useState<BitRate>('192');
   const [compressionRatio, setCompressionRatio] = useState(70);
   
-  const [, setIsConverting] = useState(false);
+  const [isConverting, setIsConverting] = useState(false);
   const [conversionResults, setConversionResults] = useState<ConversionResult[]>([]);
   const [reconvertingId, setReconvertingId] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -66,7 +66,7 @@ const AudioConverter = () => {
       FFmpegManager.releaseInstance();
     };
   }, []);
-
+  
   // 从文件名获取音频格式
   const getAudioFormatFromFileName = (fileName: string): { format: AudioFormat, ext: string } => {
     const extension = fileName.split('.').pop()?.toLowerCase() || '';
@@ -198,9 +198,12 @@ const AudioConverter = () => {
       const outputSampleRate = reconvertingId === result.id ? sampleRate : result.sampleRate;
       const outputBitRate = reconvertingId === result.id ? bitRate : result.bitRate;
       
-      // 获取共享的FFmpeg实例
+      // 获取共享的FFmpeg实例（等待加载完成）
       updateConversionProgress(result.id, 10);
+      
+      // 如果FFmpeg还没加载完成，会在getInstance中等待加载完成
       const ffmpeg = await FFmpegManager.getInstance();
+      
       updateConversionProgress(result.id, 20);
       
       // 设置进度回调
@@ -482,7 +485,7 @@ const AudioConverter = () => {
             accept="audio/*"
             className="hidden"
             onChange={handleFileChange}
-            multiple
+            disabled={isConverting}
           />
           <UploadCloud className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
           <h3 className="text-lg font-medium mb-1">{t('audioConverter.dropzone.title')}</h3>

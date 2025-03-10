@@ -54,7 +54,7 @@ const VideoCompress = () => {
       FFmpegManager.releaseInstance();
     };
   }, []);
-
+  
   // 从文件名获取视频格式
   const getVideoFormatFromFileName = (fileName: string): {format: VideoFormat, ext: string} => {
     const extension = fileName.split('.').pop()?.toLowerCase() || '';
@@ -185,8 +185,10 @@ const VideoCompress = () => {
       const compressionQuality = recompressingId === result.id ? quality : result.quality;
       const outputFormat = recompressingId === result.id ? format : result.format;
       
-      // 获取共享的FFmpeg实例
+      // 获取共享的FFmpeg实例（等待加载完成）
       updateCompressionProgress(result.id, 10);
+      
+      // 如果FFmpeg还没加载完成，会在getInstance中等待加载完成
       const ffmpeg = await FFmpegManager.getInstance();
       
       updateCompressionProgress(result.id, 20);
