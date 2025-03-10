@@ -27,12 +27,12 @@ class FFmpegManager {
     this.loadingPromise = (async () => {
       try {
         // 加载本地wasm文件而非从CDN获取
-        const baseURL = '/ffmpeg';
+        const localBaseURL = '/ffmpeg';
         // 也可以选择从CDN加载，但使用更快的CDN，比如从jsdelivr获取
-        // const baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/esm';
+        const baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/esm';
         
         await this.instance!.load({
-          coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+          coreURL: await toBlobURL(`${localBaseURL}/ffmpeg-core.js`, 'text/javascript'),
           wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
         });
         
