@@ -7,8 +7,8 @@ import { Slider } from '@/components/ui/slider';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { Trans, useTranslation } from 'react-i18next';
-import { FFmpeg } from '@ffmpeg/ffmpeg';
-import { fetchFile, toBlobURL } from '@ffmpeg/util';
+import { fetchFile } from '@ffmpeg/util';
+import FFmpegManager from '@/lib/ffmpeg';
 
 // 定义压缩格式类型
 type VideoFormat = 'mp4' | 'webm';
@@ -44,8 +44,16 @@ const VideoCompress = () => {
   const [isDragging, setIsDragging] = useState(false);
   const dropzoneRef = useRef<HTMLDivElement>(null);
   
-  
-
+  // 在组件挂载时预加载FFmpeg
+  React.useEffect(() => {
+    // 预加载FFmpeg实例
+    FFmpegManager.preload();
+    
+    // 组件卸载时释放FFmpeg实例
+    return () => {
+      FFmpegManager.releaseInstance();
+    };
+  }, []);
 
   // 从文件名获取视频格式
   const getVideoFormatFromFileName = (fileName: string): {format: VideoFormat, ext: string} => {
@@ -173,21 +181,14 @@ const VideoCompress = () => {
     try {
       updateCompressionProgress(result.id, 5);
       
-      // 创建FFmpeg实例
-      const ffmpeg = new FFmpeg();
-      
       // 获取压缩质量参数
       const compressionQuality = recompressingId === result.id ? quality : result.quality;
       const outputFormat = recompressingId === result.id ? format : result.format;
       
-      // 加载FFmpeg
+      // 获取共享的FFmpeg实例
       updateCompressionProgress(result.id, 10);
-      // const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
-      await ffmpeg.load({
-        coreURL: await toBlobURL(`/ffmpeg/ffmpeg-core.js`, 'text/javascript'),
-        wasmURL: await toBlobURL(`/ffmpeg/ffmpeg-core.wasm`, 'application/wasm'),
-      });
-    
+      const ffmpeg = await FFmpegManager.getInstance();
+      
       updateCompressionProgress(result.id, 20);
       
       // 设置进度回调
@@ -275,9 +276,6 @@ const VideoCompress = () => {
       }
       
       updateCompressionProgress(result.id, 100);
-      
-      // 释放FFmpeg资源
-      await ffmpeg.terminate();
       
       // 检查是否所有视频都已完成压缩
       checkAllCompressionsCompleted();

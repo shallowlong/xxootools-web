@@ -8,8 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { UploadCloud, FileAudio, Download, Trash2, Archive } from 'lucide-react';
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
-import { FFmpeg } from '@ffmpeg/ffmpeg';
-import { fetchFile, toBlobURL } from '@ffmpeg/util';
+import { fetchFile } from '@ffmpeg/util';
+import FFmpegManager from '@/lib/ffmpeg';
 
 // 定义音频格式类型
 type AudioFormat = 'mp3' | 'wav' | 'ogg' | 'aac' | 'm4a' | 'flac';
@@ -56,6 +56,17 @@ const AudioConverter = () => {
   const [isDragging, setIsDragging] = useState(false);
   const dropzoneRef = useRef<HTMLDivElement>(null);
   
+  // 在组件挂载时预加载FFmpeg
+  React.useEffect(() => {
+    // 预加载FFmpeg实例
+    FFmpegManager.preload();
+    
+    // 组件卸载时释放FFmpeg实例
+    return () => {
+      FFmpegManager.releaseInstance();
+    };
+  }, []);
+
   // 从文件名获取音频格式
   const getAudioFormatFromFileName = (fileName: string): { format: AudioFormat, ext: string } => {
     const extension = fileName.split('.').pop()?.toLowerCase() || '';
@@ -181,22 +192,15 @@ const AudioConverter = () => {
     try {
       updateConversionProgress(result.id, 5);
       
-      // 创建FFmpeg实例
-      const ffmpeg = new FFmpeg();
-      
       // 获取转换参数
       const conversionQuality = reconvertingId === result.id ? quality : result.quality;
       const convertedFormat = reconvertingId === result.id ? outputFormat : result.format;
       const outputSampleRate = reconvertingId === result.id ? sampleRate : result.sampleRate;
       const outputBitRate = reconvertingId === result.id ? bitRate : result.bitRate;
       
-      // 加载FFmpeg
+      // 获取共享的FFmpeg实例
       updateConversionProgress(result.id, 10);
-      // const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm'
-      await ffmpeg.load({
-        coreURL: await toBlobURL(`/ffmpeg/ffmpeg-core.js`, 'text/javascript'),
-        wasmURL: await toBlobURL(`/ffmpeg/ffmpeg-core.wasm`, 'application/wasm'),
-      });
+      const ffmpeg = await FFmpegManager.getInstance();
       updateConversionProgress(result.id, 20);
       
       // 设置进度回调
@@ -330,9 +334,6 @@ const AudioConverter = () => {
       }
       
       updateConversionProgress(result.id, 100);
-      
-      // 释放FFmpeg资源
-      await ffmpeg.terminate();
       
       // 检查是否所有音频都已完成转换
       checkAllConversionsCompleted();
