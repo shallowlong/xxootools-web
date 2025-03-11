@@ -11,6 +11,7 @@ const TextConverter = lazy(() => import('./pages/text/TextConverter'))
 const TextDiff = lazy(() => import('./pages/text/TextDiff'))
 const ImageCompress = lazy(() => import('./pages/image/ImageCompress'))
 const ImageConverter = lazy(() => import('./pages/image/ImageConverter'))
+const ImageRemoveBg = lazy(() => import('./pages/image/ImageRemoveBg'))
 const VideoCompress = lazy(() => import('./pages/video/VideoCompress'))
 const AudioConverter = lazy(() => import('./pages/audio/AudioConverter'))
 const WordCount = lazy(() => import('./pages/writer/WordCount'))
@@ -37,6 +38,7 @@ function App() {
             <Route path="image">
               <Route path="image-compress" element={<ImageCompress />} />
               <Route path="image-converter" element={<ImageConverter />} />
+              <Route path="image-removebg" element={<ImageRemoveBg />} />
             </Route>
             <Route path="video">
               <Route path="video-compress" element={<VideoCompress />} />

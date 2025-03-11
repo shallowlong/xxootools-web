@@ -11,6 +11,10 @@
         "image-converter": {
           "name": "图片格式转换",
           "description": "转换图片格式"
+        },
+        "image-removebg": {
+          "name": "图片背景移除",
+          "description": "使用 AI 技术移除图片背景"
         }
       }
     },
@@ -493,5 +497,38 @@
     "recent": "最近更新",
     "noFavorites": "您还没有添加任何收藏。点击任何工具上的星标图标将其添加到收藏夹。",
     "noTools": "此分类中没有可用工具。"
+  },
+  "imageRemoveBg": {
+    "title": "图片背景移除",
+    "description": "使用 AI 技术移除图片背景，所有处理在浏览器本地完成",
+    "dropzone": {
+      "title": "点击或拖拽上传图片",
+      "description": "支持选择<span>多张</span>图片，首次使用需要加载模型，请耐心等待",
+      "supportedFormats": "支持 JPG、PNG、WEBP 格式"
+    },
+    "modelLoading": {
+      "title": "正在加载 AI 模型...",
+      "description": "这可能需要一些时间，取决于您的网络连接。模型将被缓存以供将来使用。"
+    },
+    "webgpu": {
+      "supported": "已启用 WebGPU 加速，处理速度更快",
+      "notSupported": "您的浏览器不支持 WebGPU，处理速度可能较慢"
+    },
+    "results": {
+      "title": "处理结果",
+      "original": "原图",
+      "processed": "去背景",
+      "processedTime": "处理时间"
+    },
+    "buttons": {
+      "download": "下载",
+      "downloadAll": "下载全部",
+      "delete": "删除"
+    },
+    "errors": {
+      "modelLoadFailed": "AI 模型加载失败。请检查您的网络连接并重试。",
+      "processingFailed": "图片处理失败",
+      "canvasContextNotAvailable": "Canvas 上下文不可用"
+    }
   }
 } 

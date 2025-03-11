@@ -11,6 +11,10 @@
         "image-converter": {
           "name": "Bildformatkonvertierung",
           "description": "Bildformate konvertieren"
+        },
+        "image-removebg": {
+          "name": "Hintergrund entfernen",
+          "description": "Entfernen Sie den Hintergrund aus Bildern mit KI"
         }
       }
     },
@@ -394,5 +398,38 @@
     "recent": "Kürzlich aktualisiert",
     "noFavorites": "Sie haben noch keine Favoriten hinzugefügt. Klicken Sie auf das Sternsymbol bei einem beliebigen Tool, um es zu Favoriten hinzuzufügen.",
     "noTools": "Keine Tools in dieser Kategorie verfügbar."
+  },
+  "imageRemoveBg": {
+    "title": "Hintergrund entfernen",
+    "description": "Entfernen Sie den Hintergrund aus Bildern mit KI-Technologie, die gesamte Verarbeitung erfolgt lokal in Ihrem Browser",
+    "dropzone": {
+      "title": "Klicken oder ziehen Sie zum Hochladen von Bildern",
+      "description": "Unterstützt die Auswahl <span>mehrerer</span> Bilder, die erste Verwendung erfordert das Laden des Modells, bitte haben Sie Geduld",
+      "supportedFormats": "Unterstützt JPG, PNG, WEBP"
+    },
+    "modelLoading": {
+      "title": "KI-Modell wird geladen...",
+      "description": "Dies kann je nach Ihrer Internetverbindung einen Moment dauern. Das Modell wird für zukünftige Verwendung zwischengespeichert."
+    },
+    "webgpu": {
+      "supported": "WebGPU-Beschleunigung für schnellere Verarbeitung aktiviert",
+      "notSupported": "WebGPU wird von Ihrem Browser nicht unterstützt, die Verarbeitung wird langsamer sein"
+    },
+    "results": {
+      "title": "Verarbeitete Bilder",
+      "original": "Original",
+      "processed": "Hintergrund entfernt",
+      "processedTime": "Verarbeitungszeit"
+    },
+    "buttons": {
+      "download": "Herunterladen",
+      "downloadAll": "Alle herunterladen",
+      "delete": "Löschen"
+    },
+    "errors": {
+      "modelLoadFailed": "Fehler beim Laden des KI-Modells. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "processingFailed": "Fehler bei der Bildverarbeitung",
+      "canvasContextNotAvailable": "Canvas-Kontext nicht verfügbar"
+    }
   }
 } 

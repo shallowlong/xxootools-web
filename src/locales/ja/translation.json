@@ -11,6 +11,10 @@
         "image-converter": {
           "name": "画像フォーマット変換",
           "description": "画像フォーマットを変換"
+        },
+        "image-removebg": {
+          "name": "背景削除",
+          "description": "AIを使用して画像の背景を削除"
         }
       }
     },
@@ -407,5 +411,38 @@
     "recent": "最近更新されたツール",
     "noFavorites": "まだお気に入りがありません。任意のツールの星アイコンをクリックしてお気に入りに追加してください。",
     "noTools": "このカテゴリにはツールがありません。"
+  },
+  "imageRemoveBg": {
+    "title": "背景削除",
+    "description": "AIを使用して画像の背景を削除します。すべての処理はブラウザ上でローカルに行われます",
+    "dropzone": {
+      "title": "クリックまたはドラッグして画像をアップロード",
+      "description": "<span>複数</span>の画像選択をサポート、初回使用時はモデルの読み込みが必要なため、しばらくお待ちください",
+      "supportedFormats": "JPG、PNG、WEBPをサポート"
+    },
+    "modelLoading": {
+      "title": "AIモデル読み込み中...",
+      "description": "インターネット接続によっては時間がかかる場合があります。モデルは将来の使用のためにキャッシュされます。"
+    },
+    "webgpu": {
+      "supported": "より高速な処理のためにWebGPUアクセラレーションが有効化されています",
+      "notSupported": "お使いのブラウザはWebGPUをサポートしていないため、処理速度が遅くなります"
+    },
+    "results": {
+      "title": "処理結果",
+      "original": "オリジナル",
+      "processed": "背景削除済み",
+      "processedTime": "処理時間"
+    },
+    "buttons": {
+      "download": "ダウンロード",
+      "downloadAll": "すべてダウンロード",
+      "delete": "削除"
+    },
+    "errors": {
+      "modelLoadFailed": "AIモデルの読み込みに失敗しました。インターネット接続を確認して再試行してください。",
+      "processingFailed": "画像処理に失敗しました",
+      "canvasContextNotAvailable": "Canvasコンテキストが利用できません"
+    }
   }
 } 

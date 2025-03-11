@@ -12,6 +12,10 @@
         "image-converter": {
           "name": "Image Format Conversion",
           "description": "Convert image formats"
+        },
+        "image-removebg": {
+          "name": "Background Removal",
+          "description": "Remove background from images using AI"
         }
       }
     },
@@ -494,5 +498,38 @@
     "recent": "Recently Updated",
     "noFavorites": "You haven't added any favorites yet. Click the star icon on any tool to add it to favorites.",
     "noTools": "No tools available in this category."
+  },
+  "imageRemoveBg": {
+    "title": "Background Removal",
+    "description": "Remove background from images using AI, all processing happens locally in your browser",
+    "dropzone": {
+      "title": "Click or Drag to Upload Images",
+      "description": "Support selecting <span>multiple</span> images, first use requires loading model, please be patient",
+      "supportedFormats": "Supports JPG, PNG, WEBP"
+    },
+    "modelLoading": {
+      "title": "Loading AI Model...",
+      "description": "This may take a moment depending on your internet connection. The model will be cached for future use."
+    },
+    "webgpu": {
+      "supported": "WebGPU acceleration enabled for faster processing",
+      "notSupported": "WebGPU not supported in your browser, processing will be slower"
+    },
+    "results": {
+      "title": "Processed Images",
+      "original": "Original",
+      "processed": "Background Removed",
+      "processedTime": "Processed Time"
+    },
+    "buttons": {
+      "download": "Download",
+      "downloadAll": "Download All",
+      "delete": "Delete"
+    },
+    "errors": {
+      "modelLoadFailed": "Failed to load AI model. Please check your internet connection and try again.",
+      "processingFailed": "Failed to process image",
+      "canvasContextNotAvailable": "Canvas context not available"
+    }
   }
 } 

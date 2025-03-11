@@ -19,6 +19,13 @@ export const TOOL_CATEGORY: ToolCategory[] = [
         description: 'image-converter',
         icon: 'Image',
         path: '/image/image-converter'
+      },
+      {
+        id: 'image-removebg',
+        name: 'image-removebg',
+        description: 'image-removebg',
+        icon: 'Image',
+        path: '/image/image-removebg'
       }
     ]
   },
