@@ -159,7 +159,7 @@ const ImageRemoveBg = () => {
       
       // 调用移除背景函数
       const processedBlob = await removeBackground(file, {
-        progress: (key: string, current: number, total: number) => {
+        progress: (_key: string, current: number, total: number) => {
           if (total > 0) {
             handleProgress(current / total);
           }
