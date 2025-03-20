@@ -35,12 +35,12 @@ XTools is a free, open-source, and data-secure toolbox.
 - word-count
 
 
-### DEMO
+## DEMO
 
 [https://xxoo.tools](https://xxoo.tools)
 
 
-### Develop
+## Develop
 
 ```bash
 git clone git@github.com:Go7hic/xxootools-web.git
@@ -50,6 +50,6 @@ pnpm install
 pnpm dev
 ```
 
-### License
+## License
 
 The MIT License.
