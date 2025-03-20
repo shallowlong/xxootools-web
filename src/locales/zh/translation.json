@@ -15,6 +15,10 @@
         "image-removebg": {
           "name": "图片背景移除",
           "description": "使用 AI 技术移除图片背景"
+        },
+        "image-mosaic": {
+          "name": "图片马赛克",
+          "description": "给图片添加马赛克效果"
         }
       }
     },
@@ -261,6 +265,57 @@
       "canvasContextNotAvailable": "Canvas 上下文不可用",
       "conversionError": "转换过程中出错",
       "createZipError": "创建ZIP文件失败"
+    }
+  },
+  "imageMosaic": {
+    "title": "图片马赛克",
+    "description": "给图片添加马赛克效果，保护隐私信息",
+    "dropToUpload": "释放鼠标上传图片",
+    "clickOrDragToUpload": "点击或拖拽上传图片",
+    "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
+    "dragMessage": "松开鼠标开始处理",
+    "mosaicSettings": "马赛克设置",
+    "blockSize": "马赛克大小",
+    "shape": "马赛克形状",
+    "square": "方形",
+    "circle": "圆形",
+    "squareShape": "使用方形马赛克",
+    "circleShape": "使用圆形马赛克",
+    "smaller": "小",
+    "larger": "大",
+    "mosaicResults": "处理结果",
+    "downloadAll": "打包下载全部",
+    "image": "图片",
+    "fileInfo": "文件信息",
+    "mosaicInfo": "马赛克信息",
+    "actions": "操作",
+    "preview": "预览",
+    "format": "格式",
+    "processing": "处理中",
+    "original": "原图",
+    "processed": "处理后",
+    "processingFailed": "处理失败",
+    "imageList": "图片列表",
+    "editor": "编辑区域",
+    "undo": "撤销",
+    "applyMosaic": "应用马赛克",
+    "instructions": "在图片上拖动鼠标选择需要打马赛克的区域，可以选择多个区域",
+    "dragToSelect": "在图片上拖动鼠标，选择需要打马赛克的区域",
+    "processedResult": "处理结果",
+    "selectImagePrompt": "请从左侧选择一张图片进行编辑",
+    "rectangle": "矩形",
+    "rectangleMode": "矩形选择模式",
+    "areas": "个区域",
+    "tip": "提示：按ESC键取消当前选择",
+    "images": "张图片",
+    "addMore": "添加更多",
+    "blurEffect": "模糊效果区域",
+    "cancelSelection": "取消当前选择",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 上下文不可用",
+      "processingError": "处理过程中出错",
+      "createZipError": "创建zip文件出错",
+      "downloadFailed": "下载失败，请重试或单独下载图片"
     }
   },
   "videoCompress": {

@@ -26,6 +26,13 @@ export const TOOL_CATEGORY: ToolCategory[] = [
         description: 'image-removebg',
         icon: 'Image',
         path: '/image/image-removebg'
+      },
+      {
+        id: 'image-mosaic',
+        name: 'image-mosaic',
+        description: 'image-mosaic',
+        icon: 'Image',
+        path: '/image/image-mosaic'
       }
     ]
   },
