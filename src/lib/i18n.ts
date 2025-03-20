@@ -36,8 +36,7 @@ i18n
   // 初始化i18next
   .init({
     resources,
-    fallbackLng: 'zh', // 默认语言设为中文
-    lng: 'zh', // 强制使用中文作为初始语言
+    fallbackLng: 'en', // 默认语言设为英文
     debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false, // 不转义HTML

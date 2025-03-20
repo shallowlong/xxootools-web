@@ -15,6 +15,10 @@
         "image-removebg": {
           "name": "배경 제거",
           "description": "AI 기술을 사용하여 이미지 배경 제거"
+        },
+        "image-mosaic": {
+          "name": "이미지 모자이크",
+          "description": "개인 정보 보호를 위해 이미지에 모자이크 효과 추가"
         }
       }
     },
@@ -443,6 +447,51 @@
       "modelLoadFailed": "AI 모델 로딩에 실패했습니다. 인터넷 연결을 확인하고 다시 시도하세요.",
       "processingFailed": "이미지 처리 실패",
       "canvasContextNotAvailable": "Canvas 컨텍스트를 사용할 수 없습니다"
+    }
+  },
+  "imageMosaic": {
+    "title": "이미지 모자이크",
+    "description": "개인 정보 보호를 위해 이미지에 모자이크 효과 추가",
+    "dropToUpload": "마우스를 놓아 이미지 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 이미지 업로드",
+    "supportedFormats": "<span>여러</span> 이미지 선택 지원, 형식 포함 {{formats}}",
+    "dragMessage": "마우스를 놓아 처리 시작",
+    "mosaicSettings": "모자이크 설정",
+    "blockSize": "모자이크 크기",
+    "shape": "모자이크 모양",
+    "square": "사각형",
+    "circle": "원형",
+    "squareShape": "사각형 모자이크 사용",
+    "circleShape": "원형 모자이크 사용",
+    "smaller": "작게",
+    "larger": "크게",
+    "mosaicResults": "처리 결과",
+    "downloadAll": "모두 다운로드",
+    "image": "이미지",
+    "fileInfo": "파일 정보",
+    "mosaicInfo": "모자이크 정보",
+    "actions": "작업",
+    "preview": "미리보기",
+    "format": "형식",
+    "processing": "처리 중",
+    "original": "원본",
+    "processed": "처리됨",
+    "processingFailed": "처리 실패",
+    "imageList": "이미지 목록",
+    "images": "이미지",
+    "addMore": "추가",
+    "areas": "영역",
+    "dragToSelect": "드래그하여 영역 선택",
+    "tip": "모자이크 효과를 추가할 영역을 선택하세요",
+    "undo": "실행 취소",
+    "applyMosaic": "모자이크 적용",
+    "processedResult": "처리된 결과",
+    "selectImagePrompt": "이미지를 선택해주세요",
+    "errors": {
+      "canvasContextNotAvailable": "캔버스 컨텍스트를 사용할 수 없습니다",
+      "processingError": "이미지 처리 오류",
+      "downloadFailed": "이미지 다운로드 실패",
+      "createZipError": "ZIP 파일 생성 오류"
     }
   }
 } 

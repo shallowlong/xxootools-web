@@ -15,6 +15,10 @@
         "image-removebg": {
           "name": "背景削除",
           "description": "AIを使用して画像の背景を削除"
+        },
+        "image-mosaic": {
+          "name": "画像モザイク",
+          "description": "プライバシー情報を保護するために画像にモザイク効果を追加"
         }
       }
     },
@@ -443,6 +447,51 @@
       "modelLoadFailed": "AIモデルの読み込みに失敗しました。インターネット接続を確認して再試行してください。",
       "processingFailed": "画像処理に失敗しました",
       "canvasContextNotAvailable": "Canvasコンテキストが利用できません"
+    }
+  },
+  "imageMosaic": {
+    "title": "画像モザイク",
+    "description": "プライバシー情報を保護するために画像にモザイク効果を追加",
+    "dropToUpload": "マウスを離して画像をアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして画像をアップロード",
+    "supportedFormats": "<span>複数</span>の画像を選択できます、対応フォーマット: {{formats}}",
+    "dragMessage": "マウスを離して処理を開始",
+    "mosaicSettings": "モザイク設定",
+    "blockSize": "モザイクサイズ",
+    "shape": "モザイク形状",
+    "square": "四角形",
+    "circle": "円形",
+    "squareShape": "四角形モザイクを使用",
+    "circleShape": "円形モザイクを使用",
+    "smaller": "小",
+    "larger": "大",
+    "mosaicResults": "処理結果",
+    "downloadAll": "すべてダウンロード",
+    "image": "画像",
+    "fileInfo": "ファイル情報",
+    "mosaicInfo": "モザイク情報",
+    "actions": "操作",
+    "preview": "プレビュー",
+    "format": "フォーマット",
+    "processing": "処理中",
+    "original": "オリジナル",
+    "processed": "処理済み",
+    "processingFailed": "処理失敗",
+    "imageList": "画像リスト",
+    "images": "画像",
+    "addMore": "追加",
+    "areas": "領域",
+    "dragToSelect": "ドラッグして領域を選択",
+    "tip": "モザイク効果を追加したい領域を選択してください",
+    "undo": "元に戻す",
+    "applyMosaic": "モザイクを適用",
+    "processedResult": "処理結果",
+    "selectImagePrompt": "画像を選択してください",
+    "errors": {
+      "canvasContextNotAvailable": "キャンバスコンテキストが利用できません",
+      "processingError": "画像処理エラー",
+      "downloadFailed": "画像のダウンロードに失敗しました",
+      "createZipError": "ZIPファイルの作成エラー"
     }
   }
 } 

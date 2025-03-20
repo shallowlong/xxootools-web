@@ -15,6 +15,10 @@
         "image-removebg": {
           "name": "Hintergrund entfernen",
           "description": "Entfernen Sie den Hintergrund aus Bildern mit KI"
+        },
+        "image-mosaic": {
+          "name": "Bild-Mosaik",
+          "description": "Fügen Sie Bildern Mosaikeffekte hinzu, um private Informationen zu schützen"
         }
       }
     },
@@ -430,6 +434,51 @@
       "modelLoadFailed": "Fehler beim Laden des KI-Modells. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
       "processingFailed": "Fehler bei der Bildverarbeitung",
       "canvasContextNotAvailable": "Canvas-Kontext nicht verfügbar"
+    }
+  },
+  "imageMosaic": {
+    "title": "Bild-Mosaik",
+    "description": "Fügen Sie Bildern Mosaikeffekte hinzu, um private Informationen zu schützen",
+    "dropToUpload": "Loslassen, um Bilder hochzuladen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie, um Bilder hochzuladen",
+    "supportedFormats": "Unterstützt die Auswahl <span>mehrerer</span> Bilder, Formate umfassen {{formats}}",
+    "dragMessage": "Loslassen, um die Verarbeitung zu starten",
+    "mosaicSettings": "Mosaik-Einstellungen",
+    "blockSize": "Mosaikgröße",
+    "shape": "Mosaikform",
+    "square": "Quadratisch",
+    "circle": "Rund",
+    "squareShape": "Quadratisches Mosaik verwenden",
+    "circleShape": "Rundes Mosaik verwenden",
+    "smaller": "Klein",
+    "larger": "Groß",
+    "mosaicResults": "Verarbeitungsergebnisse",
+    "downloadAll": "Alle herunterladen",
+    "image": "Bild",
+    "fileInfo": "Dateiinfo",
+    "mosaicInfo": "Mosaikinfo",
+    "actions": "Aktionen",
+    "preview": "Vorschau",
+    "format": "Format",
+    "processing": "Verarbeitung",
+    "original": "Original",
+    "processed": "Verarbeitet",
+    "processingFailed": "Verarbeitung fehlgeschlagen",
+    "imageList": "Bildliste",
+    "images": "Bilder",
+    "addMore": "Mehr hinzufügen",
+    "areas": "Bereiche",
+    "dragToSelect": "Ziehen, um Bereich auszuwählen",
+    "tip": "Wählen Sie den Bereich aus, dem Sie einen Mosaikeffekt hinzufügen möchten",
+    "undo": "Rückgängig",
+    "applyMosaic": "Mosaik anwenden",
+    "processedResult": "Verarbeitetes Ergebnis",
+    "selectImagePrompt": "Bitte wählen Sie ein Bild aus",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas-Kontext nicht verfügbar",
+      "processingError": "Fehler bei der Bildverarbeitung",
+      "downloadFailed": "Herunterladen des Bildes fehlgeschlagen",
+      "createZipError": "Fehler beim Erstellen der ZIP-Datei"
     }
   }
 } 
