@@ -16,6 +16,10 @@
         "image-removebg": {
           "name": "Background Removal",
           "description": "Remove background from images using AI"
+        },
+        "image-mosaic": {
+          "name": "Image Mosaic",
+          "description": "Add mosaic effect to images to protect privacy information"
         }
       }
     },

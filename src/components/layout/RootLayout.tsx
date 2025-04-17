@@ -5,7 +5,7 @@ import Footer from './Footer';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const RootLayout: React.FC = () => {
   const { t } = useTranslation();
@@ -27,7 +27,15 @@ const RootLayout: React.FC = () => {
           </div>
           
           <div className="flex items-center gap-4">
-          <a href="https://www.producthunt.com/posts/xtools?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xtools" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=939919&theme=light&t=1741521594354" alt="XTools - a&#0032;free&#0044;&#0032;open&#0045;source&#0044;&#0032;and&#0032;data&#0045;secure&#0032;toolbox&#0046; | Product Hunt" style={{width: "168px", height: "34px"}} /></a>
+            <a
+              href="https://domain.deepzero.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+              title={'DomainGenius'}
+            >
+              <span>DomainGenius</span><ExternalLink />
+            </a>
             <a
               href="https://github.com/Go7hic/xxootools-web"
               target="_blank"
