@@ -10,6 +10,21 @@ export const POPULAR_TOOLS = [
 
 // 最近更新工具配置
 export const RECENT_TOOLS = [
+  {
+    categoryId: 'svg',
+    toolId: 'svg-viewer',
+    updateDate: '2025-04-15'
+  },
+  {
+    categoryId: 'svg',
+    toolId: 'svg-optimizer',
+    updateDate: '2025-03-15'
+  },
+  {
+    categoryId: 'image',
+    toolId: 'image-mosaic',
+    updateDate: '2024-04-15'
+  },
   { 
     categoryId: 'image', 
     toolId: 'image-converter',
