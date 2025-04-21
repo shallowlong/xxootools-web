@@ -22,6 +22,43 @@
         }
       }
     },
+    "svg": {
+      "name": "SVG 도구",
+      "tools": {
+        "svg-preview": {
+          "name": "SVG 미리보기",
+          "description": "SVG 파일 미리보기 및 소스 코드 보기"
+        },
+        "svg-to-png": {
+          "name": "SVG에서 PNG로",
+          "description": "SVG 이미지를 PNG 형식으로 변환"
+        },
+        "svg-to-jpg": {
+          "name": "SVG에서 JPG로",
+          "description": "SVG 이미지를 JPG 형식으로 변환"
+        },
+        "svg-to-pdf": {
+          "name": "SVG에서 PDF로",
+          "description": "SVG 이미지를 PDF 형식으로 변환"
+        },
+        "svg-to-eps": {
+          "name": "SVG에서 EPS로",
+          "description": "SVG 이미지를 EPS 형식으로 변환"
+        },
+        "png-to-svg": {
+          "name": "PNG에서 SVG로",
+          "description": "PNG 이미지를 SVG 벡터 그래픽으로 변환"
+        },
+        "jpg-to-svg": {
+          "name": "JPG에서 SVG로",
+          "description": "JPG 이미지를 SVG 벡터 그래픽으로 변환"
+        },
+        "svg-optimizer": {
+          "name": "SVG 최적화 도구",
+          "description": "SVG 파일 크기를 줄이고 성능을 향상시키기 위한 최적화"
+        }
+      }
+    },
     "video": {
       "name": "비디오 도구",
       "tools": {
@@ -132,7 +169,41 @@
     "upload": "업로드",
     "download": "다운로드",
     "language": "언어",
-    "search": "도구 검색"
+    "search": "도구 검색",
+    "recommended": "추천",
+    "experimental": "실험적",
+    "logoAlt": "XTools 로고",
+    "brandName": "XTools",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "toggleToDark": "다크 모드로 전환",
+    "toggleToLight": "라이트 모드로 전환",
+    "favorite": "즐겨찾기에 추가",
+    "unfavorite": "즐겨찾기에서 제거",
+    "image": "이미지",
+    "fileInfo": "파일 정보",
+    "conversionInfo": "변환 정보",
+    "actions": "작업",
+    "preview": "미리보기",
+    "dropToUpload": "이미지를 놓아서 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 이미지 업로드",
+    "supportedFormats": "<span>여러</span> 이미지 업로드 지원, 지원 형식: {{formats}}",
+    "conversionResults": "변환 결과",
+    "downloadAll": "모두 ZIP으로 다운로드",
+    "originalFormat": "원본 형식",
+    "convertingTo": "변환 대상",
+    "converting": "변환 중",
+    "conversionStatus": {
+      "success": "변환 성공",
+      "failed": "변환 실패",
+      "converting": "변환 중"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 컨텍스트를 사용할 수 없습니다",
+      "conversionError": "변환 중 오류 발생", 
+      "createZipError": "ZIP 파일 생성 중 오류 발생",
+      "downloadFailed": "다운로드 실패, 다시 시도하거나 이미지를 개별적으로 다운로드하세요"
+    }
   },
   "imageCompress": {
     "title": "이미지 압축",
@@ -493,5 +564,65 @@
       "downloadFailed": "이미지 다운로드 실패",
       "createZipError": "ZIP 파일 생성 오류"
     }
+  },
+  "svgPreview": {
+    "title": "SVG 미리보기",
+    "description": "SVG 코드 효과 미리보기",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 SVG 업로드",
+    "supportedFormats": "<span>여러</span> SVG 파일을 선택할 수 있습니다",
+    "dragMessage": "업로드하려면 놓으세요",
+    "convertSettings": "변환 설정",
+    "targetFormat": "대상 형식",
+    "selectFormat": "형식 선택",
+    "svgList": "SVG 목록",
+    "svgDetails": "SVG 상세 정보",
+    "sourceCode": "소스 코드",
+    "convertTo": "변환 대상",
+    "converting": "변환 중",
+    "svgCode": "SVG 코드",
+    "svgPreview": "SVG 미리보기",
+    "pasteSvgHere": "여기에 SVG 코드 붙여넣기...",
+    "preview": "미리보기",
+    "invalidSvgCode": "잘못된 SVG 코드",
+    "previewError": "미리보기 오류, SVG 코드를 확인하세요",
+    "noPreview": "미리보기를 사용할 수 없습니다. 유효한 SVG 코드를 입력하세요"
+  },
+  "svgToPdf": {
+    "title": "SVG에서 PDF로",
+    "description": "SVG 이미지를 PDF 형식으로 변환",
+    "dropToUpload": "SVG를 놓아서 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 SVG 업로드",
+    "uploadOrPaste": "SVG 업로드 또는 코드 붙여넣기",
+    "supportedFormats": "<span>여러</span> SVG 파일 업로드 지원",
+    "dragMessage": "변환을 시작하려면 놓으세요",
+    "convertSettings": "변환 설정",
+    "targetFormat": "대상 형식",
+    "selectFormat": "형식 선택",
+    "convertToPDF": "PDF로 변환",
+    "reset": "초기화",
+    "downloadPDF": "PDF 다운로드",
+    "processing": "처리 중",
+    "original": "원본",
+    "processed": "처리됨"
+  },
+  "svgOptimizer": {
+    "title": "SVG 최적화 도구",
+    "description": "SVG 파일 크기를 줄이고 성능 향상",
+    "dropToUpload": "SVG를 놓아서 업로드",
+    "clickOrDragToUpload": "클릭하거나 드래그하여 SVG 업로드",
+    "uploadOrPaste": "SVG 업로드 또는 코드 붙여넣기",
+    "supportedFormats": "<span>여러</span> SVG 파일 업로드 지원",
+    "dragMessage": "최적화를 시작하려면 놓으세요",
+    "convertSettings": "최적화 설정",
+    "selectFormat": "형식 선택",
+    "optimizeSVG": "SVG 최적화",
+    "reset": "초기화",
+    "downloadSVG": "SVG 다운로드",
+    "processing": "처리 중",
+    "original": "원본",
+    "optimized": "최적화됨",
+    "originalSize": "원본 크기",
+    "optimizedSize": "최적화된 크기",
+    "savings": "크기 감소"
   }
 } 

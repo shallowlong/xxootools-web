@@ -22,6 +22,43 @@
         }
       }
     },
+    "svg": {
+      "name": "SVG-Tools",
+      "tools": {
+        "svg-preview": {
+          "name": "SVG-Vorschau",
+          "description": "SVG-Dateien anzeigen und Quellcode betrachten"
+        },
+        "svg-to-png": {
+          "name": "SVG zu PNG",
+          "description": "SVG-Bilder in PNG-Format konvertieren"
+        },
+        "svg-to-jpg": {
+          "name": "SVG zu JPG",
+          "description": "SVG-Bilder in JPG-Format konvertieren"
+        },
+        "svg-to-pdf": {
+          "name": "SVG zu PDF",
+          "description": "SVG-Bilder in PDF-Format konvertieren"
+        },
+        "svg-to-eps": {
+          "name": "SVG zu EPS",
+          "description": "SVG-Bilder in EPS-Format konvertieren"
+        },
+        "png-to-svg": {
+          "name": "PNG zu SVG",
+          "description": "PNG-Bilder in SVG-Vektorgrafiken konvertieren"
+        },
+        "jpg-to-svg": {
+          "name": "JPG zu SVG",
+          "description": "JPG-Bilder in SVG-Vektorgrafiken konvertieren"
+        },
+        "svg-optimizer": {
+          "name": "SVG-Optimierer",
+          "description": "SVG-Dateien optimieren, um die Dateigröße zu reduzieren"
+        }
+      }
+    },
     "video": {
       "name": "Video-Tools",
       "tools": {
@@ -132,7 +169,41 @@
     "upload": "Hochladen",
     "download": "Herunterladen",
     "language": "Sprache",
-    "search": "Tools suchen"
+    "search": "Tools suchen",
+    "recommended": "Empfohlen",
+    "experimental": "Experimentell",
+    "logoAlt": "XTools Logo",
+    "brandName": "XTools",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "toggleToDark": "Zu Dunkelmodus wechseln",
+    "toggleToLight": "Zu Hellmodus wechseln",
+    "favorite": "Zu Favoriten hinzufügen",
+    "unfavorite": "Aus Favoriten entfernen",
+    "image": "Bild",
+    "fileInfo": "Dateiinformationen",
+    "conversionInfo": "Konvertierungsinformationen",
+    "actions": "Aktionen",
+    "preview": "Vorschau",
+    "dropToUpload": "Bilder zum Hochladen ablegen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie Bilder zum Hochladen",
+    "supportedFormats": "Unterstützt das Hochladen <span>mehrerer</span> Bilder, Formate umfassen {{formats}}",
+    "conversionResults": "Konvertierungsergebnisse",
+    "downloadAll": "Alle als ZIP herunterladen",
+    "originalFormat": "Originalformat",
+    "convertingTo": "Konvertieren zu",
+    "converting": "Konvertierung",
+    "conversionStatus": {
+      "success": "Konvertierung erfolgreich",
+      "failed": "Konvertierung fehlgeschlagen",
+      "converting": "Konvertierung läuft"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvas-Kontext nicht verfügbar",
+      "conversionError": "Fehler bei der Konvertierung", 
+      "createZipError": "Fehler beim Erstellen der ZIP-Datei",
+      "downloadFailed": "Download fehlgeschlagen, bitte versuchen Sie es erneut oder laden Sie die Bilder einzeln herunter"
+    }
   },
   "imageCompress": {
     "title": "Bildkomprimierung",
@@ -480,5 +551,65 @@
       "downloadFailed": "Herunterladen des Bildes fehlgeschlagen",
       "createZipError": "Fehler beim Erstellen der ZIP-Datei"
     }
+  },
+  "svgPreview": {
+    "title": "SVG-Vorschau",
+    "description": "SVG-Code-Effekt anzeigen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie zum Hochladen von SVGs",
+    "supportedFormats": "Sie können <span>mehrere</span> SVG-Dateien auswählen",
+    "dragMessage": "Loslassen zum Hochladen",
+    "convertSettings": "Konvertierungseinstellungen",
+    "targetFormat": "Zielformat",
+    "selectFormat": "Format auswählen",
+    "svgList": "SVG-Liste",
+    "svgDetails": "SVG-Details",
+    "sourceCode": "Quellcode",
+    "convertTo": "Konvertieren zu",
+    "converting": "Konvertierung",
+    "svgCode": "SVG-Code",
+    "svgPreview": "SVG-Vorschau",
+    "pasteSvgHere": "SVG-Code hier einfügen...",
+    "preview": "Vorschau",
+    "invalidSvgCode": "Ungültiger SVG-Code",
+    "previewError": "Vorschaufehler, bitte überprüfen Sie Ihren SVG-Code",
+    "noPreview": "Keine Vorschau verfügbar, bitte gültigen SVG-Code eingeben"
+  },
+  "svgToPdf": {
+    "title": "SVG zu PDF",
+    "description": "SVG-Bilder in PDF-Format konvertieren",
+    "dropToUpload": "SVGs zum Hochladen ablegen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie SVGs zum Hochladen",
+    "uploadOrPaste": "SVG hochladen oder Code einfügen",
+    "supportedFormats": "Unterstützt das Hochladen <span>mehrerer</span> SVG-Dateien",
+    "dragMessage": "Loslassen, um die Konvertierung zu starten",
+    "convertSettings": "Konvertierungseinstellungen",
+    "targetFormat": "Zielformat",
+    "selectFormat": "Format auswählen",
+    "convertToPDF": "Zu PDF konvertieren",
+    "reset": "Zurücksetzen",
+    "downloadPDF": "PDF herunterladen",
+    "processing": "Verarbeitung",
+    "original": "Original",
+    "processed": "Verarbeitet"
+  },
+  "svgOptimizer": {
+    "title": "SVG-Optimierer",
+    "description": "Reduziert SVG-Dateigröße und verbessert die Leistung",
+    "dropToUpload": "SVG zum Hochladen ablegen",
+    "clickOrDragToUpload": "Klicken oder ziehen Sie SVGs zum Hochladen",
+    "uploadOrPaste": "SVG hochladen oder Code einfügen",
+    "supportedFormats": "Unterstützt das Hochladen <span>mehrerer</span> SVG-Dateien",
+    "dragMessage": "Loslassen, um die Optimierung zu starten",
+    "convertSettings": "Optimierungseinstellungen",
+    "selectFormat": "Format auswählen",
+    "optimizeSVG": "SVG optimieren",
+    "reset": "Zurücksetzen",
+    "downloadSVG": "SVG herunterladen",
+    "processing": "Verarbeitung",
+    "original": "Original",
+    "optimized": "Optimiert",
+    "originalSize": "Ursprüngliche Größe",
+    "optimizedSize": "Optimierte Größe",
+    "savings": "Größenreduzierung"
   }
 } 

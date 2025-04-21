@@ -13,6 +13,7 @@ const ImageCompress = lazy(() => import('./pages/image/ImageCompress'))
 const ImageConverter = lazy(() => import('./pages/image/ImageConverter'))
 const ImageRemoveBg = lazy(() => import('./pages/image/ImageRemoveBg'))
 const ImageMosaic = lazy(() => import('./pages/image/ImageMosaic'))
+
 const VideoCompress = lazy(() => import('./pages/video/VideoCompress'))
 const AudioConverter = lazy(() => import('./pages/audio/AudioConverter'))
 const WordCount = lazy(() => import('./pages/writer/WordCount'))
@@ -21,6 +22,13 @@ const MomentUtils = lazy(() => import('./pages/date/MomentUtils'))
 const DateUtils = lazy(() => import('./pages/date/DateUtils'))
 const Privacy = lazy(() => import('./pages/Privacy'))
 const NotFound = lazy(() => import('./pages/NotFound'))
+const SVGPreview = lazy(() => import('./pages/svg/SVGPreview'))
+const SVGToPNG = lazy(() => import('./pages/svg/SVGToPNG'))
+const SVGToJPG = lazy(() => import('./pages/svg/SVGToJPG'))
+const SVGToPDF = lazy(() => import('./pages/svg/SVGToPDF'))
+const PNGToSVG = lazy(() => import('./pages/svg/PNGToSVG'))
+const JPGToSVG = lazy(() => import('./pages/svg/JPGToSVG'))
+const SVGOptimizer = lazy(() => import('./pages/svg/SVGOptimizer'))
 
 
 function App() {
@@ -41,6 +49,15 @@ function App() {
               <Route path="image-converter" element={<ImageConverter />} />
               <Route path="image-removebg" element={<ImageRemoveBg />} />
               <Route path="image-mosaic" element={<ImageMosaic />} />
+            </Route>
+            <Route path="svg">
+              <Route path="svg-preview" element={<SVGPreview />} />
+              <Route path="svg-to-png" element={<SVGToPNG />} />
+              <Route path="svg-to-jpg" element={<SVGToJPG />} />
+              <Route path="svg-to-pdf" element={<SVGToPDF />} />
+              <Route path="png-to-svg" element={<PNGToSVG />} />
+              <Route path="jpg-to-svg" element={<JPGToSVG />} />
+              <Route path="svg-optimizer" element={<SVGOptimizer />} />
             </Route>
             <Route path="video">
               <Route path="video-compress" element={<VideoCompress />} />

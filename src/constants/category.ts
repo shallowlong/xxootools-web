@@ -31,8 +31,63 @@ export const TOOL_CATEGORY: ToolCategory[] = [
         id: 'image-mosaic',
         name: 'image-mosaic',
         description: 'image-mosaic',
-        icon: 'Image',
+        icon: 'Grid',
         path: '/image/image-mosaic'
+      }
+    ]
+  },
+  {
+    id: 'svg',
+    name: 'svg',
+    tools: [
+      {
+        id: 'svg-preview',
+        name: 'svg-preview',
+        description: 'svg-preview',
+        icon: 'FileVector',
+        path: '/svg/svg-preview'
+      },
+      {
+        id: 'svg-to-png',
+        name: 'svg-to-png',
+        description: 'svg-to-png',
+        icon: 'ImageIcon',
+        path: '/svg/svg-to-png'
+      },
+      {
+        id: 'svg-to-jpg',
+        name: 'svg-to-jpg',
+        description: 'svg-to-jpg',
+        icon: 'Image',
+        path: '/svg/svg-to-jpg'
+      },
+      {
+        id: 'svg-to-pdf',
+        name: 'svg-to-pdf',
+        description: 'svg-to-pdf',
+        icon: 'FileText',
+        path: '/svg/svg-to-pdf'
+      },
+      {
+        id: 'png-to-svg',
+        name: 'png-to-svg',
+        description: 'png-to-svg-desc',
+        icon: 'FileVector',
+        path: '/svg/png-to-svg'
+      },
+      {
+        id: 'jpg-to-svg',
+        name: 'jpg-to-svg',
+        description: 'jpg-to-svg-desc',
+        icon: 'FileVector',
+        path: '/svg/jpg-to-svg'
+      },
+      {
+        id: 'svg-optimizer',
+        name: 'svg-optimizer',
+        description: 'svg-optimizer',
+        icon: 'FileVector',
+        path: '/svg/svg-optimizer'
       }
     ]
   },

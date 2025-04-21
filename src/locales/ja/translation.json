@@ -22,6 +22,43 @@
         }
       }
     },
+    "svg": {
+      "name": "SVG ツール",
+      "tools": {
+        "svg-preview": {
+          "name": "SVG プレビュー",
+          "description": "SVG ファイルのプレビューとソースコードの表示"
+        },
+        "svg-to-png": {
+          "name": "SVG から PNG へ",
+          "description": "SVG 画像を PNG 形式に変換"
+        },
+        "svg-to-jpg": {
+          "name": "SVG から JPG へ",
+          "description": "SVG 画像を JPG 形式に変換"
+        },
+        "svg-to-pdf": {
+          "name": "SVG から PDF へ",
+          "description": "SVG 画像を PDF 形式に変換"
+        },
+        "svg-to-eps": {
+          "name": "SVG から EPS へ",
+          "description": "SVG 画像を EPS 形式に変換"
+        },
+        "png-to-svg": {
+          "name": "PNG から SVG へ",
+          "description": "PNG 画像を SVG ベクター画像に変換"
+        },
+        "jpg-to-svg": {
+          "name": "JPG から SVG へ",
+          "description": "JPG 画像を SVG ベクター画像に変換"
+        },
+        "svg-optimizer": {
+          "name": "SVG オプティマイザー",
+          "description": "SVG ファイルを最適化してファイルサイズを削減"
+        }
+      }
+    },
     "video": {
       "name": "動画ツール",
       "tools": {
@@ -132,7 +169,41 @@
     "upload": "アップロード",
     "download": "ダウンロード",
     "language": "言語",
-    "search": "ツールを検索"
+    "search": "ツールを検索",
+    "recommended": "おすすめ",
+    "experimental": "実験的",
+    "logoAlt": "XTools ロゴ",
+    "brandName": "XTools",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "toggleToDark": "ダークモードに切り替え",
+    "toggleToLight": "ライトモードに切り替え",
+    "favorite": "お気に入りに追加",
+    "unfavorite": "お気に入りから削除",
+    "image": "画像",
+    "fileInfo": "ファイル情報",
+    "conversionInfo": "変換情報",
+    "actions": "操作",
+    "preview": "プレビュー",
+    "dropToUpload": "画像をドロップしてアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして画像をアップロード",
+    "supportedFormats": "<span>複数</span>の画像をサポート、形式には {{formats}} が含まれます",
+    "conversionResults": "変換結果",
+    "downloadAll": "すべてをZIPでダウンロード",
+    "originalFormat": "元のフォーマット",
+    "convertingTo": "変換先",
+    "converting": "変換中",
+    "conversionStatus": {
+      "success": "変換成功",
+      "failed": "変換失敗",
+      "converting": "変換中"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvasコンテキストが利用できません",
+      "conversionError": "変換中にエラーが発生しました", 
+      "createZipError": "ZIPファイルの作成中にエラーが発生しました",
+      "downloadFailed": "ダウンロードに失敗しました。再試行するか、画像を個別にダウンロードしてください"
+    }
   },
   "imageCompress": {
     "title": "画像圧縮",
@@ -148,22 +219,11 @@
     "compressionHistory": "圧縮履歴",
     "downloadAll": "すべてをZIPでダウンロード",
     "image": "画像",
-    "fileInfo": "ファイル情報",
     "compressionInfo": "圧縮情報",
-    "actions": "アクション",
-    "preview": "プレビュー",
-    "format": "形式",
     "compressing": "圧縮中...",
     "original": "元の画像",
     "compressed": "圧縮後",
-    "compressionFailed": "圧縮失敗",
-    "errors": {
-      "canvasContextNotAvailable": "Canvasコンテキストが利用できません",
-      "avifNotSupported": "AVIF形式はサポートされていません",
-      "compressionError": "圧縮中にエラーが発生しました",
-      "createZipError": "ZIPファイルの作成中にエラーが発生しました",
-      "downloadFailed": "ダウンロードに失敗しました。再試行するか、画像を個別にダウンロードしてください"
-    }
+    "compressionFailed": "圧縮失敗"
   },
   "imageConverter": {
     "title": "画像フォーマット変換",
@@ -493,5 +553,65 @@
       "downloadFailed": "画像のダウンロードに失敗しました",
       "createZipError": "ZIPファイルの作成エラー"
     }
+  },
+  "svgPreview": {
+    "title": "SVG プレビュー",
+    "description": "SVG コードの効果をプレビュー",
+    "clickOrDragToUpload": "クリックまたはドラッグして SVG をアップロード",
+    "supportedFormats": "<span>複数の</span>SVG ファイルを選択できます",
+    "dragMessage": "リリースしてアップロード",
+    "convertSettings": "変換設定",
+    "targetFormat": "対象フォーマット",
+    "selectFormat": "フォーマットを選択",
+    "svgList": "SVG リスト",
+    "svgDetails": "SVG 詳細",
+    "sourceCode": "ソースコード",
+    "convertTo": "変換先",
+    "converting": "変換中",
+    "svgCode": "SVG コード",
+    "svgPreview": "SVG プレビュー",
+    "pasteSvgHere": "SVG コードをここに貼り付け...",
+    "preview": "プレビュー",
+    "invalidSvgCode": "無効な SVG コード",
+    "previewError": "プレビューエラー、SVG コードを確認してください",
+    "noPreview": "プレビューできません。有効な SVG コードを入力してください"
+  },
+  "svgToPdf": {
+    "title": "SVG から PDF へ",
+    "description": "SVG 画像を PDF 形式に変換",
+    "dropToUpload": "SVG をドロップしてアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして SVG をアップロード",
+    "uploadOrPaste": "SVG をアップロードまたはコードを貼り付け",
+    "supportedFormats": "<span>複数の</span>SVG ファイルのアップロードをサポート",
+    "dragMessage": "変換を開始するにはリリース",
+    "convertSettings": "変換設定",
+    "targetFormat": "対象フォーマット",
+    "selectFormat": "フォーマットを選択",
+    "convertToPDF": "PDF に変換",
+    "reset": "リセット",
+    "downloadPDF": "PDF をダウンロード",
+    "processing": "処理中",
+    "original": "オリジナル",
+    "processed": "処理済み"
+  },
+  "svgOptimizer": {
+    "title": "SVG オプティマイザー",
+    "description": "SVG ファイルサイズを縮小しパフォーマンスを向上",
+    "dropToUpload": "SVG をドロップしてアップロード",
+    "clickOrDragToUpload": "クリックまたはドラッグして SVG をアップロード",
+    "uploadOrPaste": "SVG コードをアップロードまたは貼り付け",
+    "supportedFormats": "<span>複数</span>の SVG ファイルをサポート",
+    "dragMessage": "最適化を開始するにはリリース",
+    "convertSettings": "最適化設定",
+    "selectFormat": "フォーマットを選択",
+    "optimizeSVG": "SVG を最適化",
+    "reset": "リセット",
+    "downloadSVG": "SVG をダウンロード",
+    "processing": "処理中",
+    "original": "元のファイル",
+    "optimized": "最適化後",
+    "originalSize": "元のサイズ",
+    "optimizedSize": "最適化後のサイズ",
+    "savings": "サイズ削減"
   }
 } 

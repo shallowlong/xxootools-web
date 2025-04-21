@@ -23,6 +23,43 @@
         }
       }
     },
+    "svg": {
+      "name": "SVG Tools",
+      "tools": {
+        "svg-preview": {
+          "name": "SVG Preview",
+          "description": "Preview SVG files and view source code"
+        },
+        "svg-to-png": {
+          "name": "SVG to PNG",
+          "description": "Convert SVG images to PNG format"
+        },
+        "svg-to-jpg": {
+          "name": "SVG to JPG",
+          "description": "Convert SVG images to JPG format"
+        },
+        "svg-to-pdf": {
+          "name": "SVG to PDF",
+          "description": "Convert SVG images to PDF format"
+        },
+        "svg-to-eps": {
+          "name": "SVG to EPS",
+          "description": "Convert SVG images to EPS format"
+        },
+        "png-to-svg": {
+          "name": "PNG to SVG",
+          "description": "Convert PNG images to SVG vector graphics"
+        },
+        "jpg-to-svg": {
+          "name": "JPG to SVG",
+          "description": "Convert JPG images to SVG vector graphics"
+        },
+        "svg-optimizer": {
+          "name": "SVG Optimizer",
+          "description": "Optimize SVG files to reduce file size"
+        }
+      }
+    },
     "video": {
       "name": "Video Tools",
       "tools": {
@@ -209,7 +246,26 @@
     "fileInfo": "File Info",
     "conversionInfo": "Conversion Info",
     "actions": "Actions",
-    "preview": "Preview"
+    "preview": "Preview",
+    "dropToUpload": "Drop images to upload",
+    "clickOrDragToUpload": "Click or drag images to upload",
+    "supportedFormats": "Support uploading <span>multiple</span> images, formats include {{formats}}",
+    "conversionResults": "Conversion Results",
+    "downloadAll": "Download All as ZIP",
+    "originalFormat": "Original format",
+    "convertingTo": "Converting to",
+    "converting": "Converting",
+    "conversionStatus": {
+      "success": "Conversion Successful",
+      "failed": "Conversion Failed",
+      "converting": "Converting"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvas context not available",
+      "conversionError": "Error during conversion", 
+      "createZipError": "Error creating ZIP file",
+      "downloadFailed": "Download failed, please try again or download images individually"
+    }
   },
   "imageCompress": {
     "title": "Image Compression",
@@ -267,6 +323,24 @@
       "conversionError": "Error during conversion",
       "createZipError": "Error creating ZIP file"
     }
+  },
+  "svgToPdf": {
+    "title": "SVG to PDF",
+    "description": "Convert SVG images to PDF format",
+    "dropToUpload": "Drop SVG to upload",
+    "clickOrDragToUpload": "Click or drag SVG to upload",
+    "uploadOrPaste": "Upload or paste SVG code",
+    "supportedFormats": "Support uploading <span>multiple</span> SVG files",
+    "dragMessage": "Release to start conversion",
+    "convertSettings": "Conversion Settings",
+    "targetFormat": "Target Format",
+    "selectFormat": "Select format",
+    "convertToPDF": "Convert to PDF",
+    "reset": "Reset",
+    "downloadPDF": "Download PDF",
+    "processing": "Processing",
+    "original": "Original",
+    "processed": "Processed"
   },
   "videoCompress": {
     "title": "Video Compression",
@@ -580,5 +654,47 @@
       "downloadFailed": "Failed to download the image",
       "createZipError": "Error creating zip file"
     }
+  },
+  "svgPreview": {
+    "title": "SVG Preview",
+    "description": "Preview SVG code effect",
+    "clickOrDragToUpload": "Click or drag to upload SVG",
+    "supportedFormats": "You can select <span>multiple</span> SVG files",
+    "dragMessage": "Release to upload",
+    "convertSettings": "Conversion Settings",
+    "targetFormat": "Target Format",
+    "selectFormat": "Select format",
+    "svgList": "SVG List",
+    "svgDetails": "SVG Details",
+    "sourceCode": "Source Code",
+    "convertTo": "Convert to",
+    "converting": "Converting",
+    "svgCode": "SVG Code",
+    "svgPreview": "SVG Preview",
+    "pasteSvgHere": "Paste SVG code here...",
+    "preview": "Preview",
+    "invalidSvgCode": "Invalid SVG code",
+    "previewError": "Preview error, please check your SVG code",
+    "noPreview": "No preview available, please enter valid SVG code"
+  },
+  "svgOptimizer": {
+    "title": "SVG Optimizer",
+    "description": "Reduce SVG file size and improve performance",
+    "dropToUpload": "Drop SVG to upload",
+    "clickOrDragToUpload": "Click or drag SVG to upload",
+    "uploadOrPaste": "Upload or paste SVG code",
+    "supportedFormats": "Support uploading <span>multiple</span> SVG files",
+    "dragMessage": "Release to start optimization",
+    "convertSettings": "Optimization Settings",
+    "selectFormat": "Select format",
+    "optimizeSVG": "Optimize SVG",
+    "reset": "Reset",
+    "downloadSVG": "Download SVG",
+    "processing": "Processing",
+    "original": "Original",
+    "optimized": "Optimized",
+    "originalSize": "Original Size",
+    "optimizedSize": "Optimized Size",
+    "savings": "Size Reduction"
   }
 } 

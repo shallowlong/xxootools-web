@@ -22,6 +22,43 @@
         }
       }
     },
+    "svg": {
+      "name": "SVG 工具",
+      "tools": {
+        "svg-preview": {
+          "name": "SVG 预览",
+          "description": "预览 SVG 文件并查看源代码"
+        },
+        "svg-to-png": {
+          "name": "SVG 转 PNG",
+          "description": "将 SVG 图像转换为 PNG 格式"
+        },
+        "svg-to-jpg": {
+          "name": "SVG 转 JPG",
+          "description": "将 SVG 图像转换为 JPG 格式"
+        },
+        "svg-to-pdf": {
+          "name": "SVG 转 PDF",
+          "description": "将 SVG 图像转换为 PDF 格式"
+        },
+        "svg-to-eps": {
+          "name": "SVG 转 EPS",
+          "description": "将 SVG 图像转换为 EPS 格式"
+        },
+        "png-to-svg": {
+          "name": "PNG 转 SVG",
+          "description": "将 PNG 图片转换为 SVG 矢量图"
+        },
+        "jpg-to-svg": {
+          "name": "JPG 转 SVG",
+          "description": "将 JPG 图片转换为 SVG 矢量图"
+        },
+        "svg-optimizer": {
+          "name": "SVG 优化器",
+          "description": "优化 SVG 文件以减小文件大小"
+        }
+      }
+    },
     "video": {
       "name": "视频工具",
       "tools": {
@@ -208,7 +245,26 @@
     "fileInfo": "文件信息",
     "conversionInfo": "转换信息",
     "actions": "操作",
-    "preview": "预览"
+    "preview": "预览",
+    "clickOrDragToUpload": "点击或拖拽上传图片",
+    "dropToUpload": "释放鼠标上传图片",
+    "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
+    "conversionResults": "转换结果",
+    "downloadAll": "打包下载全部",
+    "originalFormat": "原格式",
+    "convertingTo": "转换为",
+    "converting": "转换中",
+    "conversionStatus": {
+      "success": "转换成功",
+      "failed": "转换失败",
+      "converting": "转换中"
+    },
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 上下文不可用",
+      "conversionError": "转换过程中出错",
+      "createZipError": "创建zip文件出错",
+      "downloadFailed": "下载失败，请重试或单独下载图片"
+    }
   },
   "imageCompress": {
     "title": "图片压缩",
@@ -266,6 +322,46 @@
       "conversionError": "转换过程中出错",
       "createZipError": "创建ZIP文件失败"
     }
+  },
+  "svgPreview": {
+    "title": "SVG 预览",
+    "description": "预览SVG代码的效果",
+    "clickOrDragToUpload": "点击或拖拽上传SVG",
+    "supportedFormats": "支持选择<span>多个</span>SVG文件",
+    "dragMessage": "松开鼠标开始上传",
+    "convertSettings": "转换设置",
+    "targetFormat": "目标格式",
+    "selectFormat": "选择格式",
+    "svgList": "SVG列表",
+    "svgDetails": "SVG详情",
+    "sourceCode": "源代码",
+    "convertTo": "转换为",
+    "converting": "转换中",
+    "svgCode": "SVG 代码",
+    "svgPreview": "SVG 预览效果",
+    "pasteSvgHere": "在此粘贴 SVG 代码...",
+    "preview": "预览",
+    "invalidSvgCode": "无效的 SVG 代码",
+    "previewError": "预览出错，请检查 SVG 代码",
+    "noPreview": "暂无预览，请输入有效的 SVG 代码"
+  },
+  "svgToPdf": {
+    "title": "SVG 转 PDF",
+    "description": "将 SVG 转换为 PDF 文件",
+    "dropToUpload": "释放鼠标上传 SVG",
+    "uploadOrPaste": "上传或粘贴 SVG 代码",
+    "clickOrDragToUpload": "点击或拖拽上传 SVG",
+    "supportedFormats": "支持选择<span>多个</span>SVG文件",
+    "dragMessage": "松开鼠标开始上传",
+    "convertSettings": "转换设置",
+    "targetFormat": "目标格式",
+    "selectFormat": "选择格式",
+    "convertToPDF": "转换为 PDF",
+    "reset": "重置",
+    "downloadPDF": "下载 PDF",
+    "processing": "处理中",
+    "original": "原图",
+    "processed": "处理后"
   },
   "imageMosaic": {
     "title": "图片马赛克",
@@ -585,5 +681,25 @@
       "processingFailed": "图片处理失败",
       "canvasContextNotAvailable": "Canvas 上下文不可用"
     }
+  },
+  "svgOptimizer": {
+    "title": "SVG 优化器",
+    "description": "减小 SVG 文件大小并提高性能",
+    "dropToUpload": "释放鼠标上传 SVG",
+    "uploadOrPaste": "上传或粘贴 SVG 代码",
+    "clickOrDragToUpload": "点击或拖拽上传 SVG",
+    "supportedFormats": "支持选择<span>多个</span>SVG文件",
+    "dragMessage": "松开鼠标开始优化",
+    "convertSettings": "优化设置",
+    "selectFormat": "选择格式",
+    "optimizeSVG": "优化 SVG",
+    "reset": "重置",
+    "downloadSVG": "下载 SVG",
+    "processing": "处理中",
+    "original": "原始文件",
+    "optimized": "优化后",
+    "originalSize": "原始大小",
+    "optimizedSize": "优化后大小",
+    "savings": "节省空间"
   }
 } 

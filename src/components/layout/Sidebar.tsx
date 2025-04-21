@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Input } from '@/components/ui/input';
-import { Search, ChevronRight, ChevronDown, Image, FileVideo, FileAudio, FileType, FileCode, Hash, Database, Gauge, FolderKanban, Pencil, Clock } from 'lucide-react';
+import { Search, ChevronRight, ChevronDown, Image, FileVideo, FileAudio, FileType, FolderSync, FileCode, Hash, Database, Gauge, FolderKanban, Pencil, Clock } from 'lucide-react';
 import { TOOL_CATEGORY } from '@/constants/category';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +18,8 @@ const categoryIconMap: Record<string, { icon: React.ElementType, color: string }
   dev: { icon: Hash, color: '#EF4444' },         // 红色
   data: { icon: Database, color: '#6366F1' },    // 靛蓝色
   util: { icon: Gauge, color: '#0EA5E9' },        // 天蓝色
-  writer: { icon: Pencil, color: '#0EA5E9' }        // 天蓝色
+  writer: { icon: Pencil, color: '#0EA5E9' },     // 天蓝色
+  svg: { icon: FolderSync, color: '#0EA5E9' }     // 天蓝色
 };
 
 // 默认图标和颜色
