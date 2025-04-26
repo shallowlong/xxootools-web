@@ -33,6 +33,13 @@ export const TOOL_CATEGORY: ToolCategory[] = [
         description: 'image-mosaic',
         icon: 'Grid',
         path: '/image/image-mosaic'
+      },
+      {
+        id: 'image-resize',
+        name: 'image-resize',
+        description: 'image-resize',
+        icon: 'Grid',
+        path: '/image/image-resize'
       }
     ]
   },

@@ -20,6 +20,10 @@
         "image-mosaic": {
           "name": "Image Mosaic",
           "description": "Add mosaic effect to images to protect privacy information"
+        },
+        "image-resize": {
+          "name": "Image Resizer",
+          "description": "Adjust image dimensions and aspect ratio"
         }
       }
     },
@@ -322,6 +326,41 @@
       "canvasContextNotAvailable": "Canvas context not available",
       "conversionError": "Error during conversion",
       "createZipError": "Error creating ZIP file"
+    }
+  },
+  "imageResize": {
+    "title": "Image Resizer",
+    "description": "Adjust image dimensions and aspect ratio, supporting various formats and custom size options",
+    "dropToUpload": "Drop images to upload",
+    "clickOrDragToUpload": "Click or drag images to upload",
+    "supportedFormats": "Support uploading <span>multiple</span> images, formats include {{formats}}",
+    "resizeOptions": "Resize Options",
+    "byPixels": "By Pixels",
+    "byPercentage": "By Percentage",
+    "width": "Width",
+    "height": "Height",
+    "percentage": "Percentage",
+    "maintainAspectRatio": "Maintain Aspect Ratio",
+    "resizeHistory": "Resize History",
+    "pendingImages": "Pending Images",
+    "downloadAll": "Download All as ZIP",
+    "image": "Image",
+    "fileInfo": "File Info",
+    "dimensions": "Dimensions",
+    "actions": "Actions",
+    "preview": "Preview",
+    "format": "Format",
+    "resizing": "Resizing",
+    "original": "Original",
+    "resized": "Resized",
+    "resizingFailed": "Resizing Failed",
+    "applySettings": "Apply Size Settings",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas context not available",
+      "processingError": "Error processing image",
+      "resizingError": "Error during resizing",
+      "createZipError": "Error creating ZIP file",
+      "downloadFailed": "Download failed, please try again or download images individually"
     }
   },
   "svgToPdf": {

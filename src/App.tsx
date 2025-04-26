@@ -13,7 +13,7 @@ const ImageCompress = lazy(() => import('./pages/image/ImageCompress'))
 const ImageConverter = lazy(() => import('./pages/image/ImageConverter'))
 const ImageRemoveBg = lazy(() => import('./pages/image/ImageRemoveBg'))
 const ImageMosaic = lazy(() => import('./pages/image/ImageMosaic'))
-
+const ImageResize = lazy(() => import('./pages/image/ImageResize'))
 const VideoCompress = lazy(() => import('./pages/video/VideoCompress'))
 const AudioConverter = lazy(() => import('./pages/audio/AudioConverter'))
 const WordCount = lazy(() => import('./pages/writer/WordCount'))
@@ -29,7 +29,6 @@ const SVGToPDF = lazy(() => import('./pages/svg/SVGToPDF'))
 const PNGToSVG = lazy(() => import('./pages/svg/PNGToSVG'))
 const JPGToSVG = lazy(() => import('./pages/svg/JPGToSVG'))
 const SVGOptimizer = lazy(() => import('./pages/svg/SVGOptimizer'))
-
 
 function App() {
   const { t } = useTranslation();
@@ -49,6 +48,7 @@ function App() {
               <Route path="image-converter" element={<ImageConverter />} />
               <Route path="image-removebg" element={<ImageRemoveBg />} />
               <Route path="image-mosaic" element={<ImageMosaic />} />
+              <Route path="image-resize" element={<ImageResize />} />
             </Route>
             <Route path="svg">
               <Route path="svg-preview" element={<SVGPreview />} />

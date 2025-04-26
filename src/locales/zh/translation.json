@@ -19,6 +19,10 @@
         "image-mosaic": {
           "name": "图片马赛克",
           "description": "给图片添加马赛克效果"
+        },
+        "image-resize": {
+          "name": "图片尺寸调整",
+          "description": "调整图片大小和比例"
         }
       }
     },
@@ -410,6 +414,41 @@
     "errors": {
       "canvasContextNotAvailable": "Canvas 上下文不可用",
       "processingError": "处理过程中出错",
+      "createZipError": "创建zip文件出错",
+      "downloadFailed": "下载失败，请重试或单独下载图片"
+    }
+  },
+  "imageResize": {
+    "title": "图片尺寸调整",
+    "description": "调整图片大小和比例，支持多种格式和自定义尺寸选项",
+    "dropToUpload": "释放鼠标上传图片",
+    "clickOrDragToUpload": "点击或拖拽上传图片",
+    "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
+    "resizeOptions": "调整尺寸选项",
+    "byPixels": "按像素",
+    "byPercentage": "按百分比",
+    "width": "宽度",
+    "height": "高度",
+    "percentage": "百分比",
+    "maintainAspectRatio": "保持纵横比",
+    "resizeHistory": "调整历史",
+    "pendingImages": "待处理图片",
+    "downloadAll": "打包下载全部",
+    "image": "图片",
+    "fileInfo": "文件信息",
+    "dimensions": "尺寸信息",
+    "actions": "操作",
+    "preview": "预览",
+    "format": "格式",
+    "resizing": "调整尺寸中",
+    "original": "原始",
+    "resized": "调整后",
+    "resizingFailed": "调整失败",
+    "applySettings": "应用尺寸设置",
+    "errors": {
+      "canvasContextNotAvailable": "Canvas 上下文不可用",
+      "processingError": "处理图片时出错",
+      "resizingError": "调整尺寸过程中出错",
       "createZipError": "创建zip文件出错",
       "downloadFailed": "下载失败，请重试或单独下载图片"
     }
