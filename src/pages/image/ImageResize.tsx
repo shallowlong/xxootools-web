@@ -335,22 +335,6 @@ const ImageResize = () => {
     );
   };
   
-  // 重新调整图片尺寸
-  const handleResize = (result: ResizeResult) => {
-    if (result.isResizing) return;
-    
-    // 设置为正在处理状态
-    setResizeResults(prev => 
-      prev.map(item => 
-        item.id === result.id 
-          ? { ...item, isResizing: true, resizeProgress: 0 }
-          : item
-      )
-    );
-    
-    setReprocessingId(result.id);
-    resizeImage(result);
-  };
   
   // 生成唯一ID
   const generateId = () => {
