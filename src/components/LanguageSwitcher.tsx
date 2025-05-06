@@ -8,7 +8,8 @@ import {
 } from '@/components/ui/select';
 
 const languages = [
-  { code: 'zh', name: '🇨🇳 中文' },
+  { code: 'zh', name: '🇨🇳 简体中文' },
+  { code: 'zh-TW', name: '🇭🇰 繁體中文' },
   { code: 'en', name: '🇺🇸 English' },
   { code: 'ja', name: '🇯🇵 日本語' },
   { code: 'de', name: '🇩🇪 Deutsch' },

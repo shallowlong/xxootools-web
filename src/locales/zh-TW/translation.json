@@ -1,0 +1,660 @@
+{
+  "welcome": "歡迎使用 <span>XTools</span>，一個<b>免費</b>、<b>開源</b>、<b>數據安全</b>的工具箱",
+  "categories": {
+    "image": {
+      "name": "圖片工具",
+      "tools": {
+        "image-compress": {
+          "name": "圖片壓縮",
+          "description": "壓縮圖片文件大小"
+        },
+        "image-converter": {
+          "name": "圖片格式轉換",
+          "description": "轉換圖片格式"
+        },
+        "image-removebg": {
+          "name": "圖片背景移除",
+          "description": "使用 AI 技術移除圖片背景"
+        },
+        "image-mosaic": {
+          "name": "圖片馬賽克",
+          "description": "給圖片添加馬賽克效果"
+        },
+        "image-resize": {
+          "name": "圖片尺寸調整",
+          "description": "調整圖片大小和比例"
+        }
+      }
+    },
+    "svg": {
+      "name": "SVG 工具",
+      "tools": {
+        "svg-preview": {
+          "name": "SVG 預覽",
+          "description": "預覽 SVG 文件並查看源代碼"
+        },
+        "svg-to-png": {
+          "name": "SVG 轉 PNG",
+          "description": "將 SVG 圖像轉換為 PNG 格式"
+        },
+        "svg-to-jpg": {
+          "name": "SVG 轉 JPG",
+          "description": "將 SVG 圖像轉換為 JPG 格式"
+        },
+        "svg-to-pdf": {
+          "name": "SVG 轉 PDF",
+          "description": "將 SVG 圖像轉換為 PDF 格式"
+        },
+        "svg-to-eps": {
+          "name": "SVG 轉 EPS",
+          "description": "將 SVG 圖像轉換為 EPS 格式"
+        },
+        "png-to-svg": {
+          "name": "PNG 轉 SVG",
+          "description": "將 PNG 圖片轉換為 SVG 矢量圖"
+        },
+        "jpg-to-svg": {
+          "name": "JPG 轉 SVG",
+          "description": "將 JPG 圖片轉換為 SVG 矢量圖"
+        },
+        "svg-optimizer": {
+          "name": "SVG 優化器",
+          "description": "優化 SVG 文件以減小文件大小"
+        }
+      }
+    },
+    "video": {
+      "name": "視頻工具",
+      "tools": {
+        "video-compress": {
+          "name": "視頻壓縮",
+          "description": "壓縮視頻文件大小"
+        }
+      }
+    },
+    "audio": {
+      "name": "音頻工具",
+      "tools": {
+        "audio-converter": {
+          "name": "音頻轉換",
+          "description": "轉換音頻格式"
+        }
+      }
+    },
+    "date": {
+      "name": "日期工具",
+      "tools": {
+        "dayjs-utils": {
+          "name": "Dayjs 工具",
+          "description": "基於 Dayjs 的日期格式化、轉換工具"
+        },
+        "moment-utils": {
+          "name": "Moment.js 工具",
+          "description": "基於 Moment.js 的日期格式化、轉換工具",
+          "codeRunner": {
+            "title": "Moment.js 代碼運行器",
+            "inputLabel": "輸入 Moment.js 代碼",
+            "selectExample": "選擇代碼示例",
+            "runButton": "運行",
+            "resultLabel": "執行結果",
+            "tip1": "* 僅支持 moment.js 原生方法",
+            "tip2": "* 示例：moment().format('YYYY-MM-DD') 或 moment().add(1, 'days')"
+          },
+          "unknownError": "未知錯誤"
+        },
+        "date-utils": {
+          "name": "通用日期工具",
+          "description": "常用日期工具函數集合",
+          "title": "通用日期工具",
+          "timestampTools": {
+            "title": "時間戳轉換工具",
+            "millisecondTimestamp": "毫秒時間戳",
+            "secondTimestamp": "秒時間戳",
+            "format": "格式",
+            "result": "結果",
+            "current": "當前"
+          },
+          "yearMonthDayTools": {
+            "title": "年月日工具",
+            "year": "年",
+            "month": "月",
+            "day": "日",
+            "isLeapYear": "是否閏年",
+            "daysInMonth": "月份天數",
+            "firstDayOfMonth": "月首星期幾",
+            "isValidDate": "日期是否有效",
+            "yes": "是",
+            "no": "否",
+            "valid": "有效",
+            "invalid": "無效"
+          },
+          "dateRangeTools": {
+            "title": "日期區間工具",
+            "startDate": "開始日期",
+            "endDate": "結束日期",
+            "daysBetween": "日期範圍天數"
+          },
+          "dateInfoTools": {
+            "title": "日期信息工具",
+            "date": "日期",
+            "weekday": "星期幾",
+            "dayOfYear": "一年中的第幾天",
+            "currentTimestamp": "當前時間戳",
+            "ageIfBirthday": "如果生日計算年齡",
+            "yearsOld": "歲"
+          },
+          "weekdays": {
+            "sunday": "星期日",
+            "monday": "星期一",
+            "tuesday": "星期二",
+            "wednesday": "星期三",
+            "thursday": "星期四",
+            "friday": "星期五",
+            "saturday": "星期六"
+          },
+          "months": {
+            "january": "一月",
+            "february": "二月",
+            "march": "三月",
+            "april": "四月",
+            "may": "五月",
+            "june": "六月",
+            "july": "七月",
+            "august": "八月",
+            "september": "九月",
+            "october": "十月",
+            "november": "十一月",
+            "december": "十二月"
+          }
+        }
+      }
+    },
+    "text": {
+      "name": "文本工具",
+      "tools": {
+        "text-converter": {
+          "name": "文本轉換",
+          "description": "大小寫轉換、簡繁轉換等"
+        },
+        "text-diff": {
+          "name": "文本對比",
+          "description": "對比兩段文本的差異"
+        }
+      }
+    },
+    "writer": {
+      "name": "寫作工具",
+      "tools": {
+        "word-count": {
+          "name": "字數統計",
+          "description": "統計文本字數",
+          "title": "字數統計",
+          "fullDescription": "統計文本的字數、行數、段落數",
+          "placeholder": "請輸入或粘貼要統計的文本...",
+          "showDebug": "顯示調試",
+          "hideDebug": "隱藏調試",
+          "languageSelect": "選擇語言",
+          "languages": {
+            "general": "通用（英文等）",
+            "chinese": "中文",
+            "japanese": "日文",
+            "korean": "韓文"
+          },
+          "stats": {
+            "words": "詞數",
+            "characters": "字符數",
+            "noSpaces": "不含空格",
+            "paragraphs": "段落數",
+            "lines": "行數"
+          },
+          "debug": {
+            "originalLength": "原始文本長度",
+            "safeLength": "安全處理後長度",
+            "firstChars": "文本前20個字符",
+            "lastChars": "文本後20個字符",
+            "oldTokens": "改進前分詞結果",
+            "newTokens": "改進後分詞結果",
+            "tokenArray": "分詞結果數組"
+          }
+        }
+      }
+    }
+  },
+  "common": {
+    "notFound": "頁面不存在",
+    "backToHome": "返回首頁",
+    "loading": "加載中...",
+    "error": "錯誤",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "確認",
+    "save": "保存",
+    "delete": "刪除",
+    "edit": "編輯",
+    "upload": "上傳",
+    "download": "下載",
+    "language": "語言",
+    "search": "搜索工具",
+    "recommended": "推薦",
+    "experimental": "實驗性",
+    "logoAlt": "工具箱圖標",
+    "brandName": "工具箱",
+    "openMenu": "打開菜單",
+    "closeMenu": "關閉菜單",
+    "toggleToDark": "切換到暗色模式",
+    "toggleToLight": "切換到亮色模式",
+    "favorite": "添加到收藏",
+    "unfavorite": "從收藏中移除",
+    "image": "圖片",
+    "fileInfo": "文件信息",
+    "conversionInfo": "轉換信息",
+    "fileName": "文件名",
+    "fileSize": "文件大小",
+    "fileType": "文件類型",
+    "originalSize": "原始大小",
+    "convertedSize": "轉換後大小",
+    "compressionRatio": "壓縮比",
+    "dimensions": "尺寸",
+    "width": "寬度",
+    "height": "高度",
+    "format": "格式",
+    "quality": "品質",
+    "keepExif": "保留EXIF",
+    "convertTo": "轉換為",
+    "convertNow": "立即轉換",
+    "compressNow": "立即壓縮",
+    "removeNow": "立即移除",
+    "dropFilesHere": "拖放文件到此處",
+    "or": "或",
+    "browseFiles": "瀏覽文件",
+    "clearAll": "全部清除",
+    "conversionComplete": "轉換完成",
+    "compressionComplete": "壓縮完成",
+    "removalComplete": "移除完成",
+    "downloadAll": "下載全部",
+    "settings": "設置",
+    "originalImage": "原始圖片",
+    "resultImage": "結果圖片",
+    "noFilesYet": "還未選擇文件",
+    "processingFile": "處理文件中...",
+    "maxFileSize": "最大文件大小",
+    "maxFilesCount": "最大文件數量",
+    "supportedFormats": "支持的格式",
+    "conversionFailed": "轉換失敗",
+    "compressionFailed": "壓縮失敗",
+    "removalFailed": "移除失敗",
+    "invalidFileType": "文件類型無效",
+    "fileTooLarge": "文件過大",
+    "tooManyFiles": "文件數量過多",
+    "tryAgain": "重試",
+    "pixels": "像素",
+    "maintainAspectRatio": "保持寬高比",
+    "mosaicSize": "馬賽克大小",
+    "mosaicType": "馬賽克類型",
+    "applyToWholeImage": "應用到整個圖片",
+    "drawMosaic": "繪製馬賽克",
+    "resetMosaic": "重置馬賽克",
+    "clear": "清除",
+    "mosaic": "馬賽克",
+    "rectangle": "矩形",
+    "custom": "自定義",
+    "squareSize": "方塊大小",
+    "radius": "半徑",
+    "small": "小",
+    "medium": "中",
+    "large": "大",
+    "extraLarge": "特大",
+    "fileUploadError": "上傳文件時出錯",
+    "unsupportedFile": "不支持的文件格式",
+    "filePreview": "文件預覽",
+    "rotate": "旋轉",
+    "flipHorizontal": "水平翻轉",
+    "flipVertical": "垂直翻轉",
+    "newSize": "新尺寸",
+    "ratio": "比例",
+    "free": "自由",
+    "original": "原始",
+    "square": "正方形",
+    "landscape": "橫向",
+    "portrait": "縱向",
+    "reset": "重置",
+    "copied": "已複製",
+    "copy": "複製",
+    "selectAll": "全選",
+    "textareaPlaceholder": "在此輸入或粘貼文本",
+    "characterCount": "字符數",
+    "wordCount": "單詞數",
+    "lineCount": "行數",
+    "sourceText": "源文本",
+    "targetText": "目標文本",
+    "case": "大小寫",
+    "toLowerCase": "轉小寫",
+    "toUpperCase": "轉大寫",
+    "toTitleCase": "首字母大寫",
+    "toSentenceCase": "句首大寫",
+    "toCamelCase": "駝峰命名",
+    "toPascalCase": "帕斯卡命名",
+    "toKebabCase": "連字符命名",
+    "toSnakeCase": "下劃線命名",
+    "toSwapCase": "大小寫交換",
+    "simplifiedChinese": "簡體中文",
+    "traditionalChinese": "繁體中文",
+    "toSimplifiedChinese": "轉簡體",
+    "toTraditionalChinese": "轉繁體",
+    "encoding": "編碼",
+    "lineEnding": "行尾",
+    "indentation": "縮進",
+    "alignment": "對齊",
+    "numberFormat": "數字格式",
+    "transform": "轉換",
+    "replace": "替換",
+    "insertAt": "插入於",
+    "removeAt": "移除於",
+    "trim": "修剪",
+    "split": "分割",
+    "join": "連接",
+    "reverse": "反轉",
+    "sort": "排序",
+    "countOccurrences": "計數出現次數",
+    "find": "查找",
+    "unescapeHTML": "HTML解碼",
+    "escapeHTML": "HTML編碼",
+    "encodeURL": "URL編碼",
+    "decodeURL": "URL解碼",
+    "escapeRegex": "正則表達式轉義",
+    "encodeBase64": "Base64編碼",
+    "decodeBase64": "Base64解碼",
+    "encodeMD5": "MD5加密",
+    "insert": "插入",
+    "position": "位置",
+    "start": "開始",
+    "end": "結束",
+    "compare": "比較",
+    "diff": "差異",
+    "unified": "統一",
+    "sideBySide": "並排",
+    "inline": "內聯",
+    "ignoreCase": "忽略大小寫",
+    "ignoreWhitespace": "忽略空白",
+    "trimWhitespace": "刪除空白",
+    "ignoreAccents": "忽略重音",
+    "showLineNumbers": "顯示行號",
+    "showWordDiff": "顯示單詞差異",
+    "wrap": "文本換行",
+    "hideUnchanged": "隱藏未更改",
+    "highlightChanges": "高亮更改",
+    "visualize": "可視化",
+    "format": "格式化",
+    "unformat": "取消格式化",
+    "indent": "縮進",
+    "outdent": "取消縮進",
+    "toHTML": "轉換為HTML",
+    "toMarkdown": "轉換為Markdown",
+    "textToSpeech": "文本轉語音",
+    "speechToText": "語音轉文本",
+    "translate": "翻譯",
+    "sourceLanguage": "源語言",
+    "targetLanguage": "目標語言",
+    "auto": "自動檢測",
+    "chinese": "中文",
+    "english": "英語",
+    "japanese": "日語",
+    "korean": "韓語",
+    "russian": "俄語",
+    "german": "德語",
+    "french": "法語",
+    "spanish": "西班牙語",
+    "italian": "意大利語",
+    "portuguese": "葡萄牙語",
+    "arabic": "阿拉伯語",
+    "hindi": "印地語",
+    "useAI": "使用AI",
+    "manual": "手動",
+    "dragAndDrop": "拖放區域",
+    "preview": "預覽",
+    "fileList": "文件列表",
+    "statusMessage": "狀態信息",
+    "taskCompleted": "任務完成",
+    "taskFailed": "任務失敗",
+    "selectedFiles": "已選擇文件",
+    "processing": "處理中",
+    "conversionOptions": "轉換選項",
+    "compressionOptions": "壓縮選項",
+    "resizeOptions": "調整大小選項",
+    "saveOptions": "保存選項",
+    "qualityOptions": "質量選項",
+    "batch": "批量處理",
+    "singleFile": "單個文件",
+    "filesProcessed": "已處理的文件",
+    "savedAs": "保存為",
+    "privacy": "隱私"
+  },
+  "privacyPage": {
+    "title": "隱私政策",
+    "lastUpdated": "最後更新：",
+    "content": "本隱私政策說明了 XTools 網站如何處理您的信息。",
+    "intro": "感謝您使用 XTools。我們非常重視您的隱私，並致力於保護您的個人數據。我們的工具在您的瀏覽器本地運行，這意味著您的數據不會離開您的設備。",
+    "sections": {
+      "dataCollection": {
+        "title": "數據收集",
+        "content": "XTools 不收集任何用戶信息。所有文件處理都在您的瀏覽器本地進行，您的文件和數據不會上傳到我們的服務器。"
+      },
+      "cookies": {
+        "title": "Cookie 和本地存儲",
+        "content": "我們使用瀏覽器本地存儲來保存您的偏好設置（如暗色/亮色模式選擇）。這些數據僅保存在您的設備上。我們不使用第三方 cookie 或追踪技術。"
+      },
+      "thirdParty": {
+        "title": "第三方服務",
+        "content": "我們不使用任何可能收集您數據的第三方服務，如廣告網絡或分析工具。"
+      },
+      "dataSharing": {
+        "title": "數據分享",
+        "content": "由於我們不收集您的數據，所以我們也不會與任何第三方分享您的信息。"
+      },
+      "security": {
+        "title": "安全",
+        "content": "雖然我們不存儲您的數據，但我們建議您注意在公共設備上使用我們的工具時的數據安全。"
+      },
+      "changes": {
+        "title": "隱私政策變更",
+        "content": "如果我們對隱私政策做出任何更改，我們將在此頁面上更新內容並更改上方的'最後更新'日期。"
+      },
+      "contact": {
+        "title": "聯繫我們",
+        "content": "如果您對我們的隱私政策有任何疑問，請通過我們的GitHub存儲庫提交問題或讨論。"
+      }
+    }
+  },
+  "imageCompress": {
+    "title": "圖片壓縮",
+    "description": "壓縮 JPG、PNG 等圖片文件，減小文件體積",
+    "compressionType": "壓縮類型",
+    "lossless": "無損壓縮",
+    "lossy": "有損壓縮",
+    "quality": "圖片質量",
+    "low": "低",
+    "high": "高",
+    "useOriginalQuality": "使用原始質量",
+    "compressSettings": "壓縮設置",
+    "removeExif": "移除元數據(EXIF)",
+    "keepExif": "保留元數據(EXIF)",
+    "useSmartCompression": "智能壓縮",
+    "tips": {
+      "title": "提示",
+      "text1": "通常，PNG 適合圖形、圖標和文本；JPG 適合照片",
+      "text2": "無損壓縮保持原始質量，但壓縮比較小",
+      "text3": "有損壓縮可能降低質量，但能獲得更小的文件體積",
+      "text4": "移除 EXIF 數據可以進一步減小文件體積"
+    }
+  },
+  "imageConverter": {
+    "title": "圖片格式轉換",
+    "description": "在 PNG、JPG、WEBP、AVIF 等格式之間轉換圖片",
+    "convertTo": "轉換為",
+    "keepOriginalSize": "保持原始尺寸",
+    "resizeImage": "調整圖片大小",
+    "qualitySettings": "質量設置",
+    "convertSettings": "轉換設置",
+    "keepTransparency": "保持透明度(若支持)",
+    "colorSpace": "色彩空間",
+    "sRGB": "sRGB",
+    "adobeRGB": "Adobe RGB",
+    "p3": "Display P3",
+    "tips": {
+      "title": "格式選擇提示",
+      "webp": "WebP: 同時支持有損和無損壓縮，通常文件小於 JPG 和 PNG，但兼容性稍差",
+      "avif": "AVIF: 高壓縮率，高質量，但兼容性較差",
+      "jpg": "JPG: 適合照片，不支持透明度",
+      "png": "PNG: 支持透明度，適合圖形和屏幕截圖",
+      "gif": "GIF: 支持簡單動畫，顏色有限",
+      "bmp": "BMP: 無壓縮，文件較大",
+      "tiff": "TIFF: 高質量，支持多個圖層"
+    }
+  },
+  "imageRemoveBg": {
+    "title": "圖片背景移除",
+    "description": "自動去除圖片背景，生成透明圖片",
+    "processingMethod": "處理方法",
+    "ai": "AI智能處理",
+    "threshold": "顏色閾值處理",
+    "manual": "手動選取處理",
+    "settings": "設置",
+    "sensitivity": "靈敏度",
+    "foregroundColor": "前景顏色",
+    "backgroundColor": "背景顏色",
+    "transparentBackground": "透明背景",
+    "solidBackground": "純色背景",
+    "featherEdges": "羽化邊緣",
+    "enhanceEdges": "增強邊緣",
+    "preserveDetails": "保留細節",
+    "tips": {
+      "title": "提示",
+      "text1": "AI處理適合大多數圖片，但可能需要較長處理時間",
+      "text2": "顏色閾值處理適合背景色與前景色對比明顯的圖片",
+      "text3": "手動選取適合需要精確控制的情況",
+      "text4": "最終結果保存為PNG以保留透明度"
+    }
+  },
+  "imageMosaic": {
+    "title": "圖片馬賽克",
+    "description": "給圖片添加馬賽克效果，保護隱私信息",
+    "tools": "工具",
+    "brush": "筆刷",
+    "eraser": "橡皮擦",
+    "brushSize": "筆刷大小",
+    "pixelSize": "像素大小",
+    "pixelType": "像素類型",
+    "square": "方形",
+    "circle": "圓形",
+    "hexagon": "六邊形",
+    "triangle": "三角形",
+    "blurLevel": "模糊程度",
+    "slight": "輕微",
+    "moderate": "中等",
+    "heavy": "較強",
+    "extreme": "極強",
+    "tips": {
+      "title": "提示",
+      "text1": "使用筆刷在需要馬賽克的區域上繪製",
+      "text2": "使用橡皮擦修正馬賽克區域",
+      "text3": "增大像素尺寸可以增強隱私保護",
+      "text4": "不同的像素形狀可以產生不同的視覺效果"
+    }
+  },
+  "imageResize": {
+    "title": "圖片尺寸調整",
+    "description": "調整圖片大小和比例",
+    "dimensions": "尺寸設置",
+    "width": "寬度",
+    "height": "高度",
+    "aspectRatio": "寬高比",
+    "lock": "鎖定",
+    "unlock": "解除鎖定",
+    "presets": "預設尺寸",
+    "original": "原始尺寸",
+    "hd": "高清 (1280×720)",
+    "fullHd": "全高清 (1920×1080)",
+    "fourK": "4K (3840×2160)",
+    "social": "社交媒體",
+    "instagram": "Instagram (1080×1080)",
+    "facebook": "Facebook 封面 (1640×924)",
+    "twitter": "Twitter 頭圖 (1500×500)",
+    "resizeMethod": "調整方法",
+    "fit": "適合",
+    "fill": "填充",
+    "stretch": "拉伸",
+    "interpolation": "插值算法",
+    "nearest": "最近鄰",
+    "bilinear": "雙線性",
+    "bicubic": "雙三次",
+    "tips": {
+      "title": "提示",
+      "text1": "鎖定寬高比可以防止圖片變形",
+      "text2": "放大圖片可能會導致質量下降",
+      "text3": "'適合'會在保持比例的同時確保整個圖片可見",
+      "text4": "'填充'會填滿目標尺寸，但可能裁剪部分圖片"
+    }
+  },
+  "videoCompress": {
+    "title": "視頻壓縮",
+    "description": "壓縮視頻文件大小，同時保持可接受的質量",
+    "compressionSettings": "壓縮設置",
+    "videoQuality": "視頻質量",
+    "lower": "較低",
+    "higher": "較高",
+    "videoBitrate": "視頻碼率",
+    "auto": "自動",
+    "custom": "自定義",
+    "resolution": "分辨率",
+    "originalResolution": "原始分辨率",
+    "reduceResolution": "降低分辨率",
+    "audioSettings": "音頻設置",
+    "includeAudio": "包含音頻",
+    "excludeAudio": "不包含音頻",
+    "audioBitrate": "音頻碼率",
+    "audioChannels": "音頻聲道",
+    "mono": "單聲道",
+    "stereo": "立體聲",
+    "original": "原始設置",
+    "encoder": "編碼器",
+    "h264": "H.264 (兼容性好)",
+    "h265": "H.265 (更小文件)",
+    "vp9": "VP9 (開源)",
+    "av1": "AV1 (新一代)",
+    "tips": {
+      "title": "提示",
+      "text1": "降低分辨率可以顯著減小文件大小",
+      "text2": "對於大多數視頻，中等質量設置通常可以獲得良好的平衡",
+      "text3": "如果視頻沒有聲音或聲音不重要，排除音頻可以減小文件大小",
+      "text4": "H.265/HEVC 可以提供更好的壓縮效率，但兼容性較差"
+    }
+  },
+  "audioConverter": {
+    "title": "音頻轉換",
+    "description": "在 MP3、WAV、OGG、FLAC 等格式之間轉換音頻文件",
+    "convertTo": "轉換為",
+    "qualitySettings": "質量設置",
+    "bitrate": "碼率",
+    "kbps": "Kbps",
+    "sampleRate": "採樣率",
+    "channels": "聲道",
+    "mono": "單聲道",
+    "stereo": "立體聲",
+    "original": "原始設置",
+    "normalize": "標準化音量",
+    "trimAudio": "修剪音頻",
+    "start": "開始時間",
+    "end": "結束時間",
+    "extractFromVideo": "從視頻中提取音頻",
+    "tips": {
+      "title": "格式選擇提示",
+      "mp3": "MP3: 最常見的格式，兼容性最好，有損壓縮",
+      "wav": "WAV: 無損質量，但文件較大",
+      "ogg": "OGG: 開源格式，有損壓縮",
+      "flac": "FLAC: 無損壓縮，音質佳且文件比WAV小",
+      "aac": "AAC: 高質量有損壓縮，適合移動設備",
+      "m4a": "M4A: 蘋果設備偏好的格式",
+      "general": "更高的碼率意味著更好的音質，但文件也更大"
+    }
+  }
+} 

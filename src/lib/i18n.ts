@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // 导入翻译资源
 import translationEN from '../locales/en/translation.json';
 import translationZH from '../locales/zh/translation.json';
+import translationZHTW from '../locales/zh-TW/translation.json';
 import translationJA from '../locales/ja/translation.json';
 import translationDE from '../locales/de/translation.json';
 import translationKO from '../locales/ko/translation.json';
@@ -16,6 +17,9 @@ const resources = {
   },
   zh: {
     translation: translationZH
+  },
+  'zh-TW': {
+    translation: translationZHTW
   },
   ja: {
     translation: translationJA
