@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import ToolLayout from '@/components/tool/ToolLayout';
 import { Button } from '@/components/ui/button';
@@ -9,8 +9,11 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import EmojiPicker, { EmojiClickData } from 'emoji-picker-react';
-import { IconPicker } from '@/components/icon-picker';
+import type { EmojiClickData } from 'emoji-picker-react';
+
+// 懒加载大型组件
+const EmojiPicker = lazy(() => import('emoji-picker-react'));
+const IconPicker = lazy(() => import('@/components/icon-picker').then(module => ({ default: module.IconPicker })));
 
 interface FaviconSize {
   size: string;
@@ -444,10 +447,12 @@ const FaviconGenerator = () => {
           <TabsContent value="emoji">
             <div className="space-y-4 p-6 border rounded-lg">
               <ShapeAndBackgroundSettings />
-              <EmojiPicker
-                onEmojiClick={handleEmojiClick}
-                width="100%"
-              />
+              <Suspense fallback={<div>{t('common.loading')}</div>}>
+                <EmojiPicker
+                  onEmojiClick={handleEmojiClick}
+                  width="100%"
+                />
+              </Suspense>
               {selectedEmoji && (
                 <div className="flex items-center justify-between">
                   <div className="text-4xl">{selectedEmoji}</div>
@@ -460,7 +465,9 @@ const FaviconGenerator = () => {
           <TabsContent value="icon">
             <div className="space-y-4 p-6 border rounded-lg">
               <ShapeAndBackgroundSettings />
-              <IconPicker onSelect={setSelectedIcon} />
+              <Suspense fallback={<div>{t('common.loading')}</div>}>
+                <IconPicker onSelect={setSelectedIcon} />
+              </Suspense>
               {selectedIcon && (
                 <div className="flex items-center justify-between">
                   <img src={selectedIcon} alt={t('faviconGenerator.selectedIcon') || 'Selected icon'} className="w-12 h-12" />

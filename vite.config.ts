@@ -38,7 +38,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB
+        maximumFileSizeToCacheInBytes: 15 * 1024 * 1024, // 增加到 15MB
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -65,6 +65,28 @@ export default defineConfig({
               },
               cacheableResponse: {
                 statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /\.(?:js|css)$/i,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'static-resources',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 24 * 60 * 60 // 24 hours
+              }
+            }
+          },
+          {
+            urlPattern: /\.(?:png|gif|jpg|jpeg|svg|ico)$/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images',
+              expiration: {
+                maxEntries: 60,
+                maxAgeSeconds: 24 * 60 * 60 * 30 // 30 days
               }
             }
           }
@@ -97,10 +119,13 @@ export default defineConfig({
   },
   assetsInclude: ['**/*.wasm'],
   build: {
+    chunkSizeWarningLimit: 2000, // 增加警告限制到 2MB
     rollupOptions: {
       output: {
         manualChunks: {
           iconify: ['@iconify/json'],
+          'emoji-picker': ['emoji-picker-react'],
+          vendors: ['react', 'react-dom', 'react-router-dom'],
         },
       },
     },
