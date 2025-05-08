@@ -2,7 +2,7 @@
   "welcome": "欢迎使用 <span>XTools</span>，一个<b>免费</b>、<b>开源</b>、<b>数据安全</b>的工具箱",
   "categories": {
     "image": {
-      "name": "图片工具",
+      "name": "图像工具",
       "tools": {
         "image-compress": {
           "name": "图片压缩",
@@ -60,6 +60,19 @@
         "svg-optimizer": {
           "name": "SVG 优化器",
           "description": "优化 SVG 文件以减小文件大小"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon 工具",
+      "tools": {
+        "favicon-converter": {
+          "name": "Favicon 转换器",
+          "description": "将图片转换为 Favicon 格式"
+        },
+        "favicon-generator": {
+          "name": "Favicon 生成器",
+          "description": "创建完整的 Favicon 包"
         }
       }
     },
@@ -258,6 +271,12 @@
     "originalFormat": "原格式",
     "convertingTo": "转换为",
     "converting": "转换中",
+    "generating": "生成中",
+    "fileName": "文件名",
+    "fileSize": "文件大小",
+    "fileType": "文件类型",
+    "fileWidth": "文件宽度",
+    "fileHeight": "文件高度",
     "conversionStatus": {
       "success": "转换成功",
       "failed": "转换失败",
@@ -740,5 +759,58 @@
     "originalSize": "原始大小",
     "optimizedSize": "优化后大小",
     "savings": "节省空间"
+  },
+  "faviconConverter": {
+    "title": "Favicon 转换器",
+    "description": "将图片转换为 Favicon 格式",
+    "dropToUpload": "释放鼠标上传图片",
+    "supportedFormats": "支持的格式：PNG、JPG、GIF、SVG",
+    "selectedImage": "已选择图片",
+    "conversionOptions": "转换选项",
+    "outputFormat": "输出格式",
+    "convert": "转换为 Favicon",
+    "conversionResults": "转换结果",
+    "conversionError": "转换过程中出错",
+    "invalidFileType": "无效的文件类型，请上传图片。"
+  },
+  "faviconGenerator": {
+    "title": "Favicon 生成器",
+    "description": "通过文字、表情、图标生成 Favicon",
+    "dropToUpload": "释放鼠标上传图片",
+    "uploadHint": "上传正方形图片效果最佳（至少512x512像素）",
+    "selectedImage": "已选择图片",
+    "websiteInfo": "网站信息",
+    "appName": "应用名称",
+    "appNamePlaceholder": "我的网站",
+    "themeColor": "主题颜色",
+    "backgroundColor": "背景颜色",
+    "generateOptions": "生成选项",
+    "generate": "生成图标包",
+    "generationResults": "生成结果",
+    "downloadPackage": "下载图标包",
+    "generationError": "生成图标过程中出错",
+    "zipError": "创建ZIP文件出错",
+    "invalidFileType": "无效的文件类型，请上传图片。",
+    "installationInstructions": "安装说明",
+    "instructionStep1": "下载图标包或单个文件",
+    "instructionStep2": "将所有文件放在网站的根目录中",
+    "instructionStep3": "将favicon-html-code.html文件中的HTML代码添加到网站的<head>部分",
+    "text": "文字",
+    "emoji": "表情",
+    "icon": "图标",
+    "textContent": "文字内容",
+    "textPlaceholder": "输入1-2个字符",
+    "font": "字体",
+    "fontSize": "字体大小",
+    "fontColor": "字体颜色",
+    "generateIcon": "生成图标",
+    "selectedIcon": "已选择图标",
+    "preview": "预览",
+    "shape": "形状",
+    "shapes": {
+      "square": "方形",
+      "circle": "圆形",
+      "rounded": "圆角"
+    }
   }
 } 

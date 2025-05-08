@@ -29,6 +29,8 @@ const SVGToPDF = lazy(() => import('./pages/svg/SVGToPDF'))
 const PNGToSVG = lazy(() => import('./pages/svg/PNGToSVG'))
 const JPGToSVG = lazy(() => import('./pages/svg/JPGToSVG'))
 const SVGOptimizer = lazy(() => import('./pages/svg/SVGOptimizer'))
+const FaviconConverter = lazy(() => import('./pages/favicon/FaviconConverter'))
+const FaviconGenerator = lazy(() => import('./pages/favicon/FaviconGenerator'))
 
 function App() {
   const { t } = useTranslation();
@@ -58,6 +60,10 @@ function App() {
               <Route path="png-to-svg" element={<PNGToSVG />} />
               <Route path="jpg-to-svg" element={<JPGToSVG />} />
               <Route path="svg-optimizer" element={<SVGOptimizer />} />
+            </Route>
+            <Route path="favicon">
+              <Route path="converter" element={<FaviconConverter />} />
+              <Route path="generator" element={<FaviconGenerator />} />
             </Route>
             <Route path="video">
               <Route path="video-compress" element={<VideoCompress />} />

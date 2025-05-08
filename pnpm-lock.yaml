@@ -17,6 +17,33 @@ importers:
       '@ffmpeg/util':
         specifier: ^0.12.2
         version: 0.12.2
+      '@iconify/icons-carbon':
+        specifier: ^1.2.20
+        version: 1.2.20
+      '@iconify/icons-heroicons':
+        specifier: ^1.2.9
+        version: 1.2.9
+      '@iconify/icons-lucide':
+        specifier: ^1.2.135
+        version: 1.2.135
+      '@iconify/icons-mdi':
+        specifier: ^1.2.48
+        version: 1.2.48
+      '@iconify/icons-ph':
+        specifier: ^1.2.5
+        version: 1.2.5
+      '@iconify/icons-ri':
+        specifier: ^1.2.10
+        version: 1.2.10
+      '@iconify/icons-tabler':
+        specifier: ^1.2.95
+        version: 1.2.95
+      '@iconify/json':
+        specifier: ^2.2.336
+        version: 2.2.336
+      '@iconify/react':
+        specifier: ^6.0.0
+        version: 6.0.0(react@18.3.1)
       '@imgly/background-removal':
         specifier: ^1.5.8
         version: 1.5.8(onnxruntime-web@1.21.0-dev.20250114-228dd16893)
@@ -27,6 +54,9 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-dropdown-menu':
+        specifier: ^2.1.6
+        version: 2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-label':
         specifier: ^2.1.6
         version: 2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-progress':
@@ -50,6 +80,9 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.2.6
         version: 1.2.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/lodash':
+        specifier: ^4.17.16
+        version: 4.17.16
       chinese-conv:
         specifier: ^3.2.2
         version: 3.2.2
@@ -62,6 +95,9 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
+      emoji-picker-react:
+        specifier: ^4.12.2
+        version: 4.12.2(react@18.3.1)
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
@@ -83,6 +119,9 @@ importers:
       jszip:
         specifier: ^3.10.1
         version: 3.10.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       lucide-react:
         specifier: ^0.469.0
         version: 0.469.0(react@18.3.1)
@@ -120,6 +159,9 @@ importers:
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.17.0
+      '@iconify/types':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@types/file-saver':
         specifier: ^2.0.7
         version: 2.0.7
@@ -942,6 +984,38 @@ packages:
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
 
+  '@iconify/icons-carbon@1.2.20':
+    resolution: {integrity: sha512-GaBRDebrshFfiRu11ktyBvm/Ez72UXvZUsHG3WPqddokTp3auOT4cLch+2JSEzeVXSGbopzU2Fhpv8vE2I0XCw==}
+
+  '@iconify/icons-heroicons@1.2.9':
+    resolution: {integrity: sha512-Zx+5+lj8wKnNxOhRPXBXkrA4qthpS1tnsbzxT7AzKnkdm2wdvDGBRTb+FYMp31HFv5MHT6BjrTCBgZ9p84cvug==}
+
+  '@iconify/icons-lucide@1.2.135':
+    resolution: {integrity: sha512-odjb/fGnKGIw3aNwZV8n4lTmpPN9LR2nHa3hjmZGrHNK3y1gHhiaU4H1XlCrSeQxkEN6TOB+l/falLwRo1rGRw==}
+
+  '@iconify/icons-mdi@1.2.48':
+    resolution: {integrity: sha512-1Tiq+iX1d2MzrdDiw45Tc9HuhNgg8H4vvaKNV+kF+jmr/kPG+YyeLMyXUKp4bwv+gheIAgNpZPjuqAPRkmMieA==}
+
+  '@iconify/icons-ph@1.2.5':
+    resolution: {integrity: sha512-ewrnpL0u3MAP0wLDnXb/39W9W71ObyY8DNig6rYj7NEwcndWWlrGHt1RxEGYE3eqILl/IUcNIQQF1CXZAhwr/w==}
+
+  '@iconify/icons-ri@1.2.10':
+    resolution: {integrity: sha512-w/Xu177artcK7P1LPUMq85WcRbqFE8sKYQEuNfEkuex/47DOaCgW6oBFdjlFBAmBczKlsJPdcy2pAGBGZvXdYw==}
+
+  '@iconify/icons-tabler@1.2.95':
+    resolution: {integrity: sha512-m4O1iTXJZasEZJudWHDAhrGnVEsTHmX8G3pk4Ag8IjPwLh77y5a0ek+zU+8xEd0+9APUV7SubK+GVd/WepMbbA==}
+
+  '@iconify/json@2.2.336':
+    resolution: {integrity: sha512-VzFz+9EUrIojmO7d0351W72/7uB9KR3ma4cP411SAMb//WzShK4l3nHWf0mKw2p4wAjTIF11W6+JfDoaJCXWpQ==}
+
+  '@iconify/react@6.0.0':
+    resolution: {integrity: sha512-eqNscABVZS8eCpZLU/L5F5UokMS9mnCf56iS1nM9YYHdH8ZxqZL9zyjSwW60IOQFsXZkilbBiv+1paMXBhSQnw==}
+    peerDependencies:
+      react: '>=16'
+
+  '@iconify/types@2.0.0':
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -1408,6 +1482,19 @@ packages:
       '@types/react':
         optional: true
 
+  '@radix-ui/react-label@2.1.6':
+    resolution: {integrity: sha512-S/hv1mTlgcPX2gCTJrWuTjSXf7ER3Zf7zWGtOprxhIIY93Qin3n5VgNA0Ez9AgrK/lEtlYgzLd4f5x6AVar4Yw==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+
   '@radix-ui/react-menu@2.1.6':
     resolution: {integrity: sha512-tBBb5CXDJW3t2mo9WlO7r6GTmWV0F0uzHZVFmlRmYpiSK1CDU5IKojP1pm7oknpBOrFZx/YgBRW9oorPO2S/Lg==}
     peerDependencies:
@@ -1512,6 +1599,19 @@ packages:
       '@types/react-dom':
         optional: true
 
+  '@radix-ui/react-primitive@2.1.2':
+    resolution: {integrity: sha512-uHa+l/lKfxuDD2zjN/0peM/RhhSmRjr5YWdk/37EnSv1nJ88uvG85DPexSm8HdFQROd2VdERJ6ynXbkCFi+APw==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+
   '@radix-ui/react-progress@1.1.2':
     resolution: {integrity: sha512-u1IgJFQ4zNAUTjGdDL5dcl/U8ntOR6jsnhxKb5RKp5Ozwl88xKR9EqRZOe/Mk8tnx0x5tNUe2F+MzsyjqMg0MA==}
     peerDependencies:
@@ -1597,6 +1697,15 @@ packages:
 
   '@radix-ui/react-slot@1.2.0':
     resolution: {integrity: sha512-ujc+V6r0HNDviYqIK3rW4ffgYiZ8g5DEHrGJVk4x7kTlLXRDILnKX9vAUYeIsLOoDpDJ0ujpqMkjH4w2ofuo6w==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@radix-ui/react-slot@1.2.2':
+    resolution: {integrity: sha512-y7TBO4xN4Y94FvcWIOIh18fM4R1A8S4q1jhoz4PNzOoHsFcN8pogcFmZrTYAm4F9VRUrWP/Mw7xSKybIeRI+CQ==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
@@ -2014,6 +2123,9 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/lodash@4.17.16':
+    resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
 
   '@types/node@16.9.1':
     resolution: {integrity: sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g==}
@@ -2474,6 +2586,12 @@ packages:
   electron-to-chromium@1.5.76:
     resolution: {integrity: sha512-CjVQyG7n7Sr+eBXE86HIulnL5N8xZY1sgmOPGuq/F0Rr0FJq63lg0kEtOIDfZBk44FnDLf6FUJ+dsJcuiUDdDQ==}
 
+  emoji-picker-react@4.12.2:
+    resolution: {integrity: sha512-6PDYZGlhidt+Kc0ay890IU4HLNfIR7/OxPvcNxw+nJ4HQhMKd8pnGnPn4n2vqC/arRFCNWQhgJP8rpsYKsz0GQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -2642,6 +2760,9 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
+
+  flairup@1.0.0:
+    resolution: {integrity: sha512-IKlE+pNvL2R+kVL1kEhUYqRxVqeFnjiIvHWDMLFXNaqyUdFXQM2wte44EfMYJNHkW16X991t2Zg8apKkhv7OBA==}
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -3270,6 +3391,9 @@ packages:
   path-scurry@1.11.1:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
     engines: {node: '>=16 || 14 >=14.18'}
+
+  pathe@1.1.2:
+    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
   peek-readable@4.1.0:
     resolution: {integrity: sha512-ZI3LnwUv5nOGbQzD9c2iDG6toheuXSZP5esSHBjopsXH4dg19soufvpUGA3uohi5anFtGb2lhAVdHzH6R/Evvg==}
@@ -4933,6 +5057,46 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
+  '@iconify/icons-carbon@1.2.20':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/icons-heroicons@1.2.9':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/icons-lucide@1.2.135':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/icons-mdi@1.2.48':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/icons-ph@1.2.5':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/icons-ri@1.2.10':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/icons-tabler@1.2.95':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify/json@2.2.336':
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.2
+
+  '@iconify/react@6.0.0(react@18.3.1)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 18.3.1
+
+  '@iconify/types@2.0.0': {}
+
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
       '@img/sharp-libvips-darwin-arm64': 1.0.4
@@ -5409,6 +5573,15 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.18
 
+  '@radix-ui/react-label@2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-primitive': 2.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.18
+      '@types/react-dom': 18.3.5(@types/react@18.3.18)
+
   '@radix-ui/react-menu@2.1.6(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/primitive': 1.1.1
@@ -5504,6 +5677,15 @@ snapshots:
   '@radix-ui/react-primitive@2.1.0(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-slot': 1.2.0(@types/react@18.3.18)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.18
+      '@types/react-dom': 18.3.5(@types/react@18.3.18)
+
+  '@radix-ui/react-primitive@2.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-slot': 1.2.2(@types/react@18.3.18)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
@@ -5617,6 +5799,13 @@ snapshots:
       '@types/react': 18.3.18
 
   '@radix-ui/react-slot@1.2.0(@types/react@18.3.18)(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-compose-refs': 1.1.2(@types/react@18.3.18)(react@18.3.1)
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.18
+
+  '@radix-ui/react-slot@1.2.2(@types/react@18.3.18)(react@18.3.1)':
     dependencies:
       '@radix-ui/react-compose-refs': 1.1.2(@types/react@18.3.18)(react@18.3.1)
       react: 18.3.1
@@ -5929,6 +6118,8 @@ snapshots:
   '@types/history@4.7.11': {}
 
   '@types/json-schema@7.0.15': {}
+
+  '@types/lodash@4.17.16': {}
 
   '@types/node@16.9.1': {}
 
@@ -6437,6 +6628,11 @@ snapshots:
 
   electron-to-chromium@1.5.76: {}
 
+  emoji-picker-react@4.12.2(react@18.3.1):
+    dependencies:
+      flairup: 1.0.0
+      react: 18.3.1
+
   emoji-regex@8.0.0: {}
 
   emoji-regex@9.2.2: {}
@@ -6686,6 +6882,8 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  flairup@1.0.0: {}
 
   flat-cache@4.0.1:
     dependencies:
@@ -7316,6 +7514,8 @@ snapshots:
     dependencies:
       lru-cache: 10.4.3
       minipass: 7.1.2
+
+  pathe@1.1.2: {}
 
   peek-readable@4.1.0: {}
 

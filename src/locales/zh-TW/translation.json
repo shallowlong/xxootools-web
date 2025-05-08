@@ -656,5 +656,72 @@
       "m4a": "M4A: 蘋果設備偏好的格式",
       "general": "更高的碼率意味著更好的音質，但文件也更大"
     }
+  },
+  "favicon": {
+    "name": "Favicon 工具",
+    "tools": {
+      "favicon-converter": {
+        "name": "Favicon 轉換器",
+        "description": "將圖片轉換為 Favicon 格式"
+      },
+      "favicon-generator": {
+        "name": "Favicon 生成器",
+        "description": "創建完整的 Favicon 包"
+      }
+    }
+  },
+  "faviconConverter": {
+    "title": "Favicon 轉換器",
+    "description": "將圖片轉換為 Favicon 格式",
+    "dropToUpload": "釋放滑鼠上傳圖片",
+    "supportedFormats": "支援的格式：PNG、JPG、GIF、SVG",
+    "selectedImage": "已選擇圖片",
+    "conversionOptions": "轉換選項",
+    "outputFormat": "輸出格式",
+    "convert": "轉換為 Favicon",
+    "conversionResults": "轉換結果",
+    "conversionError": "轉換過程中出錯",
+    "invalidFileType": "無效的檔案類型，請上傳圖片。"
+  },
+  "faviconGenerator": {
+    "title": "Favicon 生成器",
+    "description": "通過文字、表情、圖標生成 Favicon",
+    "dropToUpload": "釋放滑鼠上傳圖片",
+    "uploadHint": "上傳正方形圖片效果最佳（至少512x512像素）",
+    "selectedImage": "已選擇圖片",
+    "websiteInfo": "網站資訊",
+    "appName": "應用名稱",
+    "appNamePlaceholder": "我的網站",
+    "themeColor": "主題顏色",
+    "backgroundColor": "背景顏色",
+    "generateOptions": "生成選項",
+    "generate": "生成圖標包",
+    "generationResults": "生成結果",
+    "downloadPackage": "下載圖標包",
+    "generationError": "生成圖標過程中出錯",
+    "zipError": "創建ZIP檔案出錯",
+    "invalidFileType": "無效的檔案類型，請上傳圖片。",
+    "installationInstructions": "安裝說明",
+    "instructionStep1": "下載圖標包或單個檔案",
+    "instructionStep2": "將所有檔案放在網站的根目錄中",
+    "instructionStep3": "將favicon-html-code.html檔案中的HTML代碼添加到網站的<head>部分",
+    "text": "文字",
+    "emoji": "表情",
+    "icon": "圖標",
+    "textContent": "文字內容",
+    "textPlaceholder": "輸入1-2個字符",
+    "font": "字體",
+    "fontSize": "字體大小",
+    "fontColor": "字體顏色",
+    "generateIcon": "生成圖標",
+    "selectedIcon": "已選擇圖標",
+    "preview": "預覽",
+    "shape": "形狀",
+    "shapes": {
+      "square": "方形",
+      "circle": "圓形",
+      "rounded": "圓角"
+    }
+
   }
 } 

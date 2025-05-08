@@ -153,6 +153,19 @@
           "description": "자주 사용되는 날짜 유틸리티 함수 모음"
         }
       }
+    },
+    "favicon": {
+      "name": "Favicon 도구",
+      "tools": {
+        "favicon-converter": {
+          "name": "Favicon 변환기",
+          "description": "이미지를 Favicon 형식으로 변환"
+        },
+        "favicon-generator": {
+          "name": "Favicon 생성기",
+          "description": "웹사이트용 완전한 Favicon 패키지 생성"
+        }
+      }
     }
   },
   "common": {
@@ -642,11 +655,10 @@
   },
   "svgOptimizer": {
     "title": "SVG 최적화 도구",
-    "description": "SVG 파일 크기를 줄이고 성능 향상",
+    "description": "SVG 파일 크기를 줄이고 성능을 향상시키기 위한 최적화",
     "dropToUpload": "SVG를 놓아서 업로드",
     "clickOrDragToUpload": "클릭하거나 드래그하여 SVG 업로드",
-    "uploadOrPaste": "SVG 업로드 또는 코드 붙여넣기",
-    "supportedFormats": "<span>여러</span> SVG 파일 업로드 지원",
+    "supportedFormats": "<span>여러</span> SVG 파일을 선택할 수 있습니다",
     "dragMessage": "최적화를 시작하려면 놓으세요",
     "convertSettings": "최적화 설정",
     "selectFormat": "형식 선택",
@@ -658,6 +670,59 @@
     "optimized": "최적화됨",
     "originalSize": "원본 크기",
     "optimizedSize": "최적화된 크기",
-    "savings": "크기 감소"
+    "savings": "절약된 크기"
+  },
+  "faviconConverter": {
+    "title": "Favicon 변환기",
+    "description": "이미지를 Favicon 형식으로 변환",
+    "dropToUpload": "이미지를 놓아서 업로드",
+    "supportedFormats": "지원되는 형식: PNG, JPG, GIF, SVG",
+    "selectedImage": "선택된 이미지",
+    "conversionOptions": "변환 옵션",
+    "outputFormat": "출력 형식",
+    "convert": "Favicon으로 변환",
+    "conversionResults": "변환 결과",
+    "conversionError": "변환 중 오류 발생",
+    "invalidFileType": "잘못된 파일 형식입니다. 이미지를 업로드해 주세요."
+  },
+  "faviconGenerator": {
+    "title": "Favicon 생성기",
+    "description": "웹사이트용 완전한 Favicon 패키지 생성",
+    "dropToUpload": "이미지를 놓아서 업로드",
+    "uploadHint": "최상의 결과를 위해 정사각형 이미지를 업로드하세요(최소 512x512px)",
+    "selectedImage": "선택된 이미지",
+    "websiteInfo": "웹사이트 정보",
+    "appName": "앱 이름",
+    "appNamePlaceholder": "내 웹사이트",
+    "themeColor": "테마 색상",
+    "backgroundColor": "배경 색상",
+    "generateOptions": "생성 옵션",
+    "generate": "Favicon 패키지 생성",
+    "generationResults": "생성 결과",
+    "downloadPackage": "패키지 다운로드",
+    "generationError": "Favicon 생성 중 오류 발생",
+    "zipError": "ZIP 파일 생성 중 오류 발생",
+    "invalidFileType": "잘못된 파일 형식입니다. 이미지를 업로드해 주세요.",
+    "installationInstructions": "설치 안내",
+    "instructionStep1": "Favicon 패키지 또는 개별 파일 다운로드",
+    "instructionStep2": "모든 파일을 웹사이트의 루트 디렉토리에 배치",
+    "instructionStep3": "favicon-html-code.html 파일의 HTML 코드를 웹사이트의 <head> 섹션에 추가",
+    "text": "텍스트",
+    "emoji": "이모지",
+    "icon": "아이콘",
+    "textContent": "텍스트 내용",
+    "textPlaceholder": "1-2자 입력",
+    "font": "폰트",
+    "fontSize": "폰트 크기",
+    "fontColor": "폰트 색상",
+    "generateIcon": "아이콘 생성",
+    "selectedIcon": "선택된 아이콘",
+    "preview": "미리보기",
+    "shape": "모양",
+    "shapes": {
+      "square": "사각형",
+      "circle": "원형",
+      "rounded": "둥근"
+    }
   }
 } 

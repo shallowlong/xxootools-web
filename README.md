@@ -17,6 +17,10 @@ XTools is a free, open-source, and data-secure toolbox that offers various utili
 - **Convert** - Transform SVGs to other formats
 - **Viewer** - SVG Code Preview
 
+### Favicon Tools
+- **Converter** - Convert images to favicon formats
+- **Generator** - Create favicon packages for websites
+
 ### Video Tools
 - **Compress** - Reduce video file sizes while maintaining acceptable quality
 

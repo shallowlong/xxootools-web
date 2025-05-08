@@ -19,7 +19,8 @@ const categoryIconMap: Record<string, { icon: React.ElementType, color: string }
   data: { icon: Database, color: '#6366F1' },    // 靛蓝色
   util: { icon: Gauge, color: '#0EA5E9' },        // 天蓝色
   writer: { icon: Pencil, color: '#0EA5E9' },     // 天蓝色
-  svg: { icon: FolderSync, color: '#0EA5E9' }     // 天蓝色
+  svg: { icon: FolderSync, color: '#0EA5E9' },     // 天蓝色
+  favicon: { icon: Image, color: '#D946EF' }      // 紫色
 };
 
 // 默认图标和颜色

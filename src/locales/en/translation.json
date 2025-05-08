@@ -60,7 +60,20 @@
         },
         "svg-optimizer": {
           "name": "SVG Optimizer",
-          "description": "Optimize SVG files to reduce file size"
+          "description": "Optimize SVG files for smaller size"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon Tools",
+      "tools": {
+        "favicon-converter": {
+          "name": "Favicon Converter",
+          "description": "Convert images to favicon formats"
+        },
+        "favicon-generator": {
+          "name": "Favicon Generator",
+          "description": "Create complete favicon packages for websites"
         }
       }
     },
@@ -259,6 +272,12 @@
     "originalFormat": "Original format",
     "convertingTo": "Converting to",
     "converting": "Converting",
+    "generating": "Generating",
+    "fileName": "File Name",
+    "fileSize": "File Size",
+    "fileType": "File Type",
+    "fileWidth": "File Width",
+    "fileHeight": "File Height",
     "conversionStatus": {
       "success": "Conversion Successful",
       "failed": "Conversion Failed",
@@ -735,5 +754,58 @@
     "originalSize": "Original Size",
     "optimizedSize": "Optimized Size",
     "savings": "Size Reduction"
+  },
+  "faviconConverter": {
+    "title": "Favicon Converter",
+    "description": "Convert images to favicon formats",
+    "dropToUpload": "Drop image to upload",
+    "supportedFormats": "Supported formats: PNG, JPG, GIF, SVG",
+    "selectedImage": "Selected Image",
+    "conversionOptions": "Conversion Options",
+    "outputFormat": "Output Format",
+    "convert": "Convert to Favicon",
+    "conversionResults": "Conversion Results",
+    "conversionError": "Error during conversion",
+    "invalidFileType": "Invalid file type. Please upload an image."
+  },
+  "faviconGenerator": {
+    "title": "Favicon Generator",
+    "description": "Generate Favicon using text, emoji, or icons",
+    "dropToUpload": "Drop image to upload",
+    "uploadHint": "Upload a square image for best results (at least 512x512px)",
+    "selectedImage": "Selected Image",
+    "websiteInfo": "Website Information",
+    "appName": "App Name",
+    "appNamePlaceholder": "My Website",
+    "themeColor": "Theme Color",
+    "backgroundColor": "Background Color",
+    "generateOptions": "Generate Options",
+    "generate": "Generate Favicon Package",
+    "generationResults": "Generation Results",
+    "downloadPackage": "Download Package",
+    "generationError": "Error during favicon generation",
+    "zipError": "Error creating ZIP file",
+    "invalidFileType": "Invalid file type. Please upload an image.",
+    "installationInstructions": "Installation Instructions",
+    "instructionStep1": "Download the favicon package or individual files",
+    "instructionStep2": "Place all files in the root directory of your website",
+    "instructionStep3": "Add the HTML code from the favicon-html-code.html file to your website's <head> section",
+    "text": "Text",
+    "emoji": "Emoji",
+    "icon": "Icon",
+    "textContent": "Text Content",
+    "textPlaceholder": "Enter 1-2 characters",
+    "font": "Font",
+    "fontSize": "Font Size",
+    "fontColor": "Font Color",
+    "generateIcon": "Generate Icon",
+    "selectedIcon": "Selected icon",
+    "preview": "Preview",
+    "shape": "Shape",
+    "shapes": {
+      "square": "Square",
+      "circle": "Circle",
+      "rounded": "Rounded"
+    }
   }
 } 

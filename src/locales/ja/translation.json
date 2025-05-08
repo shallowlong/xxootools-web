@@ -648,5 +648,71 @@
     "originalSize": "元のサイズ",
     "optimizedSize": "最適化後のサイズ",
     "savings": "サイズ削減"
+  },
+  "favicon": {
+    "name": "Favicon ツール",
+    "tools": {
+      "favicon-converter": {
+        "name": "Favicon コンバーター",
+        "description": "画像を Favicon 形式に変換"
+      },
+      "favicon-generator": {
+        "name": "Favicon ジェネレーター",
+        "description": "ウェブサイト用の完全な Favicon パッケージを作成"
+      }
+    }
+  },
+  "faviconConverter": {
+    "title": "Favicon コンバーター",
+    "description": "画像を Favicon 形式に変換",
+    "dropToUpload": "画像をドロップしてアップロード",
+    "supportedFormats": "対応フォーマット：PNG、JPG、GIF、SVG",
+    "selectedImage": "選択された画像",
+    "conversionOptions": "変換オプション",
+    "outputFormat": "出力フォーマット",
+    "convert": "Favicon に変換",
+    "conversionResults": "変換結果",
+    "conversionError": "変換中にエラーが発生しました",
+    "invalidFileType": "無効なファイル形式です。画像をアップロードしてください。"
+  },
+  "faviconGenerator": {
+    "title": "Favicon ジェネレーター",
+    "description": "ウェブサイト用の完全な Favicon パッケージを作成",
+    "dropToUpload": "画像をドロップしてアップロード",
+    "uploadHint": "最適な結果を得るには正方形の画像をアップロードしてください（512x512px以上）",
+    "selectedImage": "選択された画像",
+    "websiteInfo": "ウェブサイト情報",
+    "appName": "アプリ名",
+    "appNamePlaceholder": "マイウェブサイト",
+    "themeColor": "テーマカラー",
+    "backgroundColor": "背景色",
+    "generateOptions": "生成オプション",
+    "generate": "Favicon パッケージを生成",
+    "generationResults": "生成結果",
+    "downloadPackage": "パッケージをダウンロード",
+    "generationError": "Favicon 生成中にエラーが発生しました",
+    "zipError": "ZIPファイルの作成中にエラーが発生しました",
+    "invalidFileType": "無効なファイル形式です。画像をアップロードしてください。",
+    "installationInstructions": "インストール手順",
+    "instructionStep1": "Favicon パッケージまたは個別のファイルをダウンロード",
+    "instructionStep2": "すべてのファイルをウェブサイトのルートディレクトリに配置",
+    "instructionStep3": "favicon-html-code.htmlファイルのHTMLコードをウェブサイトの<head>セクションに追加",
+    "text": "テキスト",
+    "emoji": "絵文字",
+    "icon": "アイコン",
+    "textContent": "テキストコンテンツ",
+    "textPlaceholder": "1-2文字入力",
+    "font": "フォント",
+    "fontSize": "フォントサイズ",
+    "fontColor": "フォントカラー",
+    "generateIcon": "アイコン生成",
+    "selectedIcon": "選択されたアイコン",
+    "preview": "プレビュー",
+    "shape": "形状",
+    "shapes": {
+      "square": "正方形",
+      "circle": "円形",
+      "rounded": "角丸"
+    }
   }
 } 

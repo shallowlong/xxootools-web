@@ -99,6 +99,26 @@ export const TOOL_CATEGORY: ToolCategory[] = [
     ]
   },
   {
+    id: 'favicon',
+    name: 'favicon',
+    tools: [
+      {
+        id: 'favicon-converter',
+        name: 'favicon-converter',
+        description: 'favicon-converter',
+        icon: 'Globe',
+        path: '/favicon/converter'
+      },
+      {
+        id: 'favicon-generator',
+        name: 'favicon-generator',
+        description: 'favicon-generator',
+        icon: 'Palette',
+        path: '/favicon/generator'
+      }
+    ]
+  },
+  {
     id: 'video',
     name: 'video',
     tools: [

@@ -11,6 +11,16 @@ export const POPULAR_TOOLS = [
 // 最近更新工具配置
 export const RECENT_TOOLS = [
   {
+    categoryId: 'favicon',
+    toolId: 'favicon-generator',
+    updateDate: '2025-05-08'
+  },
+  {
+    categoryId: 'favicon',
+    toolId: 'favicon-converter',
+    updateDate: '2025-05-08'
+  },
+  {
     categoryId: 'svg',
     toolId: 'svg-viewer',
     updateDate: '2025-04-15'

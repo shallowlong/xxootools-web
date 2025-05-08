@@ -646,5 +646,71 @@
     "originalSize": "Ursprüngliche Größe",
     "optimizedSize": "Optimierte Größe",
     "savings": "Größenreduzierung"
+  },
+  "favicon": {
+    "name": "Favicon Tools",
+    "tools": {
+      "favicon-converter": {
+        "name": "Favicon Konverter",
+        "description": "Bilder in Favicon-Formate konvertieren"
+      },
+      "favicon-generator": {
+        "name": "Favicon Generator",
+        "description": "Komplette Favicon-Pakete für Websites erstellen"
+      }
+    }
+  },
+  "faviconConverter": {
+    "title": "Favicon Konverter",
+    "description": "Bilder in Favicon-Formate konvertieren",
+    "dropToUpload": "Bild zum Hochladen ablegen",
+    "supportedFormats": "Unterstützte Formate: PNG, JPG, GIF, SVG",
+    "selectedImage": "Ausgewähltes Bild",
+    "conversionOptions": "Konvertierungsoptionen",
+    "outputFormat": "Ausgabeformat",
+    "convert": "In Favicon konvertieren",
+    "conversionResults": "Konvertierungsergebnisse",
+    "conversionError": "Fehler bei der Konvertierung",
+    "invalidFileType": "Ungültiger Dateityp. Bitte laden Sie ein Bild hoch."
+  },
+  "faviconGenerator": {
+    "title": "Favicon Generator",
+    "description": "Favicon mit Text, Emojis oder Icons erstellen",
+    "dropToUpload": "Bild zum Hochladen ablegen",
+    "uploadHint": "Laden Sie für beste Ergebnisse ein quadratisches Bild hoch (mindestens 512x512px)",
+    "selectedImage": "Ausgewähltes Bild",
+    "websiteInfo": "Website-Informationen",
+    "appName": "App-Name",
+    "appNamePlaceholder": "Meine Website",
+    "themeColor": "Theme-Farbe",
+    "backgroundColor": "Hintergrundfarbe",
+    "generateOptions": "Generierungsoptionen",
+    "generate": "Favicon-Paket generieren",
+    "generationResults": "Generierungsergebnisse",
+    "downloadPackage": "Paket herunterladen",
+    "generationError": "Fehler bei der Favicon-Generierung",
+    "zipError": "Fehler beim Erstellen der ZIP-Datei",
+    "invalidFileType": "Ungültiger Dateityp. Bitte laden Sie ein Bild hoch.",
+    "installationInstructions": "Installationsanleitung",
+    "instructionStep1": "Laden Sie das Favicon-Paket oder einzelne Dateien herunter",
+    "instructionStep2": "Platzieren Sie alle Dateien im Root-Verzeichnis Ihrer Website",
+    "instructionStep3": "Fügen Sie den HTML-Code aus der favicon-html-code.html-Datei in den <head>-Bereich Ihrer Website ein",
+    "text": "Text",
+    "emoji": "Emoji",
+    "icon": "Icon",
+    "textContent": "Textinhalt",
+    "textPlaceholder": "1-2 Zeichen eingeben",
+    "font": "Schriftart",
+    "fontSize": "Schriftgröße",
+    "fontColor": "Schriftfarbe",
+    "generateIcon": "Icon generieren",
+    "selectedIcon": "Ausgewähltes Icon",
+    "preview": "Vorschau",
+    "shape": "Form",
+    "shapes": {
+      "square": "Quadratisch",
+      "circle": "Rund",
+      "rounded": "Abgerundet"
+    }
   }
 } 
