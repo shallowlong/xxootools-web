@@ -253,6 +253,7 @@
     "experimental": "Experimental",
     "logoAlt": "XTools Logo",
     "brandName": "XTools",
+    "description": "Free, Open-Source, and Data-Secure toolbox",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "toggleToDark": "Switch to dark mode",

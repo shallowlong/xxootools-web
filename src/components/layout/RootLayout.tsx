@@ -28,13 +28,13 @@ const RootLayout: React.FC = () => {
           
           <div className="flex items-center gap-4">
             <a
-              href="https://domain.deepzero.ai"
+              href="https://www.buymeacoffee.com/yichu"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
-              title={'DomainGenius'}
+              title={'Buy me a coffee'}
             >
-              <span>DomainGenius</span><ExternalLink />
+              <span>Buy me a coffee</span><ExternalLink />
             </a>
             <a
               href="https://github.com/Go7hic/xxootools-web"

@@ -4,6 +4,7 @@ import RootLayout from './components/layout/RootLayout'
 import { lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Toaster } from './components/ui/toaster'
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 
 // 懒加载工具页面
 const Home = lazy(() => import('./pages/Home'))
@@ -36,7 +37,10 @@ function App() {
   const { t } = useTranslation();
   
   return (
-    <>
+    <HelmetProvider>
+      <Helmet>
+        <title>{t('common.brandName')} - {t('common.description')}</title>
+      </Helmet>
       <Suspense fallback={<div className="flex items-center justify-center h-screen">{t('common.loading')}</div>}>
         <Routes>
           <Route path="/" element={<RootLayout />}>
@@ -85,7 +89,7 @@ function App() {
         </Routes>
       </Suspense>
       <Toaster />
-    </>
+    </HelmetProvider>
   )
 }
 

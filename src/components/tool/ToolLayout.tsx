@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import ToolActions from './ToolActions';
+import { Helmet } from 'react-helmet-async';
+import { t } from 'i18next';
 
 interface ToolLayoutProps {
   title: string;
@@ -18,6 +20,11 @@ const ToolLayout: React.FC<ToolLayoutProps> = ({
   toolId
 }) => {
   return (
+    <>
+    <Helmet>
+      <title>{t('common.brandName')} - {title}</title>
+      <meta name="description" content={description} />
+    </Helmet>
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
@@ -28,6 +35,7 @@ const ToolLayout: React.FC<ToolLayoutProps> = ({
         <ToolActions toolName={title} toolId={toolId} categoryId={categoryId} />
       </CardContent>
     </Card>
+    </>
   );
 };
 
