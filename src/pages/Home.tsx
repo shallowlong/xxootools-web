@@ -52,6 +52,7 @@ const Home = () => {
   return (
     <div>
       <h1 className="text-3xl text-center font-bold mb-10">
+      <iframe style={{ margin: '0px auto 10px' }} src="https://www.launchgns.com/badge?id=185876ca-514e-4527-b734-1257e55d4ac6&style=default&theme=light&period=daily&showRank=false&showScore=true&target=_blank" width="300px" height="60px" frameBorder="0" scrolling="no"></iframe>
         <Trans
           i18nKey="welcome"
           components={{ 
@@ -59,6 +60,7 @@ const Home = () => {
             b: <b className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300 group-hover:from-blue-700 group-hover:to-cyan-600" />,
           }}
         />
+        
       </h1>
       
       {/* 收藏工具 */}
