@@ -4,6 +4,10 @@
 
 XTools is a free, open-source, and data-secure toolbox that offers various utilities for everyday file operations. All processing happens locally in your browser, ensuring your data never leaves your device.
 
+⚠️：Please delete the statistical code in index.html before deployment
+```
+<script defer src="https://stat.deepzero.ai/script.js" data-website-id="6a6c1a00-5ff3-4312-a8a8-bcdc8b16b160"></script>
+```
 ## Features
 
 ### Image Tools
