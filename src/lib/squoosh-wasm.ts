@@ -23,7 +23,7 @@ class ImageCompressionManager {
   // 初始化（jSquash 不需要特殊初始化）
   public async initialize(): Promise<void> {
     this._isInitialized = true;
-    console.log('jSquash compression manager initialized');
+    // console.log('jSquash compression manager initialized');
   }
 
   // 压缩 JPEG 图片
@@ -73,8 +73,6 @@ class ImageCompressionManager {
       // 使用 oxipng 优化 PNG（无损压缩）
       // 根据质量参数选择压缩级别：1-9，质量越高压缩级别越高
       const level = 6;
-      
-      console.log(`Optimizing PNG with oxipng level ${level}`);
       const optimizedPng = await optimisePng(imageData, {
         level: level,
         interlace: false,

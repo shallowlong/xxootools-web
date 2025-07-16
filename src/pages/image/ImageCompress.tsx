@@ -49,12 +49,10 @@ const ImageCompress = () => {
   useEffect(() => {
     const initializeCompression = async () => {
       try {
-        console.log('Initializing image compression engine...');
         const manager = ImageCompressionManager.getInstance();
         await manager.initialize();
         setCompressionManager(manager);
         setIsInitialized(true);
-        console.log('Image compression engine initialized successfully');
       } catch (error) {
         console.error('Failed to initialize compression engine:', error);
         // setInitializationError(error instanceof Error ? error.message : 'Unknown error');
@@ -88,7 +86,7 @@ const ImageCompress = () => {
 
   // 处理文件选择和上传
   const processFiles = async (files: File[]) => {
-    console.log('processFiles called with:', files);
+    
     if (!files || files.length === 0) return;
     
     // 添加图片到压缩结果列表，但设置为未压缩状态
@@ -125,7 +123,7 @@ const ImageCompress = () => {
   };
   
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('handleFileChange');
+    
     if (e.target.files && e.target.files.length > 0) {
       const files = Array.from(e.target.files);
       await processFiles(files);

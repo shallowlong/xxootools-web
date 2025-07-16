@@ -46,13 +46,13 @@ const ImageConverter = () => {
   useEffect(() => {
     const initializeCompression = async () => {
       try {
-        console.log('Initializing image conversion engine...');
+        
         const manager = ImageCompressionManager.getInstance();
         await manager.initialize();
         setIsInitialized(true);
-        console.log('Image conversion engine initialized successfully');
+        
       } catch (error) {
-        console.error('Failed to initialize conversion engine:', error);
+        
         setInitializationError(error instanceof Error ? error.message : 'Unknown error');
       }
     };
