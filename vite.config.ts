@@ -108,7 +108,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util', "@jsquash/avif", "@jsquash/jpeg", "@jsquash/jxl", "@jsquash/png", "@jsquash/webp", "@jsquash/oxipng"],
+    exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util', "@jSquash/avif", "@jSquash/jpeg", "@jSquash/jxl", "@jSquash/png", "@jSquash/webp", "@jSquash/oxipng"],
     include: ['@iconify/json/json/*.json'],
   },
   server: {

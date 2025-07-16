@@ -1,12 +1,12 @@
 // 使用 jSquash 库的图片压缩管理器
-import { encode as encodeJpeg } from '@jsquash/jpeg';
-import { encode as encodeWebP } from '@jsquash/webp';
-// import { encode as encodePng } from '@jsquash/png';
-import { encode as encodeAvif } from '@jsquash/avif';
-import { encode as encodeJxl } from '@jsquash/jxl';
-import { encode as encodeQoi } from '@jsquash/qoi';
+import { encode as encodeJpeg } from '@jSquash/jpeg';
+import { encode as encodeWebP } from '@jSquash/webp';
+// import { encode as encodePng } from '@jSquash/png';
+import { encode as encodeAvif } from '@jSquash/avif';
+import { encode as encodeJxl } from '@jSquash/jxl';
+import { encode as encodeQoi } from '@jSquash/qoi';
 
-import { optimise as optimisePng } from '@jsquash/oxipng';
+import { optimise as optimisePng } from '@jSquash/oxipng';
 
 class ImageCompressionManager {
   private static instance: ImageCompressionManager | null = null;
