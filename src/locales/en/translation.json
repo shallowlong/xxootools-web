@@ -320,6 +320,80 @@
       "compressionError": "Error during compression",
       "createZipError": "Error creating ZIP file",
       "downloadFailed": "Download failed, please try again or download images individually"
+    },
+    "accordion": {
+      "formatComparison": {
+        "title": "Common Image Format Comparison",
+        "table": {
+          "format": "Format",
+          "features": "Features",
+          "lossy": "Lossy",
+          "transparency": "Transparency",
+          "browserSupport": "Browser Support",
+          "useCase": "Use Case"
+        },
+        "formats": {
+          "jpg": {
+            "name": "JPG / JPEG",
+            "description": "Lossy compression, small size",
+            "lossy": "✅",
+            "transparency": "❌",
+            "browserSupport": "✅",
+            "useCase": "Photos, web images"
+          },
+          "png": {
+            "name": "PNG",
+            "description": "Lossless compression, supports transparency",
+            "lossy": "❌",
+            "transparency": "✅",
+            "browserSupport": "✅",
+            "useCase": "Icons, screenshots"
+          },
+          "webp": {
+            "name": "WebP",
+            "description": "Google's format, lossy/lossless",
+            "lossy": "✅/❌",
+            "transparency": "✅",
+            "browserSupport": "✅",
+            "useCase": "Web optimization"
+          },
+          "avif": {
+            "name": "AVIF",
+            "description": "Next-generation efficient format",
+            "lossy": "✅/❌",
+            "transparency": "✅",
+            "browserSupport": "✅ (Modern)",
+            "useCase": "High-quality compression"
+          },
+          "jxl": {
+            "name": "JXL",
+            "description": "JPEG's successor",
+            "lossy": "✅/❌",
+            "transparency": "✅",
+            "browserSupport": "🟡 Partial support",
+            "useCase": "High-fidelity images"
+          },
+          "qoi": {
+            "name": "QOI",
+            "description": "Minimal fast format",
+            "lossy": "❌",
+            "transparency": "✅",
+            "browserSupport": "❌",
+            "useCase": "Embedded/dev use"
+          }
+        }
+      },
+      "techIntro": {
+        "title": "Compression Technology Introduction",
+        "points": {
+          
+          "jsquash": "Image compression core based on WebAssembly-compiled Squoosh codecs.",
+          "formats": "Supports compression and conversion of JPEG (<code>mozjpeg</code>), PNG (<code>oxipng</code>), WebP, AVIF formats.",
+          "privacy": "All image processing is done locally in the user's browser, <strong>no server upload required</strong>, ensuring privacy.",
+          
+          "efficiency": "Technical solution balances <strong>compression efficiency, format compatibility, and image quality</strong>, suitable for modern web applications."
+        }
+      }
     }
   },
   "imageConverter": {

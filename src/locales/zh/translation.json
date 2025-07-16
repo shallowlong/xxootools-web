@@ -322,6 +322,80 @@
       "compressionError": "压缩过程中出错",
       "createZipError": "创建zip文件出错",
       "downloadFailed": "下载失败，请重试或单独下载图片"
+    },
+    "accordion": {
+      "formatComparison": {
+        "title": "常见图片格式对比",
+        "table": {
+          "format": "格式",
+          "features": "特性",
+          "lossy": "是否有损",
+          "transparency": "透明支持",
+          "browserSupport": "浏览器支持",
+          "useCase": "适用场景"
+        },
+        "formats": {
+          "jpg": {
+            "name": "JPG / JPEG",
+            "description": "有损压缩，体积小",
+            "lossy": "✅",
+            "transparency": "❌",
+            "browserSupport": "✅",
+            "useCase": "照片，网页图"
+          },
+          "png": {
+            "name": "PNG",
+            "description": "无损压缩，支持透明",
+            "lossy": "❌",
+            "transparency": "✅",
+            "browserSupport": "✅",
+            "useCase": "图标，截图"
+          },
+          "webp": {
+            "name": "WebP",
+            "description": "Google 推出，有损/无损",
+            "lossy": "✅/❌",
+            "transparency": "✅",
+            "browserSupport": "✅",
+            "useCase": "网页优化"
+          },
+          "avif": {
+            "name": "AVIF",
+            "description": "新一代高效格式",
+            "lossy": "✅/❌",
+            "transparency": "✅",
+            "browserSupport": "✅（现代）",
+            "useCase": "高质量压缩"
+          },
+          "jxl": {
+            "name": "JXL",
+            "description": "JPEG 的继任者",
+            "lossy": "✅/❌",
+            "transparency": "✅",
+            "browserSupport": "🟡 部分支持",
+            "useCase": "高保真图像"
+          },
+          "qoi": {
+            "name": "QOI",
+            "description": "极简快速格式",
+            "lossy": "❌",
+            "transparency": "✅",
+            "browserSupport": "❌",
+            "useCase": "嵌入式/开发用"
+          }
+        }
+      },
+      "techIntro": {
+        "title": "压缩技术方案介绍",
+        "points": {
+          
+          "jsquash": "图像压缩核心使用基于 WebAssembly 编译的 Squoosh 编解码器。",
+          "formats": "支持 JPEG（<code>mozjpeg</code>）、PNG（<code>oxipng</code>）、WebP、AVIF 格式的压缩与转换。",
+          "privacy": "所有图像处理在用户浏览器本地完成，<strong>无需上传服务器</strong>，保障隐私。",
+          
+          "efficiency": "技术方案兼顾 <strong>压缩效率、格式兼容性和图像质量</strong>，适用于现代 Web 应用。"
+        }
+      }
     }
   },
   "imageConverter": {

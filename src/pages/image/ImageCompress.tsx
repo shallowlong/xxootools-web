@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { UploadCloud, Download, RefreshCw, Trash2, Archive } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { useTranslation, Trans } from 'react-i18next';
@@ -40,6 +41,9 @@ const ImageCompress = () => {
   const [isInitialized, setIsInitialized] = useState(false);
   // const [initializationError, setInitializationError] = useState<string | null>(null);
   const [compressionManager, setCompressionManager] = useState<ImageCompressionManager | null>(null);
+  
+  // 手风琴展开状态
+  const [accordionOpen, setAccordionOpen] = useState<string | null>(null);
 
   // 初始化压缩引擎
   useEffect(() => {
@@ -670,6 +674,71 @@ const ImageCompress = () => {
             </div>
           </div>
         )}
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="format-comparison">
+              <AccordionTrigger 
+                isOpen={accordionOpen === 'format-comparison'}
+                onClick={() => setAccordionOpen(accordionOpen === 'format-comparison' ? null : 'format-comparison')}
+                className="text-base text-gray-600 font-semibold"
+              >
+                {t('imageCompress.accordion.formatComparison.title')}
+              </AccordionTrigger>
+              <AccordionContent isOpen={accordionOpen === 'format-comparison'}>
+                <div className="overflow-x-auto">
+                  <table className="table-auto w-full border border-gray-200 text-sm">
+                    <thead className="bg-gray-100">
+                      <tr>
+                        <th className="p-2 border">{t('imageCompress.accordion.formatComparison.table.format')}</th>
+                        <th className="p-2 border">{t('imageCompress.accordion.formatComparison.table.features')}</th>
+                        <th className="p-2 border">{t('imageCompress.accordion.formatComparison.table.lossy')}</th>
+                        <th className="p-2 border">{t('imageCompress.accordion.formatComparison.table.transparency')}</th>
+                        <th className="p-2 border">{t('imageCompress.accordion.formatComparison.table.browserSupport')}</th>
+                        <th className="p-2 border">{t('imageCompress.accordion.formatComparison.table.useCase')}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        'jpg',
+                        'png', 
+                        'webp',
+                        'avif',
+                        'jxl',
+                        'qoi'
+                      ].map((formatKey) => (
+                        <tr key={formatKey}>
+                          <td className="p-2 border">{t(`imageCompress.accordion.formatComparison.formats.${formatKey}.name`)}</td>
+                          <td className="p-2 border">{t(`imageCompress.accordion.formatComparison.formats.${formatKey}.description`)}</td>
+                          <td className="p-2 border text-center">{t(`imageCompress.accordion.formatComparison.formats.${formatKey}.lossy`)}</td>
+                          <td className="p-2 border text-center">{t(`imageCompress.accordion.formatComparison.formats.${formatKey}.transparency`)}</td>
+                          <td className="p-2 border text-center">{t(`imageCompress.accordion.formatComparison.formats.${formatKey}.browserSupport`)}</td>
+                          <td className="p-2 border">{t(`imageCompress.accordion.formatComparison.formats.${formatKey}.useCase`)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="tech-intro">
+              <AccordionTrigger 
+                isOpen={accordionOpen === 'tech-intro'}
+                onClick={() => setAccordionOpen(accordionOpen === 'tech-intro' ? null : 'tech-intro')}
+                className="text-base text-gray-600 font-semibold"
+              >
+                {t('imageCompress.accordion.techIntro.title')}
+              </AccordionTrigger>
+              <AccordionContent isOpen={accordionOpen === 'tech-intro'}>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                  
+                  <li dangerouslySetInnerHTML={{ __html: t('imageCompress.accordion.techIntro.points.jsquash') }} />
+                  <li dangerouslySetInnerHTML={{ __html: t('imageCompress.accordion.techIntro.points.formats') }} />
+                  <li dangerouslySetInnerHTML={{ __html: t('imageCompress.accordion.techIntro.points.privacy') }} />
+                  <li dangerouslySetInnerHTML={{ __html: t('imageCompress.accordion.techIntro.points.efficiency') }} />
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
       </div>
     </ToolLayout>
   );
