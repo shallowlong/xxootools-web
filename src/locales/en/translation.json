@@ -380,6 +380,14 @@
             "transparency": "✅",
             "browserSupport": "❌",
             "useCase": "Embedded/dev use"
+          },
+          "heic": {
+            "name": "HEIC",
+            "description": "Apple's High Efficiency Image Format",
+            "lossy": "✅",
+            "transparency": "❌",
+            "browserSupport": "🟡 Partial support",
+            "useCase": "iOS device photos"
           }
         }
       },
@@ -398,7 +406,7 @@
   },
   "imageConverter": {
     "title": "Image Format Converter",
-    "description": "Convert images to different formats, supporting WebP, PNG, JPG, JXL, AVIF",
+    "description": "Convert images to different formats, supporting WebP, PNG, JPG, JXL, AVIF, with HEIC file input support",
     "dropToUpload": "Drop images to upload",
     "clickOrDragToUpload": "Click or drag images to upload",
     "supportedFormats": "Support uploading <span>multiple</span> images, formats include {{formats}}",

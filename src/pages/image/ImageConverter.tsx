@@ -13,6 +13,7 @@ import {
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import ImageCompressionManager from '@/lib/squoosh-wasm';
+import heic2any from 'heic2any';
 
 // 定义转换格式类型
 type ImageFormat = 'webp' | 'png' | 'jpg' | 'jxl' | 'avif';
@@ -246,6 +247,87 @@ const ImageConverter = () => {
 
   // 转换单张图片
   const convertImage = async (result: ConversionResult) => {
+    // 检查是否是HEIC文件
+    const isHeicFile = result.originalFile.name.toLowerCase().endsWith('.heic') || 
+                      result.originalFile.type === 'image/heic';
+
+    if (isHeicFile) {
+      // HEIC文件直接使用heic2any转换
+      try {
+        updateConversionProgress(result.id, 20);
+        
+        // 根据目标格式选择转换类型
+        let toType: string;
+        switch (result.targetFormat) {
+          case 'jpg':
+            toType = 'image/jpeg';
+            break;
+          case 'png':
+            toType = 'image/png';
+            break;
+          case 'webp':
+            toType = 'image/webp';
+            break;
+          default:
+            toType = 'image/jpeg'; // 默认转换为JPEG
+        }
+        
+        updateConversionProgress(result.id, 50);
+        
+        // 使用heic2any直接转换
+        const convertedBlob = await heic2any({
+          blob: result.originalFile,
+          toType: toType as any,
+          quality: 1.0
+        });
+        
+        updateConversionProgress(result.id, 90);
+        
+        // 确保是单个Blob
+        const finalBlob = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
+        const convertedDataURL = URL.createObjectURL(finalBlob);
+        
+        // 计算转换后的文件大小
+        const convertedSize = finalBlob.size;
+        
+        // 更新转换结果
+        setTimeout(() => {
+          setConversionResults(prev => 
+            prev.map(item => 
+              item.id === result.id 
+                ? {
+                    ...item,
+                    url: convertedDataURL,
+                    convertedSize,
+                    isConverting: false,
+                    conversionProgress: 100
+                  }
+                : item
+            )
+          );
+        }, 300);
+        
+      } catch (error) {
+        console.error('HEIC conversion failed:', error);
+        setConversionResults(prev => 
+          prev.map(item => 
+            item.id === result.id 
+              ? { 
+                  ...item, 
+                  isConverting: false,
+                  url: '',
+                  convertedSize: undefined,
+                  conversionProgress: 0,
+                  error: error instanceof Error ? error.message : 'HEIC转换失败'
+                }
+              : item
+          )
+        );
+      }
+      return;
+    }
+
+    // 非HEIC文件使用原有的squoosh流程
     if (!isInitialized) {
       console.error('Conversion engine not initialized yet');
       setConversionResults(prev => 
@@ -434,15 +516,15 @@ const ImageConverter = () => {
         {!isInitialized && !initializationError && (
           <div className="text-center py-8">
             <RefreshCw className="animate-spin h-8 w-8 mx-auto mb-4 text-muted-foreground" />
-            <p className="text-muted-foreground">正在初始化转换引擎...</p>
+            <p className="text-muted-foreground">convert initializing...</p>
           </div>
         )}
         
         {initializationError && (
           <div className="text-center py-8">
-            <p className="text-red-500 mb-2">初始化失败: {initializationError}</p>
+            <p className="text-red-500 mb-2">convert initialization failed: {initializationError}</p>
             <Button onClick={() => window.location.reload()} variant="outline">
-              重新加载页面
+              reload page
             </Button>
           </div>
         )}
@@ -477,7 +559,7 @@ const ImageConverter = () => {
               <p className="text-sm text-muted-foreground">
                 <Trans 
                   i18nKey="imageConverter.supportedFormats" 
-                  values={{ formats: 'JPG, PNG, WebP, JXL, QOI, AVIF' }}
+                  values={{ formats: 'JPG, PNG, WebP, JXL, AVIF, HEIC' }}
                   components={{ 
                     span: <span className="text-primary font-medium" /> 
                   }}

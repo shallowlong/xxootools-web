@@ -382,6 +382,14 @@
             "transparency": "✅",
             "browserSupport": "❌",
             "useCase": "嵌入式/开发用"
+          },
+          "heic": {
+            "name": "HEIC",
+            "description": "苹果高效图像格式",
+            "lossy": "✅",
+            "transparency": "❌",
+            "browserSupport": "🟡 部分支持",
+            "useCase": "iOS设备照片"
           }
         }
       },
@@ -400,7 +408,7 @@
   },
   "imageConverter": {
     "title": "图片格式转换",
-    "description": "将图片转换为不同的格式，支持WebP、PNG、JPG、JXL、AVIF",
+    "description": "将图片转换为不同的格式，支持WebP、PNG、JPG、JXL、AVIF，支持HEIC文件输入",
     "dropToUpload": "释放鼠标上传图片",
     "clickOrDragToUpload": "点击或拖拽上传图片",
     "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
