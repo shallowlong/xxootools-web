@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import ToolLayout from '@/components/tool/ToolLayout';
 import { Button } from '@/components/ui/button';
@@ -12,9 +12,10 @@ import {
 } from '@/components/ui/select';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
+import ImageCompressionManager from '@/lib/squoosh-wasm';
 
 // 定义转换格式类型
-type ImageFormat = 'webp' | 'png' | 'jpg' | 'gif';
+type ImageFormat = 'webp' | 'png' | 'jpg' | 'jxl' | 'avif';
 
 // 定义转换结果类型
 interface ConversionResult {
@@ -27,6 +28,8 @@ interface ConversionResult {
   isConverting: boolean;
   conversionProgress: number;
   timestamp: number;
+  error?: string; // 错误信息
+  convertedSize?: number; // 转换后的文件大小
 }
 
 const ImageConverter = () => {
@@ -35,7 +38,26 @@ const ImageConverter = () => {
   const [conversionResults, setConversionResults] = useState<ConversionResult[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const dropzoneRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [initializationError, setInitializationError] = useState<string | null>(null);
+
+  // 初始化压缩引擎
+  useEffect(() => {
+    const initializeCompression = async () => {
+      try {
+        console.log('Initializing image conversion engine...');
+        const manager = ImageCompressionManager.getInstance();
+        await manager.initialize();
+        setIsInitialized(true);
+        console.log('Image conversion engine initialized successfully');
+      } catch (error) {
+        console.error('Failed to initialize conversion engine:', error);
+        setInitializationError(error instanceof Error ? error.message : 'Unknown error');
+      }
+    };
+
+    initializeCompression();
+  }, []);
   
   // 获取文件格式
   const getImageFormatFromFileName = (fileName: string): string => {
@@ -156,44 +178,112 @@ const ImageConverter = () => {
     );
   };
   
-  // 转换单张图片
-  const convertImage = async (result: ConversionResult) => {
-    if (!canvasRef.current) return;
+  // 获取目标格式的MIME类型
+  const getTargetMimeType = (format: ImageFormat): string => {
+    switch (format) {
+      case 'jpg':
+        return 'image/jpeg';
+      case 'jxl':
+        return 'image/jxl';
+      case 'qoi':
+        return 'image/qoi';
+      case 'avif':
+        return 'image/avif';
+      default:
+        return `image/${format}`;
+    }
+  };
+
+    // 使用压缩管理器进行图片格式转换
+  const convertWithCompressionManager = async (imageData: ImageData, format: ImageFormat): Promise<Uint8Array> => {
+    const compressionManager = ImageCompressionManager.getInstance();
     
+    // 确保压缩管理器已初始化
+    if (!compressionManager.isInitialized()) {
+      await compressionManager.initialize();
+    }
+    
+    switch (format) {
+      case 'webp':
+        return await compressionManager.compressWebP(imageData, 100);
+      case 'png':
+        return await compressionManager.compressPng(imageData, 100);
+      case 'jpg':
+        return await compressionManager.compressJpeg(imageData, 100);
+      case 'jxl':
+        return await compressionManager.compressJxl(imageData, 100);
+      // case 'qoi':
+      //   return await compressionManager.compressQoi(imageData, 100);
+      case 'avif':
+        return await compressionManager.compressAvif(imageData, 100);
+      default:
+        throw new Error(`不支持的格式: ${format}`);
+    }
+  };
+
+  // 将文件转换为 ImageData
+  const fileToImageData = async (file: File): Promise<ImageData> => {
     try {
-      // 加载图片
-      const img = new Image();
-      img.src = result.originalPreview;
-      await new Promise<void>((resolve) => {
-        img.onload = () => resolve();
-      });
-      
-      updateConversionProgress(result.id, 40);
-      
-      const canvas = canvasRef.current;
+      // 使用 createImageBitmap 和 OffscreenCanvas 获取 ImageData
+      const bitmap = await createImageBitmap(file);
+      const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
       const ctx = canvas.getContext('2d');
       
       if (!ctx) {
-        console.error(t('imageConverter.errors.canvasContextNotAvailable'));
-        return;
+        throw new Error('Canvas context not available');
       }
       
-      // 设置canvas尺寸与原图一致
-      canvas.width = img.width;
-      canvas.height = img.height;
+      // 绘制图像到 canvas
+      ctx.drawImage(bitmap, 0, 0);
       
-      // 绘制图像到canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0);
+      // 获取 ImageData
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      return imageData;
+    } catch (error) {
+      throw new Error('Failed to convert file to ImageData');
+    }
+  };
+
+  // 转换单张图片
+  const convertImage = async (result: ConversionResult) => {
+    if (!isInitialized) {
+      console.error('Conversion engine not initialized yet');
+      setConversionResults(prev => 
+        prev.map(item => 
+          item.id === result.id 
+            ? { 
+                ...item, 
+                isConverting: false,
+                url: '',
+                convertedSize: undefined,
+                conversionProgress: 0,
+                error: '转换引擎未初始化'
+              }
+            : item
+        )
+      );
+      return;
+    }
+
+    try {
+      updateConversionProgress(result.id, 20);
       
-      updateConversionProgress(result.id, 70);
+      // 将文件转换为 ImageData
+      const imageData = await fileToImageData(result.originalFile);
       
-      // 根据选择的格式进行转换
-      const targetMimeType = `image/${result.targetFormat === 'jpg' ? 'jpeg' : result.targetFormat}`;
+      updateConversionProgress(result.id, 50);
       
-      const convertedDataURL: string = canvas.toDataURL(targetMimeType, 1.0);
+      // 使用压缩管理器进行格式转换
+      const convertedData = await convertWithCompressionManager(imageData, result.targetFormat);
       
       updateConversionProgress(result.id, 90);
+      
+      // 将Uint8Array转换为Blob URL
+      const blob = new Blob([convertedData], { type: getTargetMimeType(result.targetFormat) });
+      const convertedDataURL = URL.createObjectURL(blob);
+      
+      // 计算转换后的文件大小
+      const convertedSize = convertedData.length;
       
       // 更新转换结果
       setTimeout(() => {
@@ -203,6 +293,7 @@ const ImageConverter = () => {
               ? {
                   ...item,
                   url: convertedDataURL,
+                  convertedSize,
                   isConverting: false,
                   conversionProgress: 100
                 }
@@ -218,7 +309,14 @@ const ImageConverter = () => {
       setConversionResults(prev => 
         prev.map(item => 
           item.id === result.id 
-            ? { ...item, isConverting: false }
+            ? { 
+                ...item, 
+                isConverting: false,
+                url: '', // 清空URL表示转换失败
+                convertedSize: undefined, // 清空转换后大小
+                conversionProgress: 0,
+                error: error instanceof Error ? error.message : '转换失败'
+              }
             : item
         )
       );
@@ -226,20 +324,32 @@ const ImageConverter = () => {
   };
   
   // 下载转换后的图片
-  const handleDownload = (result: ConversionResult) => {
+  const handleDownload = async (result: ConversionResult) => {
     if (!result.url) return;
     
-    const a = document.createElement('a');
-    a.href = result.url;
-    
-    // 修改文件扩展名
-    const originalName = result.originalFile.name;
-    const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
-    a.download = `${nameWithoutExt}.${result.targetFormat}`;
-    
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    try {
+      // 从Blob URL获取Blob对象
+      const response = await fetch(result.url);
+      const blob = await response.blob();
+      
+      // 创建下载链接
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      
+      // 修改文件扩展名
+      const originalName = result.originalFile.name;
+      const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
+      a.download = `${nameWithoutExt}.${result.targetFormat}`;
+      
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      
+      // 清理临时URL
+      URL.revokeObjectURL(a.href);
+    } catch (error) {
+      console.error('下载失败:', error);
+    }
   };
   
   // 批量下载所有转换后的图片
@@ -252,18 +362,23 @@ const ImageConverter = () => {
     const zip = new JSZip();
     
     // 添加每个图片到zip
-    completedResults.forEach(result => {
-      // 从Data URL中提取base64数据
-      const base64Data = result.url.split(',')[1];
-      
-      // 获取文件名
-      const originalName = result.originalFile.name;
-      const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
-      const fileName = `${nameWithoutExt}.${result.targetFormat}`;
-      
-      // 添加到zip
-      zip.file(fileName, base64Data, { base64: true });
-    });
+    for (const result of completedResults) {
+      try {
+        // 从Blob URL获取Blob对象
+        const response = await fetch(result.url);
+        const blob = await response.blob();
+        
+        // 获取文件名
+        const originalName = result.originalFile.name;
+        const nameWithoutExt = originalName.substring(0, originalName.lastIndexOf('.'));
+        const fileName = `${nameWithoutExt}.${result.targetFormat}`;
+        
+        // 添加到zip
+        zip.file(fileName, blob);
+      } catch (error) {
+        console.error(`添加文件到ZIP失败: ${result.originalFile.name}`, error);
+      }
+    }
     
     try {
       // 生成zip文件
@@ -305,6 +420,18 @@ const ImageConverter = () => {
     const ratio = ((original - converted) / original) * 100;
     return ratio > 0 ? `${ratio.toFixed(1)}%` : `+${Math.abs(ratio).toFixed(1)}%`;
   };
+
+  // 计算节省的空间
+  const getSavedSpace = (original: number, converted: number): string => {
+    const saved = original - converted;
+    if (saved > 0) {
+      return `节省 ${formatFileSize(saved)}`;
+    } else if (saved < 0) {
+      return `增加 ${formatFileSize(Math.abs(saved))}`;
+    } else {
+      return '大小无变化';
+    }
+  };
   
   return (
     <ToolLayout
@@ -313,12 +440,29 @@ const ImageConverter = () => {
       title={t('imageConverter.title')}
       description={`（${t('imageConverter.description')}）`}
     >
-      <div className="space-y-6">
-        {/* 隐藏的canvas用于图片处理 */}
-        <canvas ref={canvasRef} className="hidden" />
+            <div className="space-y-6">
+        {/* 初始化状态显示 */}
+        {!isInitialized && !initializationError && (
+          <div className="text-center py-8">
+            <RefreshCw className="animate-spin h-8 w-8 mx-auto mb-4 text-muted-foreground" />
+            <p className="text-muted-foreground">正在初始化转换引擎...</p>
+          </div>
+        )}
         
-        {/* 上传区域和设置选项并排显示 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {initializationError && (
+          <div className="text-center py-8">
+            <p className="text-red-500 mb-2">初始化失败: {initializationError}</p>
+            <Button onClick={() => window.location.reload()} variant="outline">
+              重新加载页面
+            </Button>
+          </div>
+        )}
+        
+        {/* 主要内容 - 只在初始化完成后显示 */}
+        {isInitialized && !initializationError && (
+          <>
+            {/* 上传区域和设置选项并排显示 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 左侧上传区域 */}
           <div className="md:col-span-2">
             <div 
@@ -344,7 +488,7 @@ const ImageConverter = () => {
               <p className="text-sm text-muted-foreground">
                 <Trans 
                   i18nKey="imageConverter.supportedFormats" 
-                  values={{ formats: 'JPG, PNG, WebP, GIF' }}
+                  values={{ formats: 'JPG, PNG, WebP, JXL, QOI, AVIF' }}
                   components={{ 
                     span: <span className="text-primary font-medium" /> 
                   }}
@@ -369,10 +513,13 @@ const ImageConverter = () => {
                       <SelectItem value="webp">WebP</SelectItem>
                       <SelectItem value="png">PNG</SelectItem>
                       <SelectItem value="jpg">JPG</SelectItem>
-                      <SelectItem value="gif">GIF</SelectItem>
+                      <SelectItem value="jxl">JXL</SelectItem>
+                      {/* <SelectItem value="qoi">QOI</SelectItem> */}
+                      <SelectItem value="avif">AVIF</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
+             
               </div>
             </div>
           </div>
@@ -382,7 +529,9 @@ const ImageConverter = () => {
         {conversionResults.length > 0 && (
           <div className="rounded-lg">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-lg font-medium">{t('imageConverter.conversionResults')} ({conversionResults.length})</h3>
+              <div className="flex items-center gap-4">
+                <h3 className="text-lg font-medium">{t('imageConverter.conversionResults')} ({conversionResults.length})</h3>
+              </div>
               
               {/* 批量下载按钮 */}
               {conversionResults.some(r => !r.isConverting && r.url) && (
@@ -451,31 +600,29 @@ const ImageConverter = () => {
                         {result.isConverting ? (
                           <div className="text-xs">{t('imageConverter.converting')}...</div>
                         ) : result.url ? (
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-xs whitespace-nowrap">{result.originalFormat.toUpperCase()} → {result.targetFormat.toUpperCase()}</span>
-                            <span className="text-xs text-muted-foreground mx-1">|</span>
-                            <span className="text-xs whitespace-nowrap">{formatFileSize(result.originalFile.size)} → </span>
-                            {/* 估算转换后大小，实际可能受多种因素影响 */}
-                            {(() => {
-                              // 从 dataURL 中估算文件大小
-                              const convertedSize = result.url ? 
-                                Math.round((result.url.length - result.url.indexOf(',') - 1) * 0.75) : 
-                                0;
-                              
-                              return (
+                          <div className="flex flex-col gap-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="text-xs whitespace-nowrap">{result.originalFormat.toUpperCase()} → {result.targetFormat.toUpperCase()}</span>
+                              <span className="text-xs text-muted-foreground mx-1">|</span>
+                              <span className="text-xs whitespace-nowrap">{formatFileSize(result.originalFile.size)} → </span>
+                              {result.convertedSize !== undefined ? (
                                 <>
-                                  <span className="text-xs whitespace-nowrap">{formatFileSize(convertedSize)}</span>
-                                  {convertedSize < result.originalFile.size ? (
-                                    <span className="text-xs text-green-500 whitespace-nowrap">(-{getConversionRatio(result.originalFile.size, convertedSize)})</span>
+                                  <span className="text-xs whitespace-nowrap">{formatFileSize(result.convertedSize)}</span>
+                                  {result.convertedSize < result.originalFile.size ? (
+                                    <span className="text-xs text-green-500 whitespace-nowrap">(-{getConversionRatio(result.originalFile.size, result.convertedSize)})</span>
                                   ) : (
-                                    <span className="text-xs text-orange-500 whitespace-nowrap">(+{getConversionRatio(convertedSize, result.originalFile.size)})</span>
+                                    <span className="text-xs text-orange-500 whitespace-nowrap">(+{getConversionRatio(result.convertedSize, result.originalFile.size)})</span>
                                   )}
                                 </>
-                              );
-                            })()}
+                              ) : (
+                                <span className="text-xs text-muted-foreground">(Calculating...)</span>
+                              )}
+                            </div>
                           </div>
                         ) : (
-                          <div className="text-xs text-red-500">{t('imageConverter.conversionStatus.failed')}</div>
+                          <div className="text-xs text-red-500">
+                            {result.error || t('imageConverter.conversionStatus.failed')}
+                          </div>
                         )}
                       </td>
                       <td className="py-2 px-3">
@@ -508,6 +655,8 @@ const ImageConverter = () => {
               </table>
             </div>
           </div>
+        )}
+          </>
         )}
       </div>
     </ToolLayout>

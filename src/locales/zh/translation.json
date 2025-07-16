@@ -293,6 +293,8 @@
   "imageCompress": {
     "title": "图片压缩",
     "description": "压缩图片文件大小，支持多种格式和自定义压缩选项",
+    "initializing": "正在初始化压缩引擎...",
+    "initializationError": "初始化失败",
     "dropToUpload": "释放鼠标上传图片",
     "clickOrDragToUpload": "点击或拖拽上传图片",
     "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",
@@ -313,6 +315,7 @@
     "original": "原图",
     "compressed": "压缩后",
     "compressionFailed": "压缩失败",
+    "recompress": "重新压缩",
     "errors": {
       "canvasContextNotAvailable": "Canvas 上下文不可用",
       "avifNotSupported": "AVIF格式不受支持",
@@ -323,7 +326,7 @@
   },
   "imageConverter": {
     "title": "图片格式转换",
-    "description": "将图片转换为不同的格式，支持WebP、PNG、JPG和GIF",
+    "description": "将图片转换为不同的格式，支持WebP、PNG、JPG、JXL、AVIF",
     "dropToUpload": "释放鼠标上传图片",
     "clickOrDragToUpload": "点击或拖拽上传图片",
     "supportedFormats": "支持选择<span>多张</span>图片，格式包括 {{formats}}",

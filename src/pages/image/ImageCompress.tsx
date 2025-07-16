@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import ToolLayout from '@/components/tool/ToolLayout';
 import { Button } from '@/components/ui/button';
 import { UploadCloud, Download, RefreshCw, Trash2, Archive } from 'lucide-react';
@@ -7,10 +7,10 @@ import { Slider } from '@/components/ui/slider';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { useTranslation, Trans } from 'react-i18next';
+import ImageCompressionManager from '@/lib/squoosh-wasm';
 
 // 定义压缩格式类型
-type ImageFormat = 'jpeg' | 'png' | 'webp' | 'avif';
-
+type ImageFormat = 'jpeg' | 'png' | 'webp' | 'avif' | 'jxl' | 'qoi';
 
 // 定义压缩结果类型
 interface CompressionResult {
@@ -34,10 +34,32 @@ const ImageCompress = () => {
   const [isCompressing, setIsCompressing] = useState(false);
   const [compressionResults, setCompressionResults] = useState<CompressionResult[]>([]);
   const [recompressingId, setRecompressingId] = useState<string | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const dropzoneRef = useRef<HTMLDivElement>(null);
-  
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [initializationError, setInitializationError] = useState<string | null>(null);
+  const [compressionManager, setCompressionManager] = useState<ImageCompressionManager | null>(null);
+
+  // 初始化压缩引擎
+  useEffect(() => {
+    const initializeCompression = async () => {
+      try {
+        console.log('Initializing image compression engine...');
+        const manager = ImageCompressionManager.getInstance();
+        await manager.initialize();
+        setCompressionManager(manager);
+        setIsInitialized(true);
+        console.log('Image compression engine initialized successfully');
+      } catch (error) {
+        console.error('Failed to initialize compression engine:', error);
+        setInitializationError(error instanceof Error ? error.message : 'Unknown error');
+      }
+    };
+
+    initializeCompression();
+  }, []);
+
   // 从文件名获取图片格式
   const getImageFormatFromFileName = (fileName: string): {format: ImageFormat, ext: string} => {
     const extension = fileName.split('.').pop()?.toLowerCase() || '';
@@ -50,6 +72,10 @@ const ImageCompress = () => {
       return { format: 'webp', ext: extension };
     } else if (extension === 'avif') {
       return { format: 'avif', ext: extension };
+    } else if (extension === 'jxl') {
+      return { format: 'jxl', ext: extension };
+    } else if (extension === 'qoi') {
+      return { format: 'qoi', ext: extension };
     }
     
     // 默认使用webp格式
@@ -58,6 +84,7 @@ const ImageCompress = () => {
 
   // 处理文件选择和上传
   const processFiles = async (files: File[]) => {
+    console.log('processFiles called with:', files);
     if (!files || files.length === 0) return;
     
     // 添加图片到压缩结果列表，但设置为未压缩状态
@@ -76,7 +103,7 @@ const ImageCompress = () => {
         id: fileId,
         originalFile: file,
         originalPreview: previewUrl,
-        format: fileFormat, // 使用原图格式
+        format: format, // 使用用户选择的输出格式
         url: '',  // 尚未压缩，URL为空
         size: 0,  // 尚未压缩，大小为0
         quality: quality, // 使用当前质量设置
@@ -94,6 +121,7 @@ const ImageCompress = () => {
   };
   
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('handleFileChange');
     if (e.target.files && e.target.files.length > 0) {
       const files = Array.from(e.target.files);
       await processFiles(files);
@@ -135,13 +163,11 @@ const ImageCompress = () => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
-    
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       const files = Array.from(e.dataTransfer.files);
       await processFiles(files);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [processFiles]);
   
   // 创建图片预览
   const createImagePreview = (file: File): Promise<string> => {
@@ -154,67 +180,91 @@ const ImageCompress = () => {
     });
   };
   
-  // 压缩单张图片
-  const compressImage = async (result: CompressionResult) => {
-    if (!canvasRef.current) return;
-    
+  // 将文件转换为 ImageData
+  const fileToImageData = async (file: File): Promise<ImageData> => {
     try {
-      // 加载图片
-      const img = new Image();
-      img.src = result.originalPreview;
-      await new Promise<void>((resolve) => {
-        img.onload = () => resolve();
-      });
-      
-      const canvas = canvasRef.current;
+      // 使用 createImageBitmap 和 OffscreenCanvas 获取 ImageData
+      const bitmap = await createImageBitmap(file);
+      const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
       const ctx = canvas.getContext('2d');
       
       if (!ctx) {
-        console.error(t('imageCompress.errors.canvasContextNotAvailable'));
-        return;
+        throw new Error('Canvas context not available');
       }
       
-      // 设置canvas尺寸与原图一致
-      canvas.width = img.width;
-      canvas.height = img.height;
+      // 绘制图像到 canvas
+      ctx.drawImage(bitmap, 0, 0);
       
-      // 绘制图像到canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0);
+      // 获取 ImageData
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      return imageData;
+    } catch (error) {
+      throw new Error('Failed to convert file to ImageData');
+    }
+  };
+  
+  // 压缩单张图片
+  const compressImage = async (result: CompressionResult) => {
+    if (!compressionManager || !isInitialized) {
+      console.error('Compression engine not initialized yet');
+      setCompressionResults(prev => 
+        prev.map(item => 
+          item.id === result.id 
+            ? { ...item, isCompressing: false }
+            : item
+        )
+      );
+      return;
+    }
+    
+    try {
+      // 更新进度为10%（开始处理）
+      updateCompressionProgress(result.id, 10);
       
-      // 更新进度为50%（表示图像已加载和绘制）
+      // 将文件转换为 ImageData
+      const imageData = await fileToImageData(result.originalFile);
+      // 更新进度为30%（图像数据准备完成）
+      updateCompressionProgress(result.id, 30);
+      
+      // 根据选择的格式和质量进行压缩
+      const compressionFormat = result.format; // 使用结果中保存的格式（用户选择的输出格式）
+      const compressionQuality = result.quality; // 使用结果中保存的质量
+      
+      // 更新进度为50%（开始编码）
       updateCompressionProgress(result.id, 50);
       
       // 根据选择的格式和质量进行压缩
-      let compressedDataURL: string;
-      const compressionFormat = recompressingId === result.id ? format : result.format;
-      const compressionQuality = recompressingId === result.id ? quality : result.quality;
+      let compressedData: Uint8Array;
       
       if (compressionFormat === 'jpeg') {
-        compressedDataURL = canvas.toDataURL('image/jpeg', compressionQuality / 100);
+        compressedData = await compressionManager.compressJpeg(imageData, compressionQuality);
       } else if (compressionFormat === 'png') {
-        compressedDataURL = canvas.toDataURL('image/png');
+        compressedData = await compressionManager.compressPng(imageData, compressionQuality);
       } else if (compressionFormat === 'webp') {
-        compressedDataURL = canvas.toDataURL('image/webp', compressionQuality / 100);
+        compressedData = await compressionManager.compressWebP(imageData, compressionQuality);
       } else if (compressionFormat === 'avif') {
-        // 注意：不是所有浏览器都支持AVIF格式
-        try {
-          compressedDataURL = canvas.toDataURL('image/avif', compressionQuality / 100);
-        } catch (error) {
-          console.error(t('imageCompress.errors.avifNotSupported'), error);
-          compressedDataURL = canvas.toDataURL('image/webp', compressionQuality / 100);
-        }
+        compressedData = await compressionManager.compressAvif(imageData, compressionQuality);
+      } else if (compressionFormat === 'jxl') {
+        compressedData = await compressionManager.compressJxl(imageData, compressionQuality);
+      } else if (compressionFormat === 'qoi') {
+        compressedData = await compressionManager.compressQoi(imageData, compressionQuality);
       } else {
-        compressedDataURL = canvas.toDataURL('image/webp', compressionQuality / 100);
+        // 默认使用 WebP
+        compressedData = await compressionManager.compressWebP(imageData, compressionQuality);
       }
       
-      // 更新进度为90%（表示压缩完成）
-      updateCompressionProgress(result.id, 90);
+      // 更新进度为80%（编码完成）
+      updateCompressionProgress(result.id, 80);
       
-      // 计算压缩后的大小
-      const base64Data = compressedDataURL.split(',')[1];
-      const byteCharacters = atob(base64Data);
-      const compressedSize = byteCharacters.length;
+      if (!compressedData || compressedData.length === 0) {
+        throw new Error('Failed to compress image');
+      }
+      
+      // 将压缩后的数据转换为 Blob URL
+      const blob = new Blob([compressedData], { 
+        type: `image/${compressionFormat === 'jpeg' ? 'jpeg' : compressionFormat}` 
+      });
+      const compressedUrl = URL.createObjectURL(blob);
       
       // 更新压缩结果
       setTimeout(() => {
@@ -223,8 +273,8 @@ const ImageCompress = () => {
             item.id === result.id 
               ? {
                   ...item,
-                  url: compressedDataURL,
-                  size: compressedSize,
+                  url: compressedUrl,
+                  size: compressedData.length,
                   format: compressionFormat,
                   quality: compressionQuality,
                   isCompressing: false,
@@ -234,10 +284,12 @@ const ImageCompress = () => {
           )
         );
         
+
+        
         if (recompressingId === result.id) {
           setRecompressingId(null);
         }
-      }, 500); // 稍微延迟，让进度条动画更平滑
+      }, 200);
       
     } catch (error) {
       console.error(t('imageCompress.errors.compressionError'), error);
@@ -321,11 +373,12 @@ const ImageCompress = () => {
         }
         fileName = `${fileName}.${result.format}`;
         
-        // 从dataURL提取base64数据
-        const base64Data = result.url.split(',')[1];
+        // 从 Blob URL 获取数据
+        const response = await fetch(result.url);
+        const blob = await response.blob();
         
         // 添加文件到zip
-        zip.file(fileName, base64Data, { base64: true });
+        zip.file(fileName, blob);
         
         // 更新进度
         const progressPercent = Math.round(((i + 1) / completedResults.length) * 100);
@@ -372,6 +425,38 @@ const ImageCompress = () => {
     return `${ratio.toFixed(1)}%`;
   };
   
+  // 重新压缩图片
+  const handleRecompress = (result: CompressionResult) => {
+    setRecompressingId(result.id);
+    
+    // 更新结果中的格式和质量设置
+    setCompressionResults(prev => 
+      prev.map(item => 
+        item.id === result.id 
+          ? { 
+              ...item, 
+              format: format, // 使用当前选择的格式
+              quality: quality, // 使用当前选择的质量
+              isCompressing: true,
+              compressionProgress: 0
+            }
+          : item
+      )
+    );
+    
+    // 开始重新压缩
+    setTimeout(() => {
+      const updatedResult = compressionResults.find(r => r.id === result.id);
+      if (updatedResult) {
+        compressImage({
+          ...updatedResult,
+          format: format,
+          quality: quality
+        });
+      }
+    }, 100);
+  };
+  
   // 删除压缩结果
   const handleDeleteResult = (id: string) => {
     setCompressionResults(prev => prev.filter(result => result.id !== id));
@@ -403,7 +488,7 @@ const ImageCompress = () => {
             <input
               id="file-upload"
               type="file"
-              accept="image/jpeg,image/jpg,image/png,image/webp,image/avif"
+              accept="image/jpeg,image/jpg,image/png,image/webp,image/avif,image/jxl,image/qoi"
               multiple
               className="hidden"
               onChange={handleFileChange}
@@ -413,7 +498,7 @@ const ImageCompress = () => {
             <p className="text-sm text-muted-foreground">
               <Trans 
                 i18nKey="imageCompress.supportedFormats" 
-                values={{ formats: 'JPG, PNG, WebP, AVIF' }}
+                values={{ formats: 'JPG, PNG, WebP, AVIF, JXL, QOI' }}
                 components={{ 
                   span: <span className="text-primary font-medium" /> 
                 }}
@@ -435,13 +520,15 @@ const ImageCompress = () => {
                     <SelectValue placeholder={t('imageCompress.selectOutputFormat')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="webp">WebP ({t('common.recommended')})</SelectItem>
+                    <SelectItem value="webp">WebP</SelectItem>
                     <SelectItem value="jpeg">JPEG</SelectItem>
                     <SelectItem value="png">PNG</SelectItem>
-                    <SelectItem value="avif">AVIF ({t('common.experimental')})</SelectItem>
+                    <SelectItem value="avif">AVIF</SelectItem>
+                    <SelectItem value="jxl">JXL</SelectItem>
+                    <SelectItem value="qoi">QOI</SelectItem>
                   </SelectContent>
                 </Select>
-                <p className="text-xs text-muted-foreground mt-1">{t('imageCompress.useOriginalFormat')}</p>
+                
               </div>
               
               <div>
@@ -520,7 +607,7 @@ const ImageCompress = () => {
                             </div>
                           ) : (
                             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                              <span>{t('imageCompress.format')}: {result.format === 'jpeg' ? result.originalExt.toUpperCase() : result.format.toUpperCase()}</span>
+                              <span>{t('imageCompress.format')}: {result.format.toUpperCase()}</span>
                               <span className="text-xs text-muted-foreground">•</span>
                               <span>{t('imageCompress.quality')}: {result.quality}%</span>
                             </div>
@@ -553,7 +640,15 @@ const ImageCompress = () => {
                               >
                                 <Download className="h-3.5 w-3.5" />
                               </Button>
-                             
+                              <Button 
+                                onClick={() => handleRecompress(result)}
+                                variant="outline"
+                                size="icon"
+                                className="h-7 w-7"
+                                title={t('imageCompress.recompress')}
+                              >
+                                <RefreshCw className="h-3.5 w-3.5" />
+                              </Button>
                             </>
                           )}
                           
@@ -576,9 +671,6 @@ const ImageCompress = () => {
           </div>
         )}
       </div>
-      
-      {/* 隐藏的canvas用于图片处理 */}
-      <canvas ref={canvasRef} className="hidden" />
     </ToolLayout>
   );
 };

@@ -324,7 +324,7 @@
   },
   "imageConverter": {
     "title": "Image Format Converter",
-    "description": "Convert images to different formats, supporting WebP, PNG, JPG, and GIF",
+    "description": "Convert images to different formats, supporting WebP, PNG, JPG, JXL, AVIF",
     "dropToUpload": "Drop images to upload",
     "clickOrDragToUpload": "Click or drag images to upload",
     "supportedFormats": "Support uploading <span>multiple</span> images, formats include {{formats}}",
