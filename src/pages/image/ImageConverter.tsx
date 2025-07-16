@@ -185,8 +185,8 @@ const ImageConverter = () => {
         return 'image/jpeg';
       case 'jxl':
         return 'image/jxl';
-      case 'qoi':
-        return 'image/qoi';
+      // case 'qoi':
+      //   return 'image/qoi';
       case 'avif':
         return 'image/avif';
       default:
