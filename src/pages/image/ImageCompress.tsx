@@ -36,9 +36,9 @@ const ImageCompress = () => {
   const [recompressingId, setRecompressingId] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const dropzoneRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  
   const [isInitialized, setIsInitialized] = useState(false);
-  const [initializationError, setInitializationError] = useState<string | null>(null);
+  // const [initializationError, setInitializationError] = useState<string | null>(null);
   const [compressionManager, setCompressionManager] = useState<ImageCompressionManager | null>(null);
 
   // 初始化压缩引擎
@@ -53,7 +53,7 @@ const ImageCompress = () => {
         console.log('Image compression engine initialized successfully');
       } catch (error) {
         console.error('Failed to initialize compression engine:', error);
-        setInitializationError(error instanceof Error ? error.message : 'Unknown error');
+        // setInitializationError(error instanceof Error ? error.message : 'Unknown error');
       }
     };
 
@@ -93,7 +93,7 @@ const ImageCompress = () => {
       if (!file.type.startsWith('image/')) continue;
       
       const fileId = generateId();
-      const { format: fileFormat, ext: fileExt } = getImageFormatFromFileName(file.name);
+      const { ext: fileExt } = getImageFormatFromFileName(file.name);
       
       // 创建预览
       const previewUrl = await createImagePreview(file);

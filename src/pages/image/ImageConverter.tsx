@@ -421,17 +421,6 @@ const ImageConverter = () => {
     return ratio > 0 ? `${ratio.toFixed(1)}%` : `+${Math.abs(ratio).toFixed(1)}%`;
   };
 
-  // 计算节省的空间
-  const getSavedSpace = (original: number, converted: number): string => {
-    const saved = original - converted;
-    if (saved > 0) {
-      return `节省 ${formatFileSize(saved)}`;
-    } else if (saved < 0) {
-      return `增加 ${formatFileSize(Math.abs(saved))}`;
-    } else {
-      return '大小无变化';
-    }
-  };
   
   return (
     <ToolLayout

@@ -5,7 +5,7 @@ import { encode as encodeWebP } from '@jsquash/webp';
 import { encode as encodeAvif } from '@jsquash/avif';
 import { encode as encodeJxl } from '@jsquash/jxl';
 import { encode as encodeQoi } from '@jsquash/qoi';
-import { init } from '@jsquash/qoi/encode';
+
 import { optimise as optimisePng } from '@jsquash/oxipng';
 
 class ImageCompressionManager {
@@ -61,7 +61,7 @@ class ImageCompressionManager {
   }
 
   // 压缩 PNG 图片 - 使用 oxipng 进行真正的压缩
-  public async compressPng(imageData: ImageData, quality: number): Promise<Uint8Array> {
+  public async compressPng(imageData: ImageData, _quality: number): Promise<Uint8Array> {
     if (!this._isInitialized) {
       throw new Error('Compression manager not initialized');
     }
@@ -123,7 +123,7 @@ class ImageCompressionManager {
   }
 
   // 压缩 QOI 图片
-  public async compressQoi(imageData: ImageData, quality: number): Promise<Uint8Array> {
+  public async compressQoi(imageData: ImageData, _quality: number): Promise<Uint8Array> {
     if (!this._isInitialized) {
       throw new Error('Compression manager not initialized');
     }
