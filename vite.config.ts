@@ -7,6 +7,9 @@ import ViteSitemapPlugin from 'vite-plugin-sitemap'
 
 // https://vite.dev/config/
 export default defineConfig({
+  worker: {
+    format: "es",
+  },
   plugins: [
     react(),
     VitePWA({
@@ -92,6 +95,7 @@ export default defineConfig({
           }
         ]
       },
+      
       devOptions: {
         enabled: true,
         type: 'module'
@@ -108,7 +112,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util', "@jSquash/avif", "@jSquash/jpeg", "@jSquash/jxl", "@jSquash/png", "@jSquash/webp", "@jSquash/oxipng"],
+    exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util', "@jsquash/avif", "@jsquash/jpeg", "@jsquash/jxl", "@jsquash/png", "@jsquash/webp", "@jsquash/oxipng"],
     include: ['@iconify/json/json/*.json'],
   },
   server: {
