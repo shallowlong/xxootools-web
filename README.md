@@ -12,14 +12,20 @@ XTools is a free, open-source, and data-secure toolbox that offers various utili
 
 ### Image Tools
 - **Compress** - Reduce image file sizes without significant quality loss
-- **Convert** - Transform images between different formats (PNG, JPG, WEBP, etc.)
-- **Remove Background** - Automatically remove image backgrounds
+- **Convert** - Transform images between different formats (PNG, JPG, WEBP, AVIF, QOI, JXL, etc.)
+- **Remove Background** - Automatically remove image backgrounds using AI
 - **Mosaic** - Apply mosaic/pixelation effects to images
+- **Resize** - Adjust image dimensions and aspect ratios
 
 ### SVG Tools
+- **Preview** - Real-time SVG code preview and visualization
 - **Optimize** - Clean and optimize SVG files
-- **Convert** - Transform SVGs to other formats
-- **Viewer** - SVG Code Preview
+- **Convert** - Transform SVGs to PNG, JPG, PDF formats
+- **Raster to Vector** - Convert PNG, JPG to SVG vector graphics
+
+### Screenshot Tools
+- **App Store Cover Generator** - Create App Store application covers
+- **Xiaohongshu Cover Generator** - Generate Xiaohongshu cover images
 
 ### Favicon Tools
 - **Converter** - Convert images to favicon formats
@@ -29,7 +35,7 @@ XTools is a free, open-source, and data-secure toolbox that offers various utili
 - **Compress** - Reduce video file sizes while maintaining acceptable quality
 
 ### Audio Tools
-- **Compress** - Optimize audio files for smaller sizes
+- **Converter** - Convert between different audio formats
 
 ### Date Utilities
 - **DayJS Utils** - Date manipulation and formatting using DayJS
@@ -37,7 +43,7 @@ XTools is a free, open-source, and data-secure toolbox that offers various utili
 - **Date Utils** - General date conversion and calculation tools
 
 ### Text Tools
-- **Converter** - Transform text between different formats and encodings
+- **Converter** - Transform text between different formats and encodings (Simplified/Traditional Chinese, etc.)
 - **Diff** - Compare and highlight differences between text samples
 
 ### Writing Tools
@@ -78,6 +84,12 @@ pnpm dev
 ```bash
 # Create a production build
 pnpm build
+
+# Preview the build
+pnpm preview
+
+# Generate PWA icons
+pnpm generate-pwa-icons
 ```
 
 ## Privacy

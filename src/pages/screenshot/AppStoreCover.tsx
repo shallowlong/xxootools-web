@@ -8,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Download, Type, Image as ImageIcon, Move, Plus, Trash } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
 import ToolLayout from '@/components/tool/ToolLayout';
 
 interface TextElement {
@@ -85,7 +84,6 @@ const DEVICE_SIZES = [
 
 const AppStoreCover: React.FC = () => {
   const { t } = useTranslation();
-  const { toast } = useToast();
   
   const FONT_OPTIONS = [
     { label: t('fonts.system'), value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif' },
