@@ -108,7 +108,7 @@ const AppStoreCover: React.FC = () => {
     backgroundColor: '#004719',
   });
 
-  const [previewUrl, setPreviewUrl] = useState<string>('');
+  const [, setPreviewUrl] = useState<string>('');
   const [selectedDevice, setSelectedDevice] = useState(DEVICE_SIZES[0]);
   const [textElements, setTextElements] = useState<TextElement[]>([
     {

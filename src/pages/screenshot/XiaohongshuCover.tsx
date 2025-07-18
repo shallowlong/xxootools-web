@@ -62,7 +62,7 @@ const XiaohongshuCover: React.FC = () => {
     backgroundColor: '#FF2442',
   });
 
-  const [previewUrl, setPreviewUrl] = useState<string>('');
+  const [, setPreviewUrl] = useState<string>('');
   const [coverSize, setCoverSize] = useState({ label: '竖版 1242x1660 (3:4)', value: 'vertical', width: 1242, height: 1660 });
   const [textElements, setTextElements] = useState<TextElement[]>([
     {
