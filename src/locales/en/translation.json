@@ -232,6 +232,19 @@
           }
         }
       }
+    },
+    "screenshot": {
+      "name": "Cover Generator",
+      "tools": {
+        "appstore-cover": {
+          "name": "AppStore Cover",
+          "description": "AppStore cover generator"
+        },
+        "xiaohongshu-cover": {
+          "name": "Xiaohongshu Cover",
+          "description": "Xiaohongshu cover generator"
+        }
+      }
     }
   },
   "common": {
@@ -889,6 +902,73 @@
       "square": "Square",
       "circle": "Circle",
       "rounded": "Rounded"
+    }
+  },
+  "fonts": {
+    "system": "System Default",
+    "notoSans": "Noto Sans SC",
+    "notoSerif": "Noto Serif SC",
+    "pingFang": "PingFang SC",
+    "microsoftYaHei": "Microsoft YaHei",
+    "stHeiti": "STHeiti",
+    "stSong": "STSong",
+    "kaiTi": "KaiTi",
+    "fangSong": "FangSong",
+    "simHei": "SimHei",
+    "simSun": "SimSun",
+    "youYuan": "YouYuan",
+    "liSu": "LiSu",
+    "stXingkai": "STXingkai",
+    "stXinwei": "STXinwei"
+  },
+  "screenshot": {
+    "appstore": {
+      "title": "AppStore Cover Generator",
+      "description": "Create AppStore-compliant cover images",
+      "settings": "Cover Settings",
+      "deviceType": "Device Type",
+      "text": "Text Settings",
+      "backgroundColor": "Background Color",
+      "textColor": "Text Color",
+      "fontSize": "Font Size",
+      "rotation": "Rotation",
+      "fontFamily": "Font",
+      "backgroundImage": "Background Image",
+      "download": "Download Cover",
+      "preview": "Preview",
+      "noPreview": "No Preview",
+      "addText": "Add Text",
+      "deleteText": "Delete Text",
+      "textPlaceholder": "Enter text content",
+      "startDesign": "Click \"Add Text\" to start designing",
+      "clickToSelect": "Click text to select, drag to adjust position",
+      "useSliders": "Use sliders to adjust rotation angle and font size",
+      "defaultText": "My App",
+      "newText": "New Text"
+    },
+    "xiaohongshu": {
+      "title": "Xiaohongshu Cover Generator",
+      "description": "Create Xiaohongshu-compliant cover images",
+      "settings": "Cover Settings",
+      "coverSize": "Cover Size",
+      "text": "Text Settings",
+      "backgroundColor": "Background Color",
+      "textColor": "Text Color",
+      "fontSize": "Font Size",
+      "rotation": "Rotation",
+      "fontFamily": "Font",
+      "backgroundImage": "Background Image",
+      "download": "Download Cover",
+      "preview": "Preview",
+      "noPreview": "No Preview",
+      "addText": "Add Text",
+      "deleteText": "Delete Text",
+      "textPlaceholder": "Enter text content",
+      "startDesign": "Click \"Add Text\" to start designing",
+      "clickToSelect": "Click text to select, drag to adjust position",
+      "useSliders": "Use sliders to adjust rotation angle and font size",
+      "defaultText": "My Note Title",
+      "newText": "New Text"
     }
   }
 } 

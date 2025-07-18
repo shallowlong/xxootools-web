@@ -127,6 +127,19 @@
         }
       }
     },
+    "screenshot": {
+      "name": "カバー生成",
+      "tools": {
+        "appstore-cover": {
+          "name": "AppStore カバー",
+          "description": "AppStore カバー生成器"
+        },
+        "xiaohongshu-cover": {
+          "name": "小紅書カバー",
+          "description": "小紅書カバー生成器"
+        }
+      }
+    },
     "date": {
       "name": "日付ツール",
       "tools": {
@@ -713,6 +726,73 @@
       "square": "正方形",
       "circle": "円形",
       "rounded": "角丸"
+    }
+  },
+  "fonts": {
+    "system": "システムデフォルト",
+    "notoSans": "Noto Sans SC",
+    "notoSerif": "Noto Serif SC",
+    "pingFang": "PingFang SC",
+    "microsoftYaHei": "Microsoft YaHei",
+    "stHeiti": "STHeiti",
+    "stSong": "STSong",
+    "kaiTi": "KaiTi",
+    "fangSong": "FangSong",
+    "simHei": "SimHei",
+    "simSun": "SimSun",
+    "youYuan": "YouYuan",
+    "liSu": "LiSu",
+    "stXingkai": "STXingkai",
+    "stXinwei": "STXinwei"
+  },
+  "screenshot": {
+    "appstore": {
+      "title": "AppStore カバー生成器",
+      "description": "AppStore準拠のカバー画像を作成",
+      "settings": "カバー設定",
+      "deviceType": "デバイスタイプ",
+      "text": "テキスト設定",
+      "backgroundColor": "背景色",
+      "textColor": "文字色",
+      "fontSize": "フォントサイズ",
+      "rotation": "回転角度",
+      "fontFamily": "フォント",
+      "backgroundImage": "背景画像",
+      "download": "カバーをダウンロード",
+      "preview": "プレビュー",
+      "noPreview": "プレビューなし",
+      "addText": "テキストを追加",
+      "deleteText": "テキストを削除",
+      "textPlaceholder": "テキスト内容を入力",
+      "startDesign": "「テキストを追加」をクリックしてデザインを開始",
+      "clickToSelect": "テキストをクリックして選択、ドラッグして位置を調整",
+      "useSliders": "スライダーを使用して回転角度とフォントサイズを調整",
+      "defaultText": "マイアプリ",
+      "newText": "新しいテキスト"
+    },
+    "xiaohongshu": {
+      "title": "小紅書カバー生成器",
+      "description": "小紅書準拠のカバー画像を作成",
+      "settings": "カバー設定",
+      "coverSize": "カバーサイズ",
+      "text": "テキスト設定",
+      "backgroundColor": "背景色",
+      "textColor": "文字色",
+      "fontSize": "フォントサイズ",
+      "rotation": "回転角度",
+      "fontFamily": "フォント",
+      "backgroundImage": "背景画像",
+      "download": "カバーをダウンロード",
+      "preview": "プレビュー",
+      "noPreview": "プレビューなし",
+      "addText": "テキストを追加",
+      "deleteText": "テキストを削除",
+      "textPlaceholder": "テキスト内容を入力",
+      "startDesign": "「テキストを追加」をクリックしてデザインを開始",
+      "clickToSelect": "テキストをクリックして選択、ドラッグして位置を調整",
+      "useSliders": "スライダーを使用して回転角度とフォントサイズを調整",
+      "defaultText": "マイノートタイトル",
+      "newText": "新しいテキスト"
     }
   }
 } 

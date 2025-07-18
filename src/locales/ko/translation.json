@@ -91,39 +91,24 @@
       }
     },
     "writer": {
-      "name": "글쓰기 도구",
+      "name": "작성 도구",
       "tools": {
         "word-count": {
-          "name": "단어 수 세기",
-          "description": "텍스트 단어 수 세기",
-          "title": "단어 수 세기",
-          "fullDescription": "텍스트의 단어, 문자, 단락 및 줄 수 세기",
-          "placeholder": "계산할。텍스트를 입력하거나 붙여넣으세요...",
-          "showDebug": "디버그 표시",
-          "hideDebug": "디버그 숨기기",
-          "languageSelect": "언어 선택",
-          "languages": {
-            "general": "일반(영어 등)",
-            "chinese": "중국어",
-            "japanese": "일본어",
-            "korean": "한국어"
-          },
-          "stats": {
-            "words": "단어",
-            "characters": "문자",
-            "noSpaces": "공백 제외",
-            "paragraphs": "단락",
-            "lines": "줄"
-          },
-          "debug": {
-            "originalLength": "원본 텍스트 길이",
-            "safeLength": "안전 처리 후 길이",
-            "firstChars": "처음 20자",
-            "lastChars": "마지막 20자",
-            "oldTokens": "개선 전 토큰화 결과",
-            "newTokens": "개선 후 토큰화 결과",
-            "tokenArray": "토큰 배열"
-          }
+          "name": "단어 수",
+          "description": "텍스트 단어 수 계산"
+        }
+      }
+    },
+    "screenshot": {
+      "name": "커버 생성",
+      "tools": {
+        "appstore-cover": {
+          "name": "AppStore 커버",
+          "description": "AppStore 커버 생성기"
+        },
+        "xiaohongshu-cover": {
+          "name": "샤오훙슈 커버",
+          "description": "샤오훙슈 커버 생성기"
         }
       }
     },
@@ -723,6 +708,73 @@
       "square": "사각형",
       "circle": "원형",
       "rounded": "둥근"
+    }
+  },
+  "fonts": {
+    "system": "시스템 기본값",
+    "notoSans": "Noto Sans SC",
+    "notoSerif": "Noto Serif SC",
+    "pingFang": "PingFang SC",
+    "microsoftYaHei": "Microsoft YaHei",
+    "stHeiti": "STHeiti",
+    "stSong": "STSong",
+    "kaiTi": "KaiTi",
+    "fangSong": "FangSong",
+    "simHei": "SimHei",
+    "simSun": "SimSun",
+    "youYuan": "YouYuan",
+    "liSu": "LiSu",
+    "stXingkai": "STXingkai",
+    "stXinwei": "STXinwei"
+  },
+  "screenshot": {
+    "appstore": {
+      "title": "AppStore 커버 생성기",
+      "description": "AppStore 규격에 맞는 커버 이미지 생성",
+      "settings": "커버 설정",
+      "deviceType": "디바이스 유형",
+      "text": "텍스트 설정",
+      "backgroundColor": "배경색",
+      "textColor": "텍스트 색상",
+      "fontSize": "글꼴 크기",
+      "rotation": "회전 각도",
+      "fontFamily": "글꼴",
+      "backgroundImage": "배경 이미지",
+      "download": "커버 다운로드",
+      "preview": "미리보기",
+      "noPreview": "미리보기 없음",
+      "addText": "텍스트 추가",
+      "deleteText": "텍스트 삭제",
+      "textPlaceholder": "텍스트 내용 입력",
+      "startDesign": "\"텍스트 추가\"를 클릭하여 디자인 시작",
+      "clickToSelect": "텍스트를 클릭하여 선택하고 드래그하여 위치 조정",
+      "useSliders": "슬라이더를 사용하여 회전 각도와 글꼴 크기 조정",
+      "defaultText": "내 앱",
+      "newText": "새 텍스트"
+    },
+    "xiaohongshu": {
+      "title": "샤오훙슈 커버 생성기",
+      "description": "샤오훙슈 규격에 맞는 커버 이미지 생성",
+      "settings": "커버 설정",
+      "coverSize": "커버 크기",
+      "text": "텍스트 설정",
+      "backgroundColor": "배경색",
+      "textColor": "텍스트 색상",
+      "fontSize": "글꼴 크기",
+      "rotation": "회전 각도",
+      "fontFamily": "글꼴",
+      "backgroundImage": "배경 이미지",
+      "download": "커버 다운로드",
+      "preview": "미리보기",
+      "noPreview": "미리보기 없음",
+      "addText": "텍스트 추가",
+      "deleteText": "텍스트 삭제",
+      "textPlaceholder": "텍스트 내용 입력",
+      "startDesign": "\"텍스트 추가\"를 클릭하여 디자인 시작",
+      "clickToSelect": "텍스트를 클릭하여 선택하고 드래그하여 위치 조정",
+      "useSliders": "슬라이더를 사용하여 회전 각도와 글꼴 크기 조정",
+      "defaultText": "내 노트 제목",
+      "newText": "새 텍스트"
     }
   }
 } 

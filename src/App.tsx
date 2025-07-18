@@ -32,6 +32,8 @@ const JPGToSVG = lazy(() => import('./pages/svg/JPGToSVG'))
 const SVGOptimizer = lazy(() => import('./pages/svg/SVGOptimizer'))
 const FaviconConverter = lazy(() => import('./pages/favicon/FaviconConverter'))
 const FaviconGenerator = lazy(() => import('./pages/favicon/FaviconGenerator'))
+const AppStoreCover = lazy(() => import('./pages/screenshot/AppStoreCover'))
+const XiaohongshuCover = lazy(() => import('./pages/screenshot/XiaohongshuCover'))
 
 function App() {
   const { t } = useTranslation();
@@ -84,6 +86,10 @@ function App() {
               <Route path="date-utils" element={<DateUtils />} />
             </Route>
             <Route path="privacy" element={<Privacy />} />
+            <Route path="screenshot">
+              <Route path="appstore-cover" element={<AppStoreCover />} />
+              <Route path="xiaohongshu-cover" element={<XiaohongshuCover />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

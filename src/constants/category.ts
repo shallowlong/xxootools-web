@@ -203,5 +203,25 @@ export const TOOL_CATEGORY: ToolCategory[] = [
         path: '/writer/word-count'
       }
     ]
+  },
+  {
+    id: 'screenshot',
+    name: 'screenshot',
+    tools: [
+      {
+        id: 'appstore-cover',
+        name: 'appstore-cover',
+        description: 'AppStore 封面生成',
+        icon: 'Image',
+        path: '/screenshot/appstore-cover'
+      },
+      {
+        id: 'xiaohongshu-cover',
+        name: 'xiaohongshu-cover',
+        description: 'xiaohongshu-cover',
+        icon: 'Heart',
+        path: '/screenshot/xiaohongshu-cover'
+      }
+    ]
   }
 ];

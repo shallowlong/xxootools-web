@@ -153,6 +153,19 @@
           "description": "Sammlung häufig verwendeter Datumsfunktionen"
         }
       }
+    },
+    "screenshot": {
+      "name": "Cover Generator",
+      "tools": {
+        "appstore-cover": {
+          "name": "AppStore Cover",
+          "description": "AppStore Cover Generator"
+        },
+        "xiaohongshu-cover": {
+          "name": "Xiaohongshu Cover",
+          "description": "Xiaohongshu Cover Generator"
+        }
+      }
     }
   },
   "common": {
@@ -711,6 +724,73 @@
       "square": "Quadratisch",
       "circle": "Rund",
       "rounded": "Abgerundet"
+    }
+  },
+  "fonts": {
+    "system": "System-Standard",
+    "notoSans": "Noto Sans SC",
+    "notoSerif": "Noto Serif SC",
+    "pingFang": "PingFang SC",
+    "microsoftYaHei": "Microsoft YaHei",
+    "stHeiti": "STHeiti",
+    "stSong": "STSong",
+    "kaiTi": "KaiTi",
+    "fangSong": "FangSong",
+    "simHei": "SimHei",
+    "simSun": "SimSun",
+    "youYuan": "YouYuan",
+    "liSu": "LiSu",
+    "stXingkai": "STXingkai",
+    "stXinwei": "STXinwei"
+  },
+  "screenshot": {
+    "appstore": {
+      "title": "AppStore Cover Generator",
+      "description": "AppStore-konforme Cover-Bilder erstellen",
+      "settings": "Cover-Einstellungen",
+      "deviceType": "Gerätetyp",
+      "text": "Text-Einstellungen",
+      "backgroundColor": "Hintergrundfarbe",
+      "textColor": "Textfarbe",
+      "fontSize": "Schriftgröße",
+      "rotation": "Rotation",
+      "fontFamily": "Schriftart",
+      "backgroundImage": "Hintergrundbild",
+      "download": "Cover herunterladen",
+      "preview": "Vorschau",
+      "noPreview": "Keine Vorschau",
+      "addText": "Text hinzufügen",
+      "deleteText": "Text löschen",
+      "textPlaceholder": "Textinhalt eingeben",
+      "startDesign": "Klicken Sie auf \"Text hinzufügen\", um mit dem Design zu beginnen",
+      "clickToSelect": "Klicken Sie auf Text zur Auswahl, ziehen Sie zur Positionsanpassung",
+      "useSliders": "Verwenden Sie Schieberegler zur Anpassung von Rotationswinkel und Schriftgröße",
+      "defaultText": "Meine App",
+      "newText": "Neuer Text"
+    },
+    "xiaohongshu": {
+      "title": "Xiaohongshu Cover Generator",
+      "description": "Xiaohongshu-konforme Cover-Bilder erstellen",
+      "settings": "Cover-Einstellungen",
+      "coverSize": "Cover-Größe",
+      "text": "Text-Einstellungen",
+      "backgroundColor": "Hintergrundfarbe",
+      "textColor": "Textfarbe",
+      "fontSize": "Schriftgröße",
+      "rotation": "Rotation",
+      "fontFamily": "Schriftart",
+      "backgroundImage": "Hintergrundbild",
+      "download": "Cover herunterladen",
+      "preview": "Vorschau",
+      "noPreview": "Keine Vorschau",
+      "addText": "Text hinzufügen",
+      "deleteText": "Text löschen",
+      "textPlaceholder": "Textinhalt eingeben",
+      "startDesign": "Klicken Sie auf \"Text hinzufügen\", um mit dem Design zu beginnen",
+      "clickToSelect": "Klicken Sie auf Text zur Auswahl, ziehen Sie zur Positionsanpassung",
+      "useSliders": "Verwenden Sie Schieberegler zur Anpassung von Rotationswinkel und Schriftgröße",
+      "defaultText": "Mein Notiz-Titel",
+      "newText": "Neuer Text"
     }
   }
 } 

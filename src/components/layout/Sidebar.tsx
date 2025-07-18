@@ -20,7 +20,8 @@ const categoryIconMap: Record<string, { icon: React.ElementType, color: string }
   util: { icon: Gauge, color: '#0EA5E9' },        // 天蓝色
   writer: { icon: Pencil, color: '#0EA5E9' },     // 天蓝色
   svg: { icon: FolderSync, color: '#0EA5E9' },     // 天蓝色
-  favicon: { icon: Image, color: '#D946EF' }      // 紫色
+  favicon: { icon: Image, color: '#D946EF' },      // 紫色
+  screenshot: { icon: Image, color: '#f59e0b' }     // 琥珀色
 };
 
 // 默认图标和颜色
@@ -56,7 +57,7 @@ const Sidebar = () => {
   })).filter(category => category.tools.length > 0);
 
   return (
-    <div className="w-60 border-r h-screen flex flex-col">
+    <div className="w-60 border-r h-screen flex flex-col overflow-hidden">
       {/* Search */}
       <div className="p-4 border-b shrink-0" style={{ borderColor: '#e4e4e75c' }}>
         <div className="relative">
@@ -71,8 +72,8 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation */}
-      <ScrollArea className="flex-1">
-        <div className="p-4">
+      <ScrollArea className="flex-1 min-h-0">
+        <div className="p-4 pb-20">
           {filteredCategories.map((category) => {
             // 获取分类图标和颜色，如果没有设置则使用默认值
             const { icon: CategoryIcon, color } = categoryIconMap[category.id] || defaultCategoryIcon;
@@ -117,6 +118,8 @@ const Sidebar = () => {
               </div>
             );
           })}
+          {/* 额外的底部空间确保最后一个分类完全可见 */}
+          <div className="h-8"></div>
         </div>
       </ScrollArea>
     </div>

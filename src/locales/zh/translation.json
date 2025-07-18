@@ -231,6 +231,19 @@
           }
         }
       }
+    },
+    "screenshot": {
+      "name": "截图生成器",
+      "tools": {
+        "appstore-cover": {
+          "name": "AppStore 封面生成器",
+          "description": "创建符合 AppStore 规范的封面图片"
+        },
+        "xiaohongshu-cover": {
+          "name": "小红书封面生成器",
+          "description": "创建符合小红书规范的封面图片"
+        }
+      }
     }
   },
   "common": {
@@ -897,6 +910,73 @@
       "square": "方形",
       "circle": "圆形",
       "rounded": "圆角"
+    }
+  },
+  "fonts": {
+    "system": "系统默认",
+    "notoSans": "思源黑体",
+    "notoSerif": "思源宋体",
+    "pingFang": "苹方",
+    "microsoftYaHei": "微软雅黑",
+    "stHeiti": "华文黑体",
+    "stSong": "华文宋体",
+    "kaiTi": "楷体",
+    "fangSong": "仿宋",
+    "simHei": "黑体",
+    "simSun": "宋体",
+    "youYuan": "幼圆",
+    "liSu": "隶书",
+    "stXingkai": "华文行楷",
+    "stXinwei": "华文新魏"
+  },
+  "screenshot": {
+    "appstore": {
+      "title": "AppStore 封面生成器",
+      "description": "创建符合 AppStore 规范的封面图片",
+      "settings": "封面设置",
+      "deviceType": "设备类型",
+      "text": "设置文本",
+      "backgroundColor": "背景颜色",
+      "textColor": "文字颜色",
+      "fontSize": "字体大小",
+      "rotation": "旋转角度",
+      "fontFamily": "字体",
+      "backgroundImage": "背景图片",
+      "download": "下载封面",
+      "preview": "预览",
+      "noPreview": "暂无预览",
+      "addText": "添加文本",
+      "deleteText": "删除文本",
+      "textPlaceholder": "输入文本内容",
+      "startDesign": "点击\"添加文本\"开始设计",
+      "clickToSelect": "点击文本进行选择，拖拽调整位置",
+      "useSliders": "使用滑块调整旋转角度和字体大小",
+      "defaultText": "我的应用",
+      "newText": "新文本"
+    },
+    "xiaohongshu": {
+      "title": "小红书封面生成器",
+      "description": "创建符合小红书规范的封面图片",
+      "settings": "封面设置",
+      "coverSize": "封面尺寸",
+      "text": "设置文本",
+      "backgroundColor": "背景颜色",
+      "textColor": "文字颜色",
+      "fontSize": "字体大小",
+      "rotation": "旋转角度",
+      "fontFamily": "字体",
+      "backgroundImage": "背景图片",
+      "download": "下载封面",
+      "preview": "预览",
+      "noPreview": "暂无预览",
+      "addText": "添加文本",
+      "deleteText": "删除文本",
+      "textPlaceholder": "输入文本内容",
+      "startDesign": "点击\"添加文本\"开始设计",
+      "clickToSelect": "点击文本进行选择，拖拽调整位置",
+      "useSliders": "使用滑块调整旋转角度和字体大小",
+      "defaultText": "我的笔记标题",
+      "newText": "新文本"
     }
   }
 } 

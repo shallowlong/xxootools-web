@@ -218,6 +218,19 @@
           }
         }
       }
+    },
+    "screenshot": {
+      "name": "封面製作",
+      "tools": {
+        "appstore-cover": {
+          "name": "AppStore 封面",
+          "description": "AppStore 封面生成器"
+        },
+        "xiaohongshu-cover": {
+          "name": "小紅書封面",
+          "description": "小紅書封面生成器"
+        }
+      }
     }
   },
   "common": {
@@ -722,5 +735,72 @@
       "rounded": "圓角"
     }
 
+  },
+  "fonts": {
+    "system": "系統預設",
+    "notoSans": "思源黑體",
+    "notoSerif": "思源宋體",
+    "pingFang": "蘋方",
+    "microsoftYaHei": "微軟雅黑",
+    "stHeiti": "華文黑體",
+    "stSong": "華文宋體",
+    "kaiTi": "楷體",
+    "fangSong": "仿宋",
+    "simHei": "黑體",
+    "simSun": "宋體",
+    "youYuan": "幼圓",
+    "liSu": "隸書",
+    "stXingkai": "華文行楷",
+    "stXinwei": "華文新魏"
+  },
+  "screenshot": {
+    "appstore": {
+      "title": "AppStore 封面生成器",
+      "description": "建立符合 AppStore 規範的封面圖片",
+      "settings": "封面設定",
+      "deviceType": "裝置類型",
+      "text": "設定文字",
+      "backgroundColor": "背景顏色",
+      "textColor": "文字顏色",
+      "fontSize": "字體大小",
+      "rotation": "旋轉角度",
+      "fontFamily": "字體",
+      "backgroundImage": "背景圖片",
+      "download": "下載封面",
+      "preview": "預覽",
+      "noPreview": "暫無預覽",
+      "addText": "新增文字",
+      "deleteText": "刪除文字",
+      "textPlaceholder": "輸入文字內容",
+      "startDesign": "點擊「新增文字」開始設計",
+      "clickToSelect": "點擊文字進行選擇，拖拽調整位置",
+      "useSliders": "使用滑塊調整旋轉角度和字體大小",
+      "defaultText": "我的應用",
+      "newText": "新文字"
+    },
+    "xiaohongshu": {
+      "title": "小紅書封面生成器",
+      "description": "建立符合小紅書規範的封面圖片",
+      "settings": "封面設定",
+      "coverSize": "封面尺寸",
+      "text": "設定文字",
+      "backgroundColor": "背景顏色",
+      "textColor": "文字顏色",
+      "fontSize": "字體大小",
+      "rotation": "旋轉角度",
+      "fontFamily": "字體",
+      "backgroundImage": "背景圖片",
+      "download": "下載封面",
+      "preview": "預覽",
+      "noPreview": "暫無預覽",
+      "addText": "新增文字",
+      "deleteText": "刪除文字",
+      "textPlaceholder": "輸入文字內容",
+      "startDesign": "點擊「新增文字」開始設計",
+      "clickToSelect": "點擊文字進行選擇，拖拽調整位置",
+      "useSliders": "使用滑塊調整旋轉角度和字體大小",
+      "defaultText": "我的筆記標題",
+      "newText": "新文字"
+    }
   }
 } 
