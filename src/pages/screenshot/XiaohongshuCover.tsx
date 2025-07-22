@@ -64,6 +64,7 @@ const XiaohongshuCover: React.FC = () => {
 
   const [, setPreviewUrl] = useState<string>('');
   const [coverSize, setCoverSize] = useState({ label: '竖版 1242x1660 (3:4)', value: 'vertical', width: 1242, height: 1660 });
+  const [cachedBackgroundImage, setCachedBackgroundImage] = useState<HTMLImageElement | null>(null);
   const [textElements, setTextElements] = useState<TextElement[]>([
     {
       id: '1',
@@ -187,36 +188,8 @@ const XiaohongshuCover: React.FC = () => {
     ctx.fillStyle = coverData.backgroundColor;
     ctx.fillRect(0, 0, displayWidth, displayHeight);
 
-    // 如果有背景图片，绘制背景图片
-    if (coverData.backgroundImage) {
-      const img = new Image();
-      img.onload = () => {
-        // 重新绘制背景
-        ctx.fillStyle = coverData.backgroundColor;
-        ctx.fillRect(0, 0, displayWidth, displayHeight);
-        
-        // 计算图片缩放比例以适应画布，保持比例
-        const scaleX = displayWidth / img.width;
-        const scaleY = displayHeight / img.height;
-        const imgScale = Math.min(scaleX, scaleY);
-        
-        const scaledWidth = img.width * imgScale;
-        const scaledHeight = img.height * imgScale;
-        const x = (displayWidth - scaledWidth) / 2;
-        const y = (displayHeight - scaledHeight) / 2;
-
-        ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
-        drawTexts();
-      };
-      img.onerror = () => {
-        drawTexts();
-      };
-      img.src = URL.createObjectURL(coverData.backgroundImage);
-    } else {
-      drawTexts();
-    }
-
-    function drawTexts() {
+    // 绘制文本的函数
+    const drawTexts = () => {
       if (!ctx) return;
       
       textElements.forEach(element => {
@@ -277,6 +250,56 @@ const XiaohongshuCover: React.FC = () => {
         
         ctx.restore();
       });
+    };
+
+    // 如果有缓存的背景图片，直接使用
+    if (cachedBackgroundImage && coverData.backgroundImage) {
+      // 重新绘制背景（以防背景色改变）
+      ctx.fillStyle = coverData.backgroundColor;
+      ctx.fillRect(0, 0, displayWidth, displayHeight);
+      
+      // 计算图片缩放比例以适应画布，保持比例
+      const scaleX = displayWidth / cachedBackgroundImage.width;
+      const scaleY = displayHeight / cachedBackgroundImage.height;
+      const imgScale = Math.min(scaleX, scaleY);
+      
+      const scaledWidth = cachedBackgroundImage.width * imgScale;
+      const scaledHeight = cachedBackgroundImage.height * imgScale;
+      const x = (displayWidth - scaledWidth) / 2;
+      const y = (displayHeight - scaledHeight) / 2;
+
+      ctx.drawImage(cachedBackgroundImage, x, y, scaledWidth, scaledHeight);
+      drawTexts();
+    } else if (coverData.backgroundImage) {
+      // 只有当没有缓存时才创建新的图片对象
+      const img = new Image();
+      img.onload = () => {
+        // 缓存加载的图片
+        setCachedBackgroundImage(img);
+        
+        // 重新绘制背景
+        ctx.fillStyle = coverData.backgroundColor;
+        ctx.fillRect(0, 0, displayWidth, displayHeight);
+        
+        // 计算图片缩放比例以适应画布，保持比例
+        const scaleX = displayWidth / img.width;
+        const scaleY = displayHeight / img.height;
+        const imgScale = Math.min(scaleX, scaleY);
+        
+        const scaledWidth = img.width * imgScale;
+        const scaledHeight = img.height * imgScale;
+        const x = (displayWidth - scaledWidth) / 2;
+        const y = (displayHeight - scaledHeight) / 2;
+
+        ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+        drawTexts();
+      };
+      img.onerror = () => {
+        drawTexts();
+      };
+      img.src = URL.createObjectURL(coverData.backgroundImage);
+    } else {
+      drawTexts();
     }
   };
 
@@ -298,8 +321,93 @@ const XiaohongshuCover: React.FC = () => {
     link.click();
   };
 
-  const handleFileChange = (field: 'backgroundImage', file: File) => {
+  const extractDominantColor = (file: File): Promise<string> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      img.onload = () => {
+        // 设置 canvas 尺寸，为了提高性能，使用较小的尺寸进行分析
+        const maxSize = 100;
+        const scale = Math.min(maxSize / img.width, maxSize / img.height);
+        canvas.width = Math.floor(img.width * scale);
+        canvas.height = Math.floor(img.height * scale);
+        
+        if (!ctx) {
+          resolve('#FF2442'); // 默认颜色
+          return;
+        }
+        
+        // 绘制缩放后的图片
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        
+        // 获取图像数据
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        
+        // 颜色统计
+        const colorMap = new Map<string, number>();
+        
+        // 采样像素（每隔几个像素采样一次以提高性能）
+        for (let i = 0; i < data.length; i += 16) { // 每4个像素采样一次 (4 * 4 = 16)
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+          const a = data[i + 3];
+          
+          // 跳过透明像素
+          if (a < 128) continue;
+          
+          // 将颜色量化到较少的级别以减少噪声
+          const quantizedR = Math.round(r / 32) * 32;
+          const quantizedG = Math.round(g / 32) * 32;
+          const quantizedB = Math.round(b / 32) * 32;
+          
+          const colorKey = `${quantizedR},${quantizedG},${quantizedB}`;
+          colorMap.set(colorKey, (colorMap.get(colorKey) || 0) + 1);
+        }
+        
+        // 找出出现频率最高的颜色
+        let dominantColor = '255,65,66'; // 默认红色
+        let maxCount = 0;
+        
+        for (const [color, count] of colorMap.entries()) {
+          if (count > maxCount) {
+            maxCount = count;
+            dominantColor = color;
+          }
+        }
+        
+        // 转换为十六进制
+        const [r, g, b] = dominantColor.split(',').map(Number);
+        const hex = `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+        
+        resolve(hex);
+      };
+      
+      img.onerror = () => {
+        resolve('#FF2442'); // 默认颜色
+      };
+      
+      img.src = URL.createObjectURL(file);
+    });
+  };
+
+  const handleFileChange = async (field: 'backgroundImage', file: File) => {
+    // 清除缓存的图片，强制重新加载新图片
+    setCachedBackgroundImage(null);
     setCoverData(prev => ({ ...prev, [field]: file }));
+    
+    // 当上传背景图片时，自动提取主要颜色
+    if (field === 'backgroundImage') {
+      try {
+        const dominantColor = await extractDominantColor(file);
+        setCoverData(prev => ({ ...prev, backgroundColor: dominantColor }));
+      } catch (error) {
+        console.error('提取图片主要颜色失败:', error);
+      }
+    }
   };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
