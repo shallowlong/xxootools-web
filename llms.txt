@@ -1,0 +1,205 @@
+XTools - Free Open Source Data-Secure Toolbox
+
+XTools is a free, open-source, and data-secure online toolbox that provides various utilities for everyday file operations. All processing happens locally in your browser, ensuring your data never leaves your device.
+
+## Core Features
+
+### Data Security
+- Complete local processing, no data uploaded to servers
+- Privacy protection, secure handling of sensitive information
+- No registration required, ready to use immediately
+- Offline support
+
+### Image Processing Tools
+- Image Compression: Lossless compression of image file sizes
+- Image Format Conversion: Convert between PNG, JPG, WEBP, AVIF, QOI, JXL formats
+- AI Background Removal: Automatically remove image backgrounds using artificial intelligence
+- Image Mosaic: Add mosaic effects to images for privacy protection
+- Image Resizing: Adjust image dimensions and aspect ratios
+
+### SVG Vector Graphics Tools
+- SVG Preview: Real-time SVG code preview and visualization
+- SVG Optimization: Clean and optimize SVG files
+- SVG Conversion: Convert SVG to PNG, JPG, PDF formats
+- Raster to Vector: Convert PNG, JPG to SVG vector graphics
+
+### Screenshot Tools
+- App Store Cover Generator: Create App Store application covers
+- Xiaohongshu Cover Generator: Generate Xiaohongshu cover images
+
+### Favicon Tools
+- Icon Converter: Convert images to website icon formats
+- Icon Generator: Create complete icon packages for websites
+
+### Video Processing Tools
+- Video Compression: Reduce video file sizes while maintaining acceptable quality
+
+### Audio Processing Tools
+- Audio Converter: Convert between different audio formats
+
+### Date Utilities
+- DayJS Utils: Date manipulation and formatting using DayJS
+- MomentJS Utils: Date operations with MomentJS
+- Date Utils: General date conversion and calculation tools
+
+### Text Processing Tools
+- Text Converter: Transform text between different formats and encodings (Simplified/Traditional Chinese, etc.)
+- Text Diff: Compare and highlight differences between text samples
+
+### Writing Tools
+- Word Count: Analyze text for word, character, and sentence counts
+
+## Technology Stack
+
+### Frontend Technologies
+- React 18.3.1 - Modern React framework
+- TypeScript 5.6.2 - Type-safe JavaScript
+- Vite 6.0.5 - Fast build tool
+- Tailwind CSS 3.4.17 - Utility-first CSS framework
+- React Router DOM 7.1.1 - Client-side routing
+
+### Image Processing Libraries
+- @jsquash/* - High-performance image processing
+- @imgly/background-removal - AI background removal
+- Jimp - Image processing library
+- Sharp - High-performance image processing
+
+### Video Audio Processing
+- @ffmpeg/ffmpeg - Browser-side FFmpeg
+- @ffmpeg/core - FFmpeg core library
+
+### File Processing
+- FileSaver - File download
+- JSZip - ZIP file processing
+- SVG2PDF.js - SVG to PDF conversion
+
+### Internationalization
+- i18next - Multi-language support
+- Supports Chinese, English, Japanese, Korean, German
+
+### Development Tools
+- ESLint - Code quality checking
+- Prettier - Code formatting
+- TypeScript ESLint - TypeScript code checking
+
+## Supported File Formats
+
+### Image Formats
+- PNG, JPG, JPEG, WEBP, AVIF, QOI, JXL
+- HEIC, HEIF (iOS devices)
+- SVG vector graphics
+
+### Video Formats
+- MP4, AVI, MOV, WMV, FLV, MKV, etc.
+
+### Audio Formats
+- MP3, WAV, AAC, OGG, FLAC, etc.
+
+### Document Formats
+- PDF (SVG to PDF)
+
+## Use Cases
+
+### Developers
+- Website icon generation
+- Image format conversion
+- SVG optimization and conversion
+- Code text comparison
+
+### Designers
+- Image compression and optimization
+- Background removal
+- Cover image generation
+- Vector graphics conversion
+
+### Content Creators
+- Video compression
+- Audio format conversion
+- Image mosaic processing
+- Text format conversion
+
+### General Users
+- Daily image processing
+- File format conversion
+- Privacy information protection
+- Text tool usage
+
+## Deployment Information
+
+- Project Name: xxootools-web
+- Version: 0.0.0
+- License: MIT
+- Package Manager: pnpm
+- Build Tool: Vite
+- Deployment Platforms: Supports Vercel, Netlify, etc.
+
+## Project Structure
+
+```
+src/
+├── components/     # React components
+├── pages/         # Page components
+├── lib/           # Utility libraries
+├── locales/       # Internationalization files
+├── constants/     # Constant definitions
+├── types/         # TypeScript types
+└── services/      # Service layer
+```
+
+## Development Guide
+
+### Requirements
+- Node.js (LTS version recommended)
+- pnpm package manager
+
+### Installation and Running
+```bash
+git clone git@github.com:Go7hic/xxootools-web.git
+cd xxootools-web
+pnpm install
+pnpm dev
+```
+
+### Build and Deploy
+```bash
+pnpm build
+pnpm preview
+pnpm generate-pwa-icons
+```
+
+## Contributing
+
+Welcome contributions! Please follow these steps:
+1. Fork the project
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+XTools is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+- Project URL: https://github.com/Go7hic/xxootools-web
+- Live Demo: https://xxoo.tools
+- Issue Feedback: GitHub Issues
+
+## Changelog
+
+### Latest Updates
+- Xiaohongshu Cover Generator (2025-07-17)
+- Favicon Generator (2025-05-08)
+- SVG Optimizer (2025-03-15)
+- Image Mosaic Tool (2024-04-15)
+
+### Technical Features
+- PWA support, installable as desktop app
+- Responsive design, mobile support
+- Dark mode support
+- Multi-language internationalization
+- Local storage favorites functionality
+- Real-time preview and conversion
+- Batch file processing
+- Drag and drop upload support 
